@@ -15,10 +15,10 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Professional Technology Solutions for Your Business
+              Fresh Technology Solutions for Growing Businesses
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              ATech Systems delivers comprehensive IT services including web development, ERP solutions, and technical support to help your business thrive in the digital age.
+              ATech Systems is a new technology company ready to help small businesses and organizations with web development, ERP solutions, and IT support services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 

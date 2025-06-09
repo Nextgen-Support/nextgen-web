@@ -6,10 +6,10 @@ export default function CTASection() {
     <section className="py-20 bg-gradient-to-r from-atech-primary to-atech-secondary">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-          Ready to Transform Your Business with Technology?
+          Ready to Start Your Technology Journey?
         </h2>
         <p className="text-xl text-blue-100 mb-8">
-          Get in touch with us today to discuss your technology needs and discover how we can help your business succeed.
+          As a new technology company, we're excited to work with you and help bring your ideas to life. Contact us to discuss your project!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button 

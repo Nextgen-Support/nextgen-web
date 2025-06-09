@@ -3,20 +3,20 @@ import { Users, Clock, Headphones } from "lucide-react";
 const features = [
   {
     icon: Users,
-    title: "Expert Team",
-    description: "Experienced professionals dedicated to delivering quality solutions tailored to your specific needs.",
+    title: "Fresh Perspective",
+    description: "As a new company, we bring modern approaches and eagerness to learn about your specific business needs.",
     bgColor: "bg-atech-primary"
   },
   {
     icon: Clock,
-    title: "Timely Delivery", 
-    description: "We understand the importance of deadlines and ensure project completion within agreed timelines.",
+    title: "Dedicated Service", 
+    description: "We value every project and work hard to deliver quality results on time, building our reputation one client at a time.",
     bgColor: "bg-atech-secondary"
   },
   {
     icon: Headphones,
-    title: "Ongoing Support",
-    description: "Comprehensive after-sales support to ensure your systems continue to perform optimally.",
+    title: "Personal Attention",
+    description: "Being a new business means you get our full attention and personalized service for your technology needs.",
     bgColor: "bg-atech-accent"
   }
 ];
@@ -36,7 +36,7 @@ export default function AboutSection() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-atech-slate-900 mb-6">Why Choose ATech Systems?</h2>
             <p className="text-lg text-atech-slate-600 mb-8">
-              We are committed to delivering exceptional technology solutions that drive business growth and operational efficiency. Our comprehensive approach ensures your technology needs are met with professional expertise and ongoing support.
+              As a fresh technology company, we bring enthusiasm and dedication to every project. We're eager to help small businesses and organizations succeed with modern technology solutions that fit their needs and budget.
             </p>
             
             <div className="space-y-6">

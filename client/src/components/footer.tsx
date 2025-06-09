@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">ATech Systems</h3>
             <p className="text-slate-300 mb-6 max-w-md">
-              Professional technology solutions provider specializing in web development, ERP systems, and comprehensive IT services for businesses worldwide.
+              A fresh new technology company eager to help small businesses and organizations with web development, ERP systems, and IT services.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
-          <p>&copy; 2024 ATech Systems. All rights reserved. Professional technology solutions for modern businesses.</p>
+          <p>&copy; 2024 ATech Systems. All rights reserved. Fresh technology solutions for growing businesses.</p>
         </div>
       </div>
     </footer>
