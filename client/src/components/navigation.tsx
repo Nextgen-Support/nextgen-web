@@ -29,7 +29,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-atech-primary">ATech Systems</h1>
+              <h1 className="text-2xl font-bold text-blue-600">ATech Systems</h1>
             </div>
           </div>
           
@@ -37,25 +37,25 @@ export default function Navigation() {
             <div className="ml-10 flex items-baseline space-x-8">
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-atech-slate-600 hover:text-atech-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-atech-slate-600 hover:text-atech-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-atech-slate-600 hover:text-atech-primary px-3 py-2 text-sm font-medium transition-colors"
+                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
               >
                 Contact
               </button>
               <Button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-atech-primary text-white hover:bg-blue-800"
+                className="bg-blue-600 text-white hover:bg-blue-800"
               >
                 Get Started
               </Button>

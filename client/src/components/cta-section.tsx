@@ -26,7 +26,7 @@ export default function CTASection() {
             asChild
             size="lg"
             variant="secondary"
-            className="bg-white text-atech-primary hover:bg-slate-50 px-8 py-4"
+            className="bg-white text-blue-600 hover:bg-slate-50 px-8 py-4"
           >
             <a href="mailto:info@atech-png.com.pg">
               <Mail className="mr-3 h-6 w-6" />
