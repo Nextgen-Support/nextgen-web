@@ -23,14 +23,6 @@
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
   --ring: hsl(221, 83%, 53%);
   --radius: 0.5rem;
-  
-  /* Custom ATech colors */
-  --atech-primary: hsl(221, 83%, 53%);
-  --atech-secondary: hsl(217, 91%, 60%);
-  --atech-accent: hsl(158, 64%, 52%);
-  --atech-slate-50: hsl(210, 40%, 98%);
-  --atech-slate-600: hsl(215, 16%, 47%);
-  --atech-slate-900: hsl(222, 84%, 5%);
 }
 
 .dark {
@@ -70,48 +62,47 @@
   }
 }
 
-@layer utilities {
-  .bg-atech-primary {
-    background-color: var(--atech-primary);
-  }
-  
-  .bg-atech-secondary {
-    background-color: var(--atech-secondary);
-  }
-  
-  .bg-atech-accent {
-    background-color: var(--atech-accent);
-  }
-  
-  .text-atech-primary {
-    color: var(--atech-primary);
-  }
-  
-  .text-atech-secondary {
-    color: var(--atech-secondary);
-  }
-  
-  .text-atech-accent {
-    color: var(--atech-accent);
-  }
-  
-  .text-atech-slate-600 {
-    color: var(--atech-slate-600);
-  }
-  
-  .text-atech-slate-900 {
-    color: var(--atech-slate-900);
-  }
-  
-  .bg-atech-slate-50 {
-    background-color: var(--atech-slate-50);
-  }
-  
-  .hover\:bg-atech-primary:hover {
-    background-color: var(--atech-primary);
-  }
-  
-  .hover\:text-atech-primary:hover {
-    color: var(--atech-primary);
-  }
+/* ATech Systems Custom Colors */
+.bg-atech-primary {
+  background-color: #3b82f6;
+}
+
+.bg-atech-secondary {
+  background-color: #2563eb;
+}
+
+.bg-atech-accent {
+  background-color: #10b981;
+}
+
+.text-atech-primary {
+  color: #3b82f6;
+}
+
+.text-atech-secondary {
+  color: #2563eb;
+}
+
+.text-atech-accent {
+  color: #10b981;
+}
+
+.text-atech-slate-600 {
+  color: #475569;
+}
+
+.text-atech-slate-900 {
+  color: #0f172a;
+}
+
+.bg-atech-slate-50 {
+  background-color: #f8fafc;
+}
+
+.hover\:bg-atech-primary:hover {
+  background-color: #3b82f6;
+}
+
+.hover\:text-atech-primary:hover {
+  color: #3b82f6;
 }

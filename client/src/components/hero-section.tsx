@@ -10,7 +10,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-atech-primary to-atech-secondary text-white">
+    <section className="bg-gradient-to-br from-blue-600 to-blue-700 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -24,7 +24,7 @@ export default function HeroSection() {
               <Button 
                 onClick={() => scrollToSection('contact')}
                 size="lg"
-                className="bg-white text-atech-primary hover:bg-slate-50 px-8 py-3"
+                className="bg-white text-blue-600 hover:bg-slate-50 px-8 py-3"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us Today
@@ -33,7 +33,7 @@ export default function HeroSection() {
                 onClick={() => scrollToSection('services')}
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-atech-primary px-8 py-3"
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3"
               >
                 <ArrowRight className="mr-2 h-5 w-5" />
                 View Services

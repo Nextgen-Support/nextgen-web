@@ -3,7 +3,7 @@ import { MessageCircle, Mail } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-atech-primary to-atech-secondary">
+    <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
           Ready to Start Your Technology Journey?
@@ -15,7 +15,7 @@ export default function CTASection() {
           <Button 
             asChild
             size="lg"
-            className="bg-atech-accent text-white hover:bg-green-600 px-8 py-4"
+            className="bg-green-500 text-white hover:bg-green-600 px-8 py-4"
           >
             <a href="https://wa.me/67571570096" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-3 h-6 w-6" />
