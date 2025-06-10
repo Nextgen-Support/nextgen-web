@@ -1,80 +1,147 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Code, Wrench, Building, Plane, Laptop, Check } from "lucide-react";
+import {
+  Building,
+  Code,
+  Plane,
+  Wrench,
+  Computer,
+  Server,
+} from "lucide-react";
+import { Card } from "./ui/card";
 
 const services = [
   {
     icon: Code,
     title: "Web Design & Development",
-    description: "Custom website design and development services that create engaging, responsive, and professional online experiences for your business.",
-    features: ["Responsive Design", "Custom Development", "SEO Optimization"],
-    bgColor: "bg-atech-primary"
+    description: "Custom website design and development services",
+    features: [
+      "Modern UI/UX Design",
+      "Custom CMS Development",
+      "Mobile-First Approach",
+      "SEO-Friendly Code",
+      "Fast Loading Optimization",
+      "Regular Updates & Maintenance",
+    ],
+    bgColor: "bg-blue-600",
+    bgImage: "bg-[url('/asset/cards/card1.jpg')]",
+    colSpan: "lg:col-span-1", // 👈 Controls width: spans 2 columns on large screens
   },
   {
     icon: Wrench,
     title: "Website Updates & Support",
-    description: "Keep your existing website running smoothly with our maintenance, updates, and technical support services.",
-    features: ["Regular Updates", "Security Monitoring", "Technical Support"],
-    bgColor: "bg-atech-secondary"
+    description: "Updating existing websites and support",
+    features: [
+      "Performance Optimization",
+      "Security Updates",
+      "Content Management",
+      "Bug Fixes & Patches",
+      "Regular Backups",
+      "24/7 Support",
+    ],
+    bgColor: "bg-green-600",
+    bgImage: "bg-[url('/asset/cards/card2.PNG')]",
   },
   {
-    icon: Building,
-    title: "ERP Software Solutions",
-    description: "Comprehensive ERP systems designed for small to medium enterprises, schools, churches, and NGOs to streamline operations.",
-    features: ["Custom ERP Development", "Implementation Support", "Training & Documentation"],
-    bgColor: "bg-atech-accent"
+    icon: Computer,
+    title: "Computer Hardware & Software",
+    description: "Professional installation, configuration, and troubleshooting",
+    features: [
+      "Hardware Installation & Setup",
+      "Operating System Installation",
+      "Software Configuration",
+      "Network Setup & Troubleshooting",
+      "Data Migration",
+      "Security Configuration",
+    ],
+    bgColor: "bg-blue-600",
+    bgImage: "bg-[url('/asset/cards/card1.jpg')]",
+  },
+  {
+    icon: Server,
+    title: "Website Hosting Consultation",
+    description: "Guidance on website hosting solutions",
+    features: [
+      "Hosting Provider Analysis",
+      "Performance Assessment",
+      "Cost-Benefit Analysis",
+      "Security Recommendations",
+      "Setup Configuration",
+      "Ongoing Support",
+    ],
+    bgColor: "bg-green-600",
+    bgImage: "bg-[url('/asset/cards/card2.PNG')]",
   },
   {
     icon: Plane,
-    title: "Airline Ticketing Services",
-    description: "Professional airline ticket booking assistance for any airlines across the globe, available from any location worldwide.",
-    features: ["Global Airlines Access", "Best Price Guarantee", "24/7 Support"],
-    bgColor: "bg-atech-primary"
+    title: "Airline Ticketing Solutions",
+    description: "Comprehensive airline ticketing and reservation",
+    features: [
+      "Global Ticket Booking",
+      "Any Airline, Anytime",
+      "24/7 Booking Support",
+      "Group & Corporate Bookings",
+      "Last-Minute Bookings",
+    ],
+    bgColor: "bg-blue-600",
+    bgImage: "bg-[url('/asset/cards/card1.jpg')]",
   },
   {
-    icon: Laptop,
-    title: "Hardware & Software Services",
-    description: "Complete computer hardware and software installation, configuration, and troubleshooting services for all your IT needs.",
-    features: ["Hardware Installation", "Software Configuration", "System Troubleshooting"],
-    bgColor: "bg-atech-secondary"
-  }
+    icon: Building,
+    title: "Custom ERP Solutions for:",
+    description: "Tailored business solutions for your organization",
+    features: [
+      "Schools",
+      "Churches",
+      "NGOs",
+      "SMEs",
+      "Hospitals",
+      "Clinics",
+      "Hotels",
+      "Restaurants",
+      "Retail Stores",
+      "Manufacturing",
+      "Transport",
+      "Logistics",
+    ],
+    bgColor: "bg-green-600",
+
+    colSpan: "lg:col-span-1", // 👈 Controls width: spans 2 columns on large screens
+    twoColumnFeatures: true,
+  },
 ];
 
-export default function ServicesSection() {
+export function ServicesSection() {
   return (
-    <section id="services" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-atech-slate-900 mb-4">Our Services</h2>
-          <p className="text-xl text-atech-slate-600 max-w-3xl mx-auto">
-            We provide comprehensive technology solutions tailored to meet your business needs across multiple industries and sectors.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card key={index} className={`bg-slate-50 hover:shadow-lg transition-shadow ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
-                <CardContent className="p-8">
-                  <div className={`${service.bgColor} rounded-lg w-16 h-16 flex items-center justify-center mb-6`}>
-                    <IconComponent className="text-white h-8 w-8" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-atech-slate-900 mb-4">{service.title}</h3>
-                  <p className="text-atech-slate-600 mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="text-sm text-atech-slate-600 space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <Check className="text-atech-accent mr-2 h-4 w-4" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            );
-          })}
+    <section id="services" className="py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              className={`relative overflow-hidden rounded-lg h-[400px] ${service.bgColor}`}
+            >
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+              <div className="relative p-6 h-full overflow-y-auto">
+                <service.icon className="w-12 h-12 text-white mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-white/80 mb-4">{service.description}</p>
+                <ul
+                  className={`${
+                    service.twoColumnFeatures ? "grid grid-cols-2 gap-x-6" : "space-y-2"
+                  } text-white/70`}
+                >
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2">•</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ export default function AboutSection() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-atech-slate-900 mb-6">Why Choose ATech Systems?</h2>
             <p className="text-lg text-atech-slate-600 mb-8">
-              As a fresh technology company, we bring enthusiasm and dedication to every project. We're eager to help small businesses and organizations succeed with modern technology solutions that fit their needs and budget.
+              We bring enthusiasm and dedication to every project. We're eager to help small businesses and organizations succeed with modern technology solutions that fit their needs and budget.
             </p>
             
             <div className="space-y-6">

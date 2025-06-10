@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 
 export default function Navigation() {
@@ -25,31 +25,34 @@ export default function Navigation() {
 
   return (
     <nav className={`bg-white border-b border-slate-200 sticky top-0 z-50 transition-shadow ${isScrolled ? 'shadow-md' : 'shadow-sm'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-blue-600">ATech Systems</h1>
-            </div>
+            <img
+              src="/asset/image/logo.jpg"
+              alt="ATech Systems Logo"
+              className="h-16 cursor-pointer"
+              onClick={() => scrollToSection('hero')}
+            />
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 mr-auto flex items-baseline space-x-10">
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-blue-600 hover:text-blue-950 hover:bg-blue-300 px-4 py-2 text-lg font-bold rounded-md transition-all duration-900 ease-in-out"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-blue-600 hover:text-blue-950 hover:bg-blue-300 px-4 py-2 text-lg font-bold rounded-md transition-all duration-900 ease-in-out"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-blue-600 hover:text-blue-950 hover:bg-blue-300 px-4 py-2 text-lg font-bold rounded-md transition-all duration-900 ease-in-out"
               >
                 Contact
               </button>
@@ -77,7 +80,7 @@ export default function Navigation() {
       
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="pt-2 pb-3 space-y-1">
             <button 
               onClick={() => scrollToSection('services')}
               className="text-atech-slate-600 hover:text-atech-primary block px-3 py-2 text-base font-medium w-full text-left"

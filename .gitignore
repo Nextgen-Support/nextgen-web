@@ -1,6 +1,11 @@
-node_modules
-dist
+# Ignore node_modules and build files
+node_modules/
+dist/
+.vscode/
+.env
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
+*.log
+
+# Ignore Docker volumes and containers (optional)
+*.pid
+*.tar
