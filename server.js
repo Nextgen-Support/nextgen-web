@@ -4,6 +4,9 @@ const path = require('path');
 
 const app = express();
 
+// Ensure we're in the correct directory
+const __dirname = path.resolve();
+
 // Serve static files from the 'dist' directory
 app.use('/', serveStatic(path.join(__dirname, 'dist')));
 
