@@ -114,28 +114,28 @@ export function ServicesSection() {
     <section id="services" className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {services.map((service, index) => (
             <Card
               key={index}
-              className={`relative overflow-hidden rounded-lg h-[400px] ${service.bgColor}`}
+              className={`relative overflow-hidden rounded-lg ${service.bgColor}`}
             >
               <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
-              <div className="relative p-6 h-full overflow-y-auto">
+              <div className="relative p-4">
                 <service.icon className="w-12 h-12 text-white mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {service.title}
                 </h3>
-                <p className="text-white/80 mb-4">{service.description}</p>
+                <p className="text-white/80 mb-3">{service.description}</p>
                 <ul
                   className={`${
-                    service.twoColumnFeatures ? "grid grid-cols-2 gap-x-6" : "space-y-2"
+                    service.twoColumnFeatures ? "grid grid-cols-2 gap-x-3" : "space-y-2"
                   } text-white/70`}
                 >
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="mr-2">•</span>
-                      {feature}
+                      <span className="text-sm mr-2">•</span>
+                      <span className="text-xs sm:text-sm md:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -145,5 +145,5 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

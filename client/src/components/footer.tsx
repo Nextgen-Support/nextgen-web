@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">ATech Systems</h3>
-            <p className="text-slate-300 mb-6 max-w-md">
+            <p className="text-sm text-slate-300 mb-6 max-w-md">
               We are eager to help small businesses and organizations with web development, ERP systems, IT services, and airline ticketing for individuals or groups from any location any airline any time.
             </p>
             <div className="flex space-x-4">

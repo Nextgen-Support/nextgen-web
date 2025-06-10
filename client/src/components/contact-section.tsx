@@ -48,13 +48,13 @@ export default function ContactSection() {
           </Card>
           
           <Card className="bg-gray-300 md:col-span-2 lg:col-span-1">
-            <CardContent className="p-8 text-center">
-              <div className="bg-atech-secondary rounded-lg p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center">
-                <Globe className="text-white h-8 w-8" />
+            <CardContent className="p-6 text-center">
+              <div className="bg-atech-secondary rounded-lg p-3 w-12 h-12 mx-auto mb-5 flex items-center justify-center">
+                <Globe className="text-white h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold text-atech-slate-900 mb-4">Global Services</h3>
-              <p className="text-atech-slate-600 mb-4">Available worldwide for all service inquiries</p>
-              <div className="text-atech-slate-600">
+              <h3 className="text-lg font-semibold text-atech-slate-900 mb-3">Global Services</h3>
+              <p className="text-atech-slate-600 mb-3">Available worldwide for all service inquiries</p>
+              <div className="text-atech-slate-600 text-sm">
                 <p className="font-medium">Mon-Fri: 8AM-6PM</p>
                 <p className="font-medium">Sun: On Appointment basis</p>
                 <p className="text-sm">Emergency support available</p>
