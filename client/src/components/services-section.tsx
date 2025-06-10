@@ -7,7 +7,6 @@ import {
   Server,
 } from "lucide-react";
 import { Card } from "./ui/card";
-import { motion } from "framer-motion";
 
 
 const services = [
@@ -118,13 +117,7 @@ export function ServicesSection() {
         <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+            <div key={index}>
               <Card
                 className={`relative overflow-hidden rounded-lg ${service.bgColor}`}
               >
@@ -149,7 +142,7 @@ export function ServicesSection() {
                   </ul>
                 </div>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
