@@ -66,14 +66,12 @@ export default function Navigation() {
           </div>
           
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-atech-slate-600 hover:text-atech-primary"
+              className="p-2 text-atech-slate-600 hover:text-atech-primary"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
+              {isMenuOpen ? <X size={36} /> : <Menu size={36} />}
+            </button>
           </div>
         </div>
       </div>
