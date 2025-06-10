@@ -23,18 +23,23 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ['console.log'],
       },
       format: {
         comments: false,
       },
+      mangle: true,
     },
     cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'react-hook-form', 'sonner', 'lucide-react'],
+          vendor: ['react', 'react-dom', 'react-router-dom', 'sonner', 'lucide-react'],
         },
       },
+    },
+    commonjsOptions: {
+      transformMixedEsModules: true,
     },
   },
   server: {
