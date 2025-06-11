@@ -87,7 +87,7 @@ const services = [
   },
   {
     icon: Building,
-    title: "Custom ERP Solutions for:",
+    title: "Custom ERP Solutions",
     description: "Tailored business solutions for your organization",
     features: [
       "Schools",
