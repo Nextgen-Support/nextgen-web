@@ -44,7 +44,7 @@ const services = [
   {
     icon: Computer,
     title: "Computer Hardware & Software",
-    description: "Professional installation, configuration, and troubleshooting",
+    description: "Installation, configuration and troubleshooting",
     features: [
       "Hardware Installation & Setup",
       "Operating System Installation",
