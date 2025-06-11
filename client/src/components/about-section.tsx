@@ -23,8 +23,8 @@ const features = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 bg-slate-50">
+      <div className="max-w-8x1 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 
@@ -34,9 +34,16 @@ export default function AboutSection() {
             />
           </div>
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-atech-slate-900 mb-6">Why Choose ATech Systems?</h2>
-            <p className="text-lg text-atech-slate-600 mb-8">
-              We bring enthusiasm and dedication to every project. We're eager to help small businesses and organizations succeed with modern technology solutions that fit their needs and budget.
+            <h2 className="text-2xl md:text-4xl font-bold text-atech-slate-900 mb-6">About Atech</h2>
+            <p className="text-sm text-atech-slate-600 mb-8">
+            ATech Solutions was founded by Apsie Tese in June 2025 with a clear mission: to deliver innovative, reliable, and efficient software solutions that empower businesses and individuals alike. What started as a passion project has grown into a dynamic digital development initiative dedicated to transforming ideas into real-world applications.
+
+              As a Computer Science graduate from La Salle University Ozamiz, Apsie brings a solid background in web development, systems design, and user-focused software engineering. With a strong commitment to quality and continuous learning, ATech Solutions reflects the values of integrity, precision, and innovation.
+
+              At ATech Solutions, we believe that great software begins with great people. Whether its a simple portfolio site or a full-fledged enterprise system, we approach every project with the same level of care, collaboration, and creativity. Our goal is not only to build functional systems but also to create digital experiences that are intuitive, secure, and scalable. <br></br>
+
+              Thank you for taking the time to get to know us. We look forward to building something amazing together. <br></br><br></br>
+              Why Choosing Atech?
             </p>
             
             <div className="space-y-6">
