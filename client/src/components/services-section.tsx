@@ -12,7 +12,7 @@ import { Card } from "./ui/card";
 const services = [
   {
     icon: Code,
-    title: "Web Design & Development",
+    title: "Web Development",
     description: "Custom website design and development services",
     features: [
       "Modern UI/UX Design",
