@@ -15,7 +15,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Technological Solutions tailored for Growing Businesses
+              Technological Solutions tailored for Business entreprises and organizations
             </h1>
             <p className="text-xl text-yellow-300 mb-8">
               Atech Systems is a tech company ready to help small businesses and organizations with web development, ERP solutions, and IT support services.

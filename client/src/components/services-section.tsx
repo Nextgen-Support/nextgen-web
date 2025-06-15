@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 import { Card } from "./ui/card";
 
-
 const services = [
   {
     icon: Code,
@@ -24,7 +23,7 @@ const services = [
     ],
     bgColor: "bg-blue-600",
     bgImage: "bg-[url('/asset/cards/card1.jpg')]",
-    colSpan: "lg:col-span-1", // 👈 Controls width: spans 2 columns on large screens
+    colSpan: "lg:col-span-1", // Controls width: spans 2 columns on large screens
   },
   {
     icon: Wrench,
@@ -104,8 +103,7 @@ const services = [
       "Logistics",
     ],
     bgColor: "bg-green-600",
-
-    colSpan: "lg:col-span-1", // 👈 Controls width: spans 2 columns on large screens
+    colSpan: "lg:col-span-1", // Controls width: spans 2 columns on large screens
     twoColumnFeatures: true,
   },
 ];
@@ -114,20 +112,31 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-20">
       <div className="container mx-auto px-4">
+        {/* Section Title - controls main header text size */}
         <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
+
+        {/* Grid container for cards */}
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {services.map((service, index) => (
             <div key={index}>
               <Card
                 className={`relative overflow-hidden rounded-lg ${service.bgColor}`}
               >
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
                 <div className="relative p-4">
+                  {/* Icon */}
                   <service.icon className="w-12 h-12 text-white mb-4" />
+
+                  {/* Card Title - controls title text size */}
                   <h3 className="text-xl font-semibold text-white mb-2">
                     {service.title}
                   </h3>
+
+                  {/* Card Description - no explicit text size, defaults to base */}
                   <p className="text-white/80 mb-3">{service.description}</p>
+
+                  {/* Features List */}
                   <ul
                     className={`${
                       service.twoColumnFeatures ? "grid grid-cols-2 gap-x-3" : "space-y-2"
@@ -135,7 +144,11 @@ export function ServicesSection() {
                   >
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start">
+                        {/* Bullet point - small text size */}
                         <span className="text-sm mr-2">•</span>
+
+                        {/* Feature text - responsive text size */}
+                        {/* text-xs on smallest screens, text-sm on small, text-base on medium+ */}
                         <span className="text-xs sm:text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
@@ -149,4 +162,3 @@ export function ServicesSection() {
     </section>
   )
 }
-
