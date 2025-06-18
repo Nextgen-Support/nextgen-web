@@ -2,120 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(224, 71.4%, 4.1%);
-  --muted: hsl(220, 14.3%, 95.9%);
-  --muted-foreground: hsl(220, 8.9%, 46.1%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(224, 71.4%, 4.1%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(224, 71.4%, 4.1%);
-  --border: hsl(220, 14.3%, 95.9%);
-  --input: hsl(220, 14.3%, 95.9%);
-  --ring: hsl(224, 71.4%, 4.1%);
-  --primary: hsl(224, 71.4%, 4.1%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(220, 14.3%, 95.9%);
-  --secondary-foreground: hsl(224, 71.4%, 4.1%);
-  --destructive: hsl(224, 71.4%, 4.1%);
-  --destructive-foreground: hsl(0, 0%, 100%);
-  --accent: hsl(220, 14.3%, 95.9%);
-  --accent-foreground: hsl(224, 71.4%, 4.1%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(224, 71.4%, 4.1%);
-  --border: hsl(220, 13%, 91%);
-  --input: hsl(220, 13%, 91%);
-  --primary: hsl(221, 83%, 53%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(220, 14.3%, 95.9%);
-  --secondary-foreground: hsl(220, 8.9%, 46.1%);
-  --accent: hsl(220, 14.3%, 95.9%);
-  --accent-foreground: hsl(220, 8.9%, 46.1%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(221, 83%, 53%);
-  --radius: 0.5rem;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-.dark {
-  --background: hsl(224, 71.4%, 4.1%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(215, 27.9%, 16.9%);
-  --muted-foreground: hsl(217, 10.6%, 64.9%);
-  --popover: hsl(224, 71.4%, 4.1%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(224, 71.4%, 4.1%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(215, 27.9%, 16.9%);
-  --input: hsl(215, 27.9%, 16.9%);
-  --primary: hsl(221, 83%, 53%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(215, 27.9%, 16.9%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(215, 27.9%, 16.9%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  html {
-    scroll-behavior: smooth;
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-/* ATech Systems Custom Colors */
-.bg-atech-primary {
-  background-color: #3b82f6;
+/* NextDev Solutions Custom Colors */
+.bg-nextdev-primary {
+  background-color: #1e40af; /* blue-800 */
 }
 
-.bg-atech-secondary {
-  background-color: #2563eb;
+.bg-nextdev-secondary {
+  background-color: #1e3a8a; /* blue-900 */
 }
 
-.bg-atech-accent {
-  background-color: #10b981;
+.bg-nextdev-accent {
+  background-color: #059669; /* emerald-600 */
 }
 
-.text-atech-primary {
-  color: #3b82f6;
+.text-nextdev-primary {
+  color: #1e40af; /* blue-800 */
 }
 
-.text-atech-secondary {
-  color: #2563eb;
+.text-nextdev-secondary {
+  color: #1e3a8a; /* blue-900 */
 }
 
-.text-atech-accent {
-  color: #10b981;
+.text-nextdev-accent {
+  color: #059669; /* emerald-600 */
 }
 
-.text-atech-slate-600 {
-  color: #475569;
+.text-nextdev-slate-600 {
+  color: #475569; /* slate-600 */
 }
 
-.text-atech-slate-900 {
-  color: #0f172a;
+.text-nextdev-slate-900 {
+  color: #0f172a; /* slate-900 */
 }
 
-.bg-atech-slate-50 {
-  background-color: #f8fafc;
+.bg-nextdev-slate-50 {
+  background-color: #f8fafc; /* slate-50 */
 }
 
-.hover\:bg-atech-primary:hover {
-  background-color: #3b82f6;
+.hover\:bg-nextdev-primary:hover {
+  background-color: #1e40af; /* blue-800 */
 }
 
-.hover\:text-atech-primary:hover {
-  color: #3b82f6;
+.hover\:text-nextdev-primary:hover {
+  color: #1e40af; /* blue-800 */
 }

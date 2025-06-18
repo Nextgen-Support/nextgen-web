@@ -18,7 +18,7 @@ export default function HeroSection() {
               Technological Solutions tailored for Business entreprises and organizations
             </h1>
             <p className="text-xl text-yellow-300 mb-8">
-              Atech Systems is a tech company ready to help small businesses and organizations with web development, ERP solutions, and IT support services.
+              NextDev Solutions is a tech company ready to help small businesses and organizations with web development, ERP solutions, and IT support services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Button 1: Contact Us - text-blue-600 on white background */}

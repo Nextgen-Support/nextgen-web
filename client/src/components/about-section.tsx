@@ -34,14 +34,14 @@ export default function AboutSection() {
             />
           </div>
           <div>
-            <h2 className="text-2xl md:text-4xl font-bold text-atech-slate-900 mb-6">About Atech</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-atech-slate-900 mb-6">About        NextDev Solutions</h2>
             <p className="text-sm text-atech-slate-600 mb-8">
-            Atech Systems was founded by Apsie Tese in June 2025 with a clear mission: to deliver innovative, reliable, and efficient software solutions that empower businesses and individuals alike. What started as a passion project has changed into a digital development initiative dedicated to transforming ideas into real-world applications. <br></br>
+            NextDev Solutions was founded by Apsie Tese in June 2025 with a clear mission: to deliver innovative, reliable, and efficient software solutions that empower businesses and individuals alike. What started as a passion project has changed into a digital development initiative dedicated to transforming ideas into real-world applications. <br></br>
 
-            Atech Systems believe that great software begins with great people. Whether its a simple portfolio site or a full-fledged enterprise system, we approach every project with the same level of care, collaboration, and creativity. Our goal is not only to build functional systems but also to create digital experiences that are intuitive, secure, and scalable. <br></br>
+            NextDev Solutions believe that great software begins with great people. Whether its a simple portfolio site or a full-fledged enterprise system, we approach every project with the same level of care, collaboration, and creativity. Our goal is not only to build functional systems but also to create digital experiences that are intuitive, secure, and scalable. <br></br>
 
             Thank you for taking the time to get to know us. We look forward to building something amazing together. <br></br><br></br>
-              Why Choosing Atech?
+              Why Choosing NextDev Solutions?
             </p>
             
             <div className="space-y-6">

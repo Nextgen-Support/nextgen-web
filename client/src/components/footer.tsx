@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">ATech Systems</h3>
+            <h3 className="text-2xl font-bold mb-4">NextDev Solutions</h3>
             <p className="text-sm text-slate-300 mb-6 max-w-md">
               We are eager to help small businesses and organizations with web development, ERP systems, IT services, and airline ticketing for individuals or groups from any location any airline any time.
             </p>
@@ -23,13 +23,13 @@ export default function Footer() {
                 href="https://wa.me/67571570096"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-atech-accent rounded-lg p-3 hover:bg-green-600 transition-colors"
+                className="bg-nextdev-accent rounded-lg p-3 hover:bg-green-600 transition-colors"
               >
                 <MessageCircle className="h-6 w-6" />
               </a>
               <a
-                href="mailto:info@atech-png.com.pg"
-                className="bg-atech-primary rounded-lg p-3 hover:bg-blue-800 transition-colors"
+                href="mailto:info@nextdev-solutions.com"
+                className="bg-nextdev-primary rounded-lg p-3 hover:bg-blue-800 transition-colors"
               >
                 <Mail className="h-6 w-6" />
               </a>
@@ -109,10 +109,10 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
                 <a
-                  href="mailto:info@atech-png.com.pg"
+                  href="mailto:info@nextdev-solutions.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@atech-png.com.pg
+                  info@nextdev-solutions.com
                 </a>
               </li>
               <li className="flex items-center">
@@ -125,7 +125,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
-          <p>&copy; 2025 ATech Systems. All rights reserved. Technological solutions for growing businesses.</p>
+          <p>&copy; 2025 NextDev Solutions. All rights reserved. Technological solutions for growing businesses.</p>
         </div>
       </div>
     </footer>

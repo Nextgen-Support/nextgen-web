@@ -1,10 +1,10 @@
-# ATech Systems - Static Website
+# NextDev Solutions - Static Website
 
-A professional static website for ATech Systems built with React, TypeScript, and Tailwind CSS.
+A professional static website for NextDev Solutions built with React, TypeScript, and Tailwind CSS.
 
-## About ATech Systems
+## About NextDev Solutions
 
-ATech Systems is a fresh new technology company providing:
+NextDev Solutions is a fresh new technology company providing:
 - Web Design & Development
 - Website Updates & Support  
 - ERP Software for small to medium enterprises, schools, churches, NGOs
@@ -14,7 +14,7 @@ ATech Systems is a fresh new technology company providing:
 ## Contact Information
 
 - **WhatsApp:** +67571570096
-- **Email:** info@atech-png.com.pg
+- **Email:** info@nextdev-solutions.com
 - **Services:** Available worldwide
 
 ## Running on Windows
@@ -48,8 +48,8 @@ For better performance and to avoid CORS issues:
 
 ### Option 3: Using IIS (Windows)
 1. Enable IIS in Windows Features
-2. Copy `dist/public` contents to `C:\inetpub\wwwroot\atech`
-3. Access via `http://localhost/atech`
+2. Copy `dist/public` contents to `C:\inetpub\wwwroot\nextdev`
+3. Access via `http://localhost/nextdev`
 
 ## Features
 
@@ -86,6 +86,6 @@ To modify content, colors, or layout, you'll need to:
 
 ## Support
 
-For technical support or website modifications, contact ATech Systems:
+For technical support or website modifications, contact NextDev Solutions:
 - WhatsApp: +67571570096
-- Email: info@atech-png.com.pg
+- Email: info@nextdev-solutions.com
