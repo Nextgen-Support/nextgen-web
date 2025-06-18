@@ -28,7 +28,7 @@ export default function Footer() {
                 <MessageCircle className="h-6 w-6" />
               </a>
               <a
-                href="mailto:info@nextdev-solutions.com"
+                href="mailto:info@nextdev-png.com"
                 className="bg-nextdev-primary rounded-lg p-3 hover:bg-blue-800 transition-colors"
               >
                 <Mail className="h-6 w-6" />
@@ -109,10 +109,10 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
                 <a
-                  href="mailto:info@nextdev-solutions.com"
+                  href="mailto:info@nextdev-png.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@nextdev-solutions.com
+                  info@nextdev-png.com
                 </a>
               </li>
               <li className="flex items-center">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,7 +46,9 @@ export default function Navigation() {
               <button onClick={() => scrollToSection("about")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">About</button>
               <button onClick={() => scrollToSection("news")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">News & Updates</button>
               <button onClick={() => scrollToSection("contact")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">Contact</button>
-              <Button onClick={() => scrollToSection("contact")} className="bg-nextdev-600 text-white hover:bg-nextdev-800">Get Started</Button>
+              <Button onClick={() => scrollToSection("contact")} className="bg-nextdev-600 text-white hover:bg-nextdev-800">
+                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
 

@@ -14,7 +14,7 @@ NextDev Solutions is a fresh new technology company providing:
 ## Contact Information
 
 - **WhatsApp:** +67571570096
-- **Email:** info@nextdev-solutions.com
+- **Email:** info@nextdev-png.com
 - **Services:** Available worldwide
 
 ## Running on Windows
@@ -88,4 +88,4 @@ To modify content, colors, or layout, you'll need to:
 
 For technical support or website modifications, contact NextDev Solutions:
 - WhatsApp: +67571570096
-- Email: info@nextdev-solutions.com
+- Email: info@nextdev-png.com

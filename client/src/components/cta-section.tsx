@@ -28,9 +28,9 @@ export default function CTASection() {
             variant="secondary"
             className="bg-white text-blue-600 hover:bg-slate-50 px-8 py-4"
           >
-            <a href="mailto:info@nextdev-solutions.com">
+            <a href="mailto:info@nextdev-png.com">
               <Mail className="mr-3 h-6 w-6" />
-              info@nextdev-solutions.com
+              info@nextdev-png.com
             </a>
           </Button>
         </div>
