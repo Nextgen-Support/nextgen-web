@@ -28,9 +28,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Professional team collaborating on technology solutions in modern office" 
-              className="rounded-xl shadow-lg w-full h-auto"
+              src="/asset/image/apsie.jpg" 
+              alt="Apsie Tese, Founder of NextDev Solutions" 
+              className="rounded-xl shadow-lg w-full h-auto object-cover aspect-[4/3]"
             />
           </div>
           <div>
