@@ -6,6 +6,41 @@
       "config": { "distDir": "dist" }
     }
   ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.atech-png.com"
+        }
+      ],
+      "destination": "https://nextdev-png.com/:1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "atechsolutions.vercel.app"
+        }
+      ],
+      "destination": "https://nextdev-png.com/:1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.nextdev-png.com"
+        }
+      ],
+      "destination": "https://nextdev-png.com/:1",
+      "permanent": true
+    }
+  ],
   "routes": [
     { "src": "/(.*)", "dest": "/index.html" }
   ]
