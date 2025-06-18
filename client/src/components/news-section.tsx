@@ -1,36 +1,37 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, ArrowRight, Smartphone, Cloud, Shield } from "lucide-react";
+import { Calendar, ArrowRight, Smartphone, Shield, Computer, Cpu, Award, Building} from "lucide-react";
 
+// 📰 TEMPLATE NEWS ITEMS — Replace these with your actual news data and links
 const newsItems = [
   {
     id: 1,
-    title: "The Future of ERP Systems for Small Businesses",
-    excerpt:
-      "Cloud-based ERP solutions are revolutionizing how small and medium enterprises manage their operations, offering scalability and cost-effectiveness.",
-    date: "January 15, 2024",
-    category: "ERP Technology",
-    icon: Cloud,
-    color: "bg-blue-600",
+    title: "PNG strengthens collaboration with China", // 🖊️ Replace this title
+    excerpt: "ICT Minister Timothy Masiu signed an MOU with China to boost digital infrastructure and services—from AI, IoT, and cloud computing to cybersecurity and 5G—supporting flagship projects like the eGovernment portal, Digital ID wallet, and analogue-to-digital broadcasting migration.", // 🖊️ Replace this excerpt
+    date: "June 3, 2025", // 🖊️ Replace this with article date
+    category: "Category ICT", // 🖊️ Replace this with category (e.g., AI, Web Dev, Security)
+    icon: Building, // 🌐 Choose an icon (Cloud, Smartphone, Shield, etc.)
+    color: "bg-blue-600", // 🎨 Choose a Tailwind color
+    sourceUrl: "https://www.postcourier.com.pg/ict-minister-announces-partnership-with-china-for-enhanced-digital-transformation-in-png/?utm_source=chatgpt.com", // 🔗 Replace with real article link
   },
   {
     id: 2,
-    title: "Mobile-First Web Development Trends",
-    excerpt:
-      "With mobile traffic exceeding desktop, businesses need responsive websites that deliver exceptional user experiences across all devices.",
-    date: "January 10, 2024",
-    category: "Web Development",
-    icon: Smartphone,
+    title: "AI Summit 2025 held in Port Moresby",
+    excerpt: "The ITI-hosted summit (early June) featured Minister Masiu and highlighted generative AI, AI in banking, education, and climate. Organized by PNG’s Centre for Advancement of Internet Technology, it marks a significant step in AI awareness and capacity-building.",
+    date: "April 7, 2025",
+    category: "Category AI",
+    icon: Cpu,
     color: "bg-green-500",
+    sourceUrl: "https://www.postcourier.com.pg/the-2025-ai-summit-shaping-papua-new-guineas-digital-future/?utm_source=chatgpt.com",
   },
   {
     id: 3,
-    title: "Cybersecurity Best Practices for Remote Work",
-    excerpt:
-      "Essential security measures every organization should implement to protect their data and systems in today's remote work environment.",
-    date: "January 5, 2024",
-    category: "IT Security",
-    icon: Shield,
+    title: "Women in Tech & Innovation Awards",
+    excerpt: "Hosted by POMCCI, this event highlighted female leaders—such as Crystal Kewe and Priscilla Kevin—unveiling AI-led health and finance systems. It also shortlisted entries for Innovation PNG 2025, spotlighting grassroots tech solutions.",
+    date: "February 27, 2025",
+    category: "Women in Tech",
+    icon: Award,
     color: "bg-purple-600",
+    sourceUrl: "https://www.pngbusinessnews.com/articles/2025/3/women-in-tech-business-breakfast-plays-up-innovation-png-awards?utm_source=chatgpt.com",
   },
 ];
 
@@ -39,11 +40,11 @@ export default function NewsSection() {
     <section id="news" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Latest Tech News & Insights
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+            Latest News & Insights
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Stay updated with the latest technology trends, best practices, and insights that can help your business grow.
+          <p className="text-sm text-slate-600 max-w-3xl mx-auto">
+            Stay updated with the latest news, trends, best practices, and insights that can help your business grow.
           </p>
         </div>
 
@@ -56,27 +57,41 @@ export default function NewsSection() {
                 className="hover:shadow-lg transition-shadow duration-300"
               >
                 <CardContent className="p-6">
+                  {/* Icon with background color */}
                   <div
                     className={`${item.color} rounded-lg w-12 h-12 flex items-center justify-center mb-4`}
                   >
                     <IconComponent className="text-white h-6 w-6" />
                   </div>
+
+                  {/* Date and Category */}
                   <div className="flex items-center text-sm text-slate-500 mb-3">
                     <Calendar className="h-4 w-4 mr-2" />
                     {item.date}
                     <span className="mx-2">•</span>
-                    <span className="text-blue-600 font-medium">{item.category}</span>
+                    <span className="text-blue-600 font-medium">
+                      {item.category}
+                    </span>
                   </div>
+
+                  {/* News Title */}
                   <h3 className="text-xl font-semibold text-slate-900 mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-slate-600 mb-4 text-sm">
-                    {item.excerpt}
-                  </p>
-                  <button className="flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors">
+
+                  {/* Excerpt */}
+                  <p className="text-slate-600 mb-4 text-sm">{item.excerpt}</p>
+
+                  {/* Read More link to full article */}
+                  <a
+                    href={item.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors"
+                  >
                     Read More
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
+                  </a>
                 </CardContent>
               </Card>
             );
