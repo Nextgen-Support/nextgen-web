@@ -125,7 +125,7 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
-          <p>&copy; 2025 NextDev Solutions. All rights reserved. Technological solutions for growing businesses.</p>
+          <p>&copy; 2025 NextDev Solutions. All rights reserved. Technological solutions for organizations.</p>
         </div>
       </div>
     </footer>
