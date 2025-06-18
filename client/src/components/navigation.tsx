@@ -42,12 +42,16 @@ export default function Navigation() {
 
           <div className="hidden md:block">
             <div className="ml-10 mr-auto flex items-baseline space-x-10">
-              <button onClick={() => scrollToSection("services")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">Services</button>
-              <button onClick={() => scrollToSection("about")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">About</button>
-              <button onClick={() => scrollToSection("news")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">News & Updates</button>
-              <button onClick={() => scrollToSection("contact")} className="text-nextdev-slate-600 hover:text-nextdev-primary hover:bg-nextdev-300 px-2 py-2 text-lg rounded-md transition-all duration-900 ease-in-out">Contact</button>
-              <Button onClick={() => scrollToSection("contact")} className="bg-nextdev-600 text-white hover:bg-nextdev-800">
-                Get Started <ArrowRight className="ml-2 h-4 w-4" />
+              <button onClick={() => scrollToSection("services")} className="text-nextdev-slate-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-2 text-lg rounded-md transition-all duration-300 ease-in-out">Services</button>
+              <button onClick={() => scrollToSection("about")} className="text-nextdev-slate-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-2 text-lg rounded-md transition-all duration-300 ease-in-out">About</button>
+              <button onClick={() => scrollToSection("news")} className="text-nextdev-slate-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-2 text-lg rounded-md transition-all duration-300 ease-in-out">News & Updates</button>
+              <button onClick={() => scrollToSection("contact")} className="text-nextdev-slate-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-2 text-lg rounded-md transition-all duration-300 ease-in-out">Contact</button>
+              <Button 
+                onClick={() => scrollToSection("contact")} 
+                className="bg-blue-600 hover:bg-gray-600 text-white flex items-center gap-2 px-6 py-6 text-base transition-colors duration-300"
+              >
+                Get Started
+                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </div>
