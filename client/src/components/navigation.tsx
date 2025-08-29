@@ -32,7 +32,17 @@ export default function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Get the header height to offset the scroll position
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Close mobile menu if open
       setIsMenuOpen(false);
     }
   };
@@ -62,13 +72,19 @@ export default function Navigation() {
                 onClick={() => scrollToSection("services")}
                 className="text-white hover:bg-white hover:bg-opacity-20 px-4 py-2 text-lg rounded-md transition-all duration-300 ease-in-out"
               >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-white hover:bg-white hover:bg-opacity-20 px-4 py-2 text-lg rounded-md transition-all duration-300 ease-in-out"
+              >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection("about")}
                 className="text-white hover:bg-white hover:bg-opacity-20 px-4 py-2 text-lg rounded-md transition-all duration-300 ease-in-out"
               >
-                About
+                About Us
               </button>
               <button
                 onClick={() => scrollToSection("news")}
@@ -104,8 +120,14 @@ export default function Navigation() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-netgen-primary border-t border-white border-opacity-20">
+        <div className="md:hidden bg-black/80 backdrop-blur-sm">
           <div className="pt-2 pb-3 space-y-1">
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="text-white hover:bg-white hover:bg-opacity-20 block px-6 py-3 text-lg font-medium w-full text-left"
+            >
+              Home
+            </button>
             <button
               onClick={() => scrollToSection("services")}
               className="text-white hover:bg-white hover:bg-opacity-20 block px-6 py-3 text-lg font-medium w-full text-left"
