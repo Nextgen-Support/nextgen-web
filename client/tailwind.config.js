@@ -5,6 +5,14 @@ module.exports = {
   ],
   darkMode: ["class"],
   theme: {
+    extend: {
+      colors: {
+        // Netgen Theme Colors
+        'netgen-primary': '#e30613',  // Red
+        'netgen-accent': '#3baa2b',   // Green
+        'netgen-black': '#000000',    // Black
+      },
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -14,6 +22,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Original theme colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
