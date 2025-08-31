@@ -9,11 +9,26 @@ const ISPServicesPage = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="hidden md:block w-full h-full object-cover"
         >
           <source src="/asset/Videos/banner.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        {/* Static banner for mobile with fallback gradient */}
+        <div className="md:hidden absolute inset-0">
+          <img
+            src="/asset/image/static banner.png"
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+            onError={(e) => {
+              // Fallback to gradient if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.src = '';
+              target.className = 'w-full h-full bg-gradient-to-br from-blue-900 to-black';
+            }}
+          />
+        </div>
         <div className="absolute inset-0 bg-black/70" />
       </div>
       <div className="max-w-6xl mx-auto relative">

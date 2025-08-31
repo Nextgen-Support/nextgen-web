@@ -8,8 +8,11 @@ export default function NewNavigation() {
   const [isVisible, setIsVisible] = useState(true);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isMobileCategoryOpen, setIsMobileCategoryOpen] = useState(false);
   const lastScrollY = useRef(0);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const categoryRef = useRef<HTMLDivElement>(null);
 
   // Handle scroll events
   useEffect(() => {
@@ -35,7 +38,7 @@ export default function NewNavigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -43,6 +46,12 @@ export default function NewNavigation() {
         !servicesRef.current.contains(event.target as Node)
       ) {
         setIsServicesOpen(false);
+      }
+      if (
+        categoryRef.current &&
+        !categoryRef.current.contains(event.target as Node)
+      ) {
+        setIsCategoryOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -52,6 +61,10 @@ export default function NewNavigation() {
   const toggleServices = () => setIsServicesOpen(!isServicesOpen);
   const toggleMobileServices = () =>
     setIsMobileServicesOpen(!isMobileServicesOpen);
+  
+  const toggleCategory = () => setIsCategoryOpen(!isCategoryOpen);
+  const toggleMobileCategory = () =>
+    setIsMobileCategoryOpen(!isMobileCategoryOpen);
 
   const navClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 transform ${
     isVisible ? 'translate-y-0' : '-translate-y-full'
@@ -196,19 +209,56 @@ export default function NewNavigation() {
                 )}
               </div>
 
-              <Link
-                to="/#products"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
-                onClick={(e) => {
-                  if (window.location.pathname === '/') {
-                    e.preventDefault();
-                    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                  setIsMenuOpen(false);
-                }}
-              >
-                Products
-              </Link>
+              <div className="relative" ref={categoryRef}>
+                <button
+                  onClick={toggleCategory}
+                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 flex items-center no-underline"
+                  style={{ textShadow: "none" }}
+                >
+                  Category
+                  <ChevronDown
+                    className={`ml-1 h-4 w-4 transition-transform ${
+                      isCategoryOpen ? "transform rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {isCategoryOpen && (
+                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/80 backdrop-blur-sm border border-white/10">
+                    <div className="py-1">
+                      <Link
+                        to="/products"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => {
+                          setIsCategoryOpen(false);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Products
+                      </Link>
+                      <Link
+                        to="/projects"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => {
+                          setIsCategoryOpen(false);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        Projects
+                      </Link>
+                      <Link
+                        to="/news"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => {
+                          setIsCategoryOpen(false);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        News
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
               <Link
                 to="/#about"
                 className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
@@ -221,32 +271,6 @@ export default function NewNavigation() {
                 }}
               >
                 About Us
-              </Link>
-              <Link
-                to="/#projects"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
-                onClick={(e) => {
-                  if (window.location.pathname === '/') {
-                    e.preventDefault();
-                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                  setIsMenuOpen(false);
-                }}
-              >
-                Projects
-              </Link>
-              <Link
-                to="/#news"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
-                onClick={(e) => {
-                  if (window.location.pathname === '/') {
-                    e.preventDefault();
-                    document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                  setIsMenuOpen(false);
-                }}
-              >
-                News
               </Link>
               <Link
                 to="/#contact"
@@ -293,6 +317,45 @@ export default function NewNavigation() {
             >
               Home
             </Link>
+
+            <div>
+              <button
+                onClick={toggleMobileCategory}
+                className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              >
+                <span>Category</span>
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    isMobileCategoryOpen ? "transform rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isMobileCategoryOpen && (
+                <div className="pl-4">
+                  <Link
+                    to="/products"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Products
+                  </Link>
+                  <Link
+                    to="/projects"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Projects
+                  </Link>
+                  <Link
+                    to="/news"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    News
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <div>
               <button
