@@ -15,14 +15,16 @@ export default function NewNavigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const bannerHeight = 600; // Adjust this to match your banner height
       const isHomePage = window.location.pathname === '/';
       
-      // Always show when at the top of the page or on home page
-      if (currentScrollY <= 100 || isHomePage) {
+      // Always show when at the top of the page or when in banner area
+      if (currentScrollY <= 100 || (isHomePage && currentScrollY < bannerHeight)) {
         setIsVisible(true);
       } else {
-        // Only hide when scrolling down, show when scrolling up
-        setIsVisible(!(currentScrollY > lastScrollY.current && currentScrollY > 100));
+        // Hide when scrolling down beyond banner, show when scrolling up
+        const scrollingDown = currentScrollY > lastScrollY.current && currentScrollY > bannerHeight;
+        setIsVisible(!scrollingDown);
       }
       
       setIsScrolled(currentScrollY > 50);
@@ -53,7 +55,7 @@ export default function NewNavigation() {
 
   const navClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 transform ${
     isVisible ? 'translate-y-0' : '-translate-y-full'
-  } ${isScrolled ? 'py-2' : 'py-4'}`;
+  } ${isScrolled ? 'py-2 bg-black/90 backdrop-blur-sm' : 'py-4'}`;
 
   // Navigation style with proper TypeScript types
   const navStyle: React.CSSProperties = {
@@ -92,6 +94,11 @@ export default function NewNavigation() {
                 textShadow: "none !important",
                 WebkitTextStroke: "0 !important",
               }}
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsVisible(true);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
             >
               <div
                 style={{
@@ -124,6 +131,11 @@ export default function NewNavigation() {
                 to="/"
                 className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
                 style={{ textShadow: "none" }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsVisible(true);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Home
               </Link>
@@ -184,55 +196,72 @@ export default function NewNavigation() {
                 )}
               </div>
 
-              <a
-                href="#products"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+              <Link
+                to="/#products"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                  }
                   setIsMenuOpen(false);
                 }}
               >
                 Products
-              </a>
-              <a
-                href="#about"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+              </Link>
+              <Link
+                to="/#about"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }
                   setIsMenuOpen(false);
                 }}
               >
                 About Us
-              </a>
-              <a
-                href="#projects"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+              </Link>
+              <Link
+                to="/#projects"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  }
                   setIsMenuOpen(false);
                 }}
               >
                 Projects
-              </a>
-              <a
-                href="#news"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+              </Link>
+              <Link
+                to="/#news"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
                 onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
+                  }
                   setIsMenuOpen(false);
                 }}
               >
                 News
-              </a>
+              </Link>
               <Link
-                to="/contact"
-                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20"
+                to="/#contact"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
+                onClick={(e) => {
+                  const contactElement = document.getElementById('contact');
+                  if (contactElement) {
+                    e.preventDefault();
+                    contactElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                  setIsMenuOpen(false);
+                  setIsVisible(true); // Ensure nav is visible after click
+                }}
               >
-                Contact Us
+                Contact
               </Link>
             </div>
           </div>
@@ -367,13 +396,17 @@ export default function NewNavigation() {
             >
               News
             </a>
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
             >
-              Contact Us
-            </Link>
+              Contact
+            </a>
           </div>
         </div>
       )}

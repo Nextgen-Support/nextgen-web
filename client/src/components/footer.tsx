@@ -25,26 +25,26 @@ export default function Footer() {
                 href="https://www.facebook.com/nextgenICTpng"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1877F2] hover:text-[#166FE5] transition-colors"
+                className="bg-white p-1.5 rounded transition-colors hover:bg-gray-100"
                 aria-label="Facebook"
               >
                 <svg
-                  className="h-8 w-8"
+                  className="h-6 w-6 text-[#1877F2]"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                  <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
                 </svg>
               </a>
               <a
                 href="https://www.linkedin.com/company/nextgen-technology-limited-png/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0A66C2] hover:text-[#004182] transition-colors"
+                className="bg-[#0A66C2] p-1.5 rounded transition-colors hover:bg-[#004182]"
                 aria-label="LinkedIn"
               >
                 <svg
-                  className="h-8 w-8"
+                  className="h-6 w-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -63,7 +63,7 @@ export default function Footer() {
                   href="/services/document-management"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/services/document-management';
+                    window.location.href = "/services/document-management";
                   }}
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
@@ -75,7 +75,7 @@ export default function Footer() {
                   href="/services/cctv"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/services/cctv';
+                    window.location.href = "/services/cctv";
                   }}
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
@@ -87,7 +87,7 @@ export default function Footer() {
                   href="/services/isp"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/services/isp';
+                    window.location.href = "/services/isp";
                   }}
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
@@ -99,7 +99,7 @@ export default function Footer() {
                   href="/services/web-hosting"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/services/web-hosting';
+                    window.location.href = "/services/web-hosting";
                   }}
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
@@ -111,7 +111,7 @@ export default function Footer() {
                   href="/services/security"
                   onClick={(e) => {
                     e.preventDefault();
-                    window.location.href = '/services/security';
+                    window.location.href = "/services/security";
                   }}
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
