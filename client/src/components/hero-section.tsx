@@ -1,19 +1,43 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const categories = [
   { name: "Document Management", link: "/services/document-management" },
   { name: "CCTV Solutions", link: "/services/cctv" },
   { name: "Networking", link: "/products?category=networking" },
-  { name: "Web Hosting", link: "/services/web-hosting" },
+  { name: "Web and Domain Hosting", link: "/services/web-hosting" },
   { name: "Security", link: "/services/security" },
   { name: "ISP Services", link: "/services/isp" },
 ];
 
 export default function HeroSection() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [currentCategory, setCurrentCategory] = useState(0);
+  const [isHomePage, setIsHomePage] = useState(
+    window.location.pathname === "/"
+  );
+
+  // Check if we're on the home page
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const isHome = window.location.pathname === "/";
+      setIsHomePage(isHome);
+      // Always show when returning to home page if at the top
+      if (isHome && window.scrollY < 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    // Initial check
+    handleRouteChange();
+
+    // Listen for route changes
+    window.addEventListener("popstate", handleRouteChange);
+    return () => window.removeEventListener("popstate", handleRouteChange);
+  }, []);
 
   // Auto-rotate categories
   useEffect(() => {
@@ -26,23 +50,34 @@ export default function HeroSection() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      const isScrollingDown = currentScrollPos > prevScrollPos;
-      
-      // Show/hide based on scroll direction
-      if (isScrollingDown && isVisible) {
+
+      // Only show categories when at the top of the home page
+      if (isHomePage) {
+        const isAtTop = currentScrollPos < 100; // 100px threshold from top
+
+        if (currentScrollPos === 0) {
+          // Always show when exactly at the top
+          setIsVisible(true);
+        } else if (currentScrollPos < prevScrollPos && currentScrollPos < 300) {
+          // Show when scrolling up near the top
+          setIsVisible(true);
+        } else if (currentScrollPos > prevScrollPos && currentScrollPos > 100) {
+          // Hide when scrolling down past threshold
+          setIsVisible(false);
+        }
+      } else {
+        // Not on home page, ensure hidden
         setIsVisible(false);
-      } else if (!isScrollingDown && !isVisible) {
-        setIsVisible(true);
       }
-      
+
       setPrevScrollPos(currentScrollPos);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [isVisible, prevScrollPos]);
+  }, [isVisible, prevScrollPos, isHomePage]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -54,14 +89,12 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-black/50"
+      className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
       style={{
-        marginTop: '0',
-        paddingTop: '4rem',
-        backgroundColor: 'transparent',
-        backgroundImage: 'none',
-        position: 'relative',
-        zIndex: 10
+        marginTop: "0",
+        paddingTop: "4rem",
+        position: "relative",
+        zIndex: 10,
       }}
     >
       {/* Video Background */}
@@ -96,9 +129,9 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black bg-opacity-15"></div>
       </div>
       {/* Categories Sidebar */}
-      <div 
-        className={`hidden md:flex w-44 bg-black/90 flex-shrink-0 z-10 h-[calc(80vh-80px)] mt-32 fixed left-0 overflow-y-auto transition-transform duration-300 ${
-          isVisible ? 'translate-x-0' : '-translate-x-full'
+      <div
+        className={`hidden md:flex w-64 bg-black/90 flex-shrink-0 z-10 h-auto max-h-[60vh] mt-10 fixed left-0 overflow-y-auto transition-transform duration-300 ${
+          isVisible ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="w-full p-4">
@@ -132,7 +165,7 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="w-full pb-12">
+        <div className="w-full pt-24 pb-12">
           <div className="flex justify-center md:justify-end">
             <button
               onClick={() => scrollToSection("services")}
@@ -155,16 +188,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      {/* Right Side Image - Commented out
-      <div className="hidden lg:block">
-        <img
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
-          alt="Modern technology workspace with computers and digital interfaces"
-          className="rounded-xl shadow-2xl w-full h-auto"
-        />
-      </div>
-      */}
     </section>
   );
 }

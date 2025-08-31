@@ -47,6 +47,15 @@
   animation: slideIn 0.5s ease-out forwards;
 }
 
+/* Global text and element styles */
+* {
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  text-stroke: 0 !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
 /* Button styles */
 .btn-primary {
   @apply bg-[#e30613] hover:bg-[#c00510] text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
@@ -63,7 +72,11 @@
 
 /* Hero section styles */
 .hero-overlay {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.7)
+  );
 }
 
 /* Category card styles */
@@ -150,13 +163,13 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-  
+
   /* Ensure navigation bar is transparent by default */
   nav {
     background-color: transparent !important;
     background-image: none !important;
   }
-  
+
   /* Override any background colors on the navigation bar */
   nav * {
     background-color: transparent !important;
@@ -198,7 +211,8 @@
   color: white !important;
   border-color: #3baa2b !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 .hero-button:active {

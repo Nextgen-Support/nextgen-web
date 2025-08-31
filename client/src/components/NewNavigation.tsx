@@ -15,8 +15,17 @@ export default function NewNavigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const isHomePage = window.location.pathname === '/';
+      
+      // Always show when at the top of the page or on home page
+      if (currentScrollY <= 100 || isHomePage) {
+        setIsVisible(true);
+      } else {
+        // Only hide when scrolling down, show when scrolling up
+        setIsVisible(!(currentScrollY > lastScrollY.current && currentScrollY > 100));
+      }
+      
       setIsScrolled(currentScrollY > 50);
-      setIsVisible(!(currentScrollY > lastScrollY.current && currentScrollY > 100));
       lastScrollY.current = currentScrollY;
     };
 
@@ -27,7 +36,10 @@ export default function NewNavigation() {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node)
+      ) {
         setIsServicesOpen(false);
       }
     };
@@ -36,21 +48,35 @@ export default function NewNavigation() {
   }, []);
 
   const toggleServices = () => setIsServicesOpen(!isServicesOpen);
-  const toggleMobileServices = () => setIsMobileServicesOpen(!isMobileServicesOpen);
+  const toggleMobileServices = () =>
+    setIsMobileServicesOpen(!isMobileServicesOpen);
 
-  const navClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+  const navClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 transform ${
     isVisible ? 'translate-y-0' : '-translate-y-full'
-  }`;
-  
+  } ${isScrolled ? 'py-2' : 'py-4'}`;
+
   // Navigation style with proper TypeScript types
   const navStyle: React.CSSProperties = {
-    backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-    color: isScrolled ? '#111827' : 'white',
-    boxShadow: isScrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' : 'none',
-    transition: 'background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-    backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-    WebkitBackdropFilter: isScrolled ? 'blur(8px)' : 'none',
-    boxSizing: 'border-box' as const,
+    backgroundColor: "transparent",
+    color: "white",
+    boxShadow: "none",
+    transition: "all 0.3s ease-in-out",
+    backdropFilter: "none",
+    WebkitBackdropFilter: "none",
+    boxSizing: "border-box" as const,
+    // Force remove all text effects
+    textShadow: "0 0 0 transparent !important",
+    textRendering: "optimizeLegibility",
+    WebkitFontSmoothing: "antialiased",
+    MozOsxFontSmoothing: "grayscale",
+    // Force remove all filters and effects
+    filter: "none",
+    WebkitFilter: "none",
+    // Ensure no text stroke or outline
+    WebkitTextStroke: "0",
+    outline: "none",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
   };
 
   return (
@@ -58,46 +84,99 @@ export default function NewNavigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <img
-                className="h-14 w-auto"
-                src="/asset/image/logo.png"
-                alt="Nextgen Technologies"
-              />
+            <Link
+              to="/"
+              className="flex-shrink-0 no-underline"
+              style={{
+                textDecoration: "none",
+                textShadow: "none !important",
+                WebkitTextStroke: "0 !important",
+              }}
+            >
+              <div
+                style={{
+                  position: "relative",
+                  display: "inline-block",
+                  filter: "none !important",
+                  WebkitFilter: "none !important",
+                  textShadow: "none !important",
+                }}
+              >
+                <img
+                  className="h-14 w-auto"
+                  src="/asset/image/logo.png"
+                  alt="Nextgen Technologies"
+                  style={{
+                    filter: "none !important",
+                    WebkitFilter: "none !important",
+                    textShadow: "none !important",
+                    WebkitTextStroke: "0 !important",
+                  }}
+                />
+              </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <Link to="/" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              <Link
+                to="/"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 no-underline"
+                style={{ textShadow: "none" }}
+              >
                 Home
               </Link>
-              
+
               <div className="relative" ref={servicesRef}>
                 <button
                   onClick={toggleServices}
-                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 flex items-center"
+                  className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 flex items-center no-underline"
+                  style={{ textShadow: "none" }}
                 >
                   Services
-                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${isServicesOpen ? 'transform rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`ml-1 h-4 w-4 transition-transform ${
+                      isServicesOpen ? "transform rotate-180" : ""
+                    }`}
+                  />
                 </button>
                 {isServicesOpen && (
-                  <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-black/80 backdrop-blur-sm border border-white/10">
                     <div className="py-1">
-                      <Link to="/services/document-management" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <Link
+                        to="/services/document-management"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
                         Document Management
                       </Link>
-                      <Link to="/services/cctv" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <Link
+                        to="/services/cctv"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
                         CCTV Solutions
                       </Link>
-                      <Link to="/services/isp" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <Link
+                        to="/services/isp"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
                         ISP Services
                       </Link>
-                      <Link to="/services/web-hosting" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Web Hosting
+                      <Link
+                        to="/services/web-hosting"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        Web and Domain Hosting
                       </Link>
-                      <Link to="/services/security" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <Link
+                        to="/services/security"
+                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
                         Security Solutions
                       </Link>
                     </div>
@@ -105,19 +184,54 @@ export default function NewNavigation() {
                 )}
               </div>
 
-              <Link to="/products" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              <a
+                href="#products"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
                 Products
-              </Link>
-              <Link to="/about" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              </a>
+              <a
+                href="#about"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
                 About Us
-              </Link>
-              <Link to="/projects" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              </a>
+              <a
+                href="#projects"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
                 Projects
-              </Link>
-              <Link to="/news" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              </a>
+              <a
+                href="#news"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
                 News
-              </Link>
-              <Link to="/contact" className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20">
+              </a>
+              <Link
+                to="/contact"
+                className="px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20"
+              >
                 Contact Us
               </Link>
             </div>
@@ -129,7 +243,11 @@ export default function NewNavigation() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-white/20"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -139,49 +257,121 @@ export default function NewNavigation() {
       {isMenuOpen && (
         <div className="md:hidden bg-black/80">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link to="/" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            <Link
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Home
             </Link>
-            
+
             <div>
               <button
                 onClick={toggleMobileServices}
                 className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
               >
                 Services
-                <ChevronDown className={`h-4 w-4 transition-transform ${isMobileServicesOpen ? 'transform rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    isMobileServicesOpen ? "transform rotate-180" : ""
+                  }`}
+                />
               </button>
               {isMobileServicesOpen && (
                 <div className="pl-4 space-y-1">
-                  <Link to="/services/document-management" className="block px-3 py-2 rounded-md text-base font-medium text-white/90 hover:bg-white/20">
+                  <Link
+                    to="/services/document-management"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
                     Document Management
                   </Link>
-                  <Link to="/services/cctv" className="block px-3 py-2 rounded-md text-base font-medium text-white/90 hover:bg-white/20">
+                  <Link
+                    to="/services/cctv"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
                     CCTV Solutions
                   </Link>
-                  <Link to="/services/isp" className="block px-3 py-2 rounded-md text-base font-medium text-white/90 hover:bg-white/20">
+                  <Link
+                    to="/services/isp"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
                     ISP Services
                   </Link>
-                  <Link to="/services/security" className="block px-3 py-2 rounded-md text-base font-medium text-white/90 hover:bg-white/20">
+                  <Link
+                    to="/services/security"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
                     Security Solutions
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/products" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            <a
+              href="#products"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
               Products
-            </Link>
-            <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            </a>
+            <a
+              href="#about"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
               About Us
-            </Link>
-            <Link to="/projects" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            </a>
+            <a
+              href="#projects"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
               Projects
-            </Link>
-            <Link to="/news" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            </a>
+            <a
+              href="#news"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
+                setIsMenuOpen(false);
+              }}
+            >
               News
-            </Link>
-            <Link to="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20">
+            </a>
+            <Link
+              to="/contact"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Contact Us
             </Link>
           </div>

@@ -9,7 +9,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-transparent">
+    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat bg-fixed" 
+         style={{ backgroundImage: 'url(/bg.png)' }}>
+      <div className="absolute inset-0 bg-black/30 -z-10" />
       <NewNavigation />
       <main className="flex-grow">
         {children}

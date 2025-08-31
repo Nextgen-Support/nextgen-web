@@ -8,15 +8,13 @@ import ContactSection from "../components/contact-section";
 
 export default function Home() {
   return (
-    <Layout>
-      <div className="min-h-screen">
-        <HeroSection />
-        <WhyChooseUsSection />
-        <AboutSection />
-        <NewsSection />
-        <CTASection />
-        <ContactSection />
-      </div>
-    </Layout>
+    <div className="min-h-screen">
+      <HeroSection />
+      <WhyChooseUsSection />
+      <AboutSection />
+      <NewsSection />
+      <CTASection />
+      <ContactSection />
+    </div>
   );
 }

@@ -6,7 +6,6 @@ import {
   Computer,
   Server,
 } from "lucide-react";
-import { Card } from "./ui/card";
 
 const services = [
   {
@@ -94,42 +93,45 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">Our Services</h2>
 
         {/* Grid with consistent card heights */}
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6 items-stretch">
           {services.map((service, index) => (
             <div key={index} className="h-full">
-              <Card className={`relative h-full flex flex-col justify-between overflow-hidden rounded-lg ${service.bgColor}`}>
-                {/* Overlay for better text contrast */}
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
-                <div className="relative p-4 flex flex-col h-full">
-                  {/* Icon */}
-                  <service.icon className="w-12 h-12 text-white mb-4" />
-
-                  {/* Title & Description */}
-                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                  <p className="text-white/80 mb-3">{service.description}</p>
-
-                  {/* Feature list */}
-                  <ul
-                    className={`${
-                      service.twoColumnFeatures
-                        ? "grid grid-cols-2 gap-x-3"
-                        : "space-y-2"
-                    } text-white/70 flex-grow`}
-                  >
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="text-sm mr-2">•</span>
-                        <span className="text-xs sm:text-sm md:text-base">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div 
+                className={`relative h-full flex flex-col justify-between overflow-hidden rounded-lg ${service.bgColor} p-4`}
+                style={{
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+                }}
+              >
+                {/* Icon */}
+                <div className="p-2 bg-white/10 rounded-lg w-fit">
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
-              </Card>
+
+                {/* Title & Description */}
+                <h3 className="text-xl font-bold text-green-400 mt-4 mb-2">{service.title}</h3>
+                <p className="text-white/90 mb-4">{service.description}</p>
+
+                {/* Feature list */}
+                <ul
+                  className={`${
+                    service.twoColumnFeatures
+                      ? "grid grid-cols-2 gap-x-3"
+                      : "space-y-2"
+                  } text-white/90 flex-grow`}
+                >
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-sm mr-2">•</span>
+                      <span className="text-xs sm:text-sm md:text-base">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

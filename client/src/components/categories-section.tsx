@@ -23,8 +23,8 @@ const categories = [
     color: 'bg-purple-50 hover:bg-purple-100'
   },
   {
-    title: 'Web Hosting',
-    description: 'Secure and scalable web hosting solutions',
+    title: 'Web and Domain Hosting',
+    description: 'Secure and scalable web and domain hosting solutions',
     icon: '🖥️',
     link: '/services/web-hosting',
     color: 'bg-yellow-50 hover:bg-yellow-100'
