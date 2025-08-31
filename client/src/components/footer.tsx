@@ -16,20 +16,20 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">Nextgen Technologies</h3>
             <p className="text-sm text-gray-300 mb-6 max-w-md">
-              Leading provider of innovative technology solutions and services
-              for businesses of all sizes. We specialize in delivering
-              cutting-edge IT solutions tailored to your needs.
+              Provider of innovative technology solutions and services for
+              businesses of all sizes. We specialize in delivering cutting-edge
+              IT solutions tailored to your needs.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-6">
               <a
-                href="https://www.facebook.com/yourpage"
+                href="https://www.facebook.com/nextgenICTpng"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-700 rounded-lg p-3 hover:bg-blue-600 transition-colors"
+                className="text-[#1877F2] hover:text-[#166FE5] transition-colors"
                 aria-label="Facebook"
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-8 w-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -37,14 +37,14 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/yourcompany"
+                href="https://www.linkedin.com/company/nextgen-technology-limited-png/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-700 rounded-lg p-3 hover:bg-blue-700 transition-colors"
+                className="text-[#0A66C2] hover:text-[#004182] transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg
-                  className="h-6 w-6"
+                  className="h-8 w-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
