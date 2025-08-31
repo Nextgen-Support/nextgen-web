@@ -59,52 +59,64 @@ export default function Footer() {
             <p className="text-white mb-4 font-medium text-lg">Services</p>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                <a
+                  href="/services/document-management"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services/document-management';
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
                   Document Management Systems
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                <a
+                  href="/services/cctv"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services/cctv';
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
                   CCTV & Security Solutions
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                <a
+                  href="/services/isp"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services/isp';
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
-                  Network Infrastructure
-                </button>
+                  ISP & Network Services
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                <a
+                  href="/services/web-hosting"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services/web-hosting';
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
                   Web and Domain Hosting
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
+                <a
+                  href="/services/security"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href = '/services/security';
+                  }}
+                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
                   IT Security Solutions
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="text-gray-300 hover:text-white transition-colors text-left"
-                >
-                  ISP Services
-                </button>
+                </a>
               </li>
             </ul>
           </div>
