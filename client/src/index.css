@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
+:root {
+  --primary: #e30613;
+  --primary-hover: #c00510;
+  --secondary: #3baa2b;
+  --secondary-hover: #2f8a22;
+  --dark: #1a1a1a;
+  --light: #f8f9fa;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animation for the category slider */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-slide {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-[#e30613] hover:bg-[#c00510] text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply bg-[#3baa2b] hover:bg-[#2f8a22] text-white font-medium py-2 px-6 rounded-md transition-colors duration-200;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+/* Hero section styles */
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+/* Category card styles */
+.category-card {
+  @apply bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 hover:bg-opacity-20 cursor-pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 6rem;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,6 +149,18 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Ensure navigation bar is transparent by default */
+  nav {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  
+  /* Override any background colors on the navigation bar */
+  nav * {
+    background-color: transparent !important;
+    background-image: none !important;
   }
 }
 

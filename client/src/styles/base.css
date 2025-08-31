@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply bg-transparent;
+  }
+  
+  body {
+    @apply bg-transparent text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Ensure the navigation is transparent by default */
+  nav, header, [role="navigation"] {
+    @apply bg-transparent !important;
+    background-image: none !important;
+  }
+  
+  /* Make sure the main content doesn't have a background */
+  main, [role="main"], .main-content {
+    @apply bg-transparent;
+  }
+}
