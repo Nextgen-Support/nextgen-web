@@ -40,24 +40,16 @@ export default function AboutSection() {
   // Sample team data - replace with actual team members
   const teamMembers: TeamMember[] = [
     {
-      name: "John Doe",
-      role: "CEO & Founder",
+      name: "Mr. Jay-ar Tugare",
+      role: "ICT Operations Manager",
       image: "/team/ceo.jpg", // Replace with actual image path
-      description:
-        "20+ years of experience in ICT solutions and business leadership.",
+      description: " ", // add info about his qualification
     },
     {
-      name: "Jane Smith",
-      role: "CTO",
+      name: "Mr Jerome Natividad",
+      role: "ICT Project Manager",
       image: "/team/cto.jpg", // Replace with actual image path
-      description: "Expert in system architecture and technology innovation.",
-    },
-    {
-      name: "Michael Johnson",
-      role: "Head of Operations",
-      image: "/team/operations.jpg", // Replace with actual image path
-      description:
-        "Specializes in project management and operational excellence.",
+      description: " ", // add info about his qualification
     },
   ];
 
@@ -233,7 +225,7 @@ export default function AboutSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-6">
+          <p className="text-white mb-6">
             All our accreditations are available upon request. Contact us for
             more information about our certifications.
           </p>
