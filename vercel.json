@@ -5,7 +5,7 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "client/dist",
+        "distDir": "dist",
         "cleanDistDir": true,
         "buildCommand": "cd client && npm install && npm run build"
       }
@@ -13,8 +13,8 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "dest": "/client/dist/assets/$1" },
-    { "src": "/asset/(.*)", "dest": "/client/dist/asset/$1" },
-    { "src": "/(.*)", "dest": "/client/dist/index.html" }
+    { "src": "/asset/(.*)", "dest": "/asset/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
