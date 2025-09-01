@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { motion, Variants, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom';
+import { motion, Variants, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router-dom";
 
 const scrollbarStyles = `
   .solutions-scroll-container::-webkit-scrollbar {
@@ -50,7 +50,7 @@ export function SolutionsSection() {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     // Disable rootMargin on mobile to prevent premature triggering
-    rootMargin: window.innerWidth > 768 ? '0px' : '0px 0px -25% 0px',
+    rootMargin: window.innerWidth > 768 ? "0px" : "0px 0px -25% 0px",
     triggerOnce: true,
     threshold: 0.2,
   });
@@ -67,27 +67,26 @@ export function SolutionsSection() {
       description:
         "Efficient and secure document handling and storage solutions",
       image: "/asset/image/document management-card.jpg",
-      link: "/services/document-management"
+      link: "/services/document-management",
     },
     {
       title: "ISP Solutions",
-      description:
-        "High-speed internet and network connectivity services",
+      description: "High-speed internet and network connectivity services",
       image: "/asset/image/hosting-card.jpg",
-      link: "/services/isp"
+      link: "/services/isp",
     },
     {
       title: "Networking & Structure Solution",
       description: "Robust networking infrastructure and structured cabling",
-      image: '/asset/image/networking-card.jpg',
-      link: "/services/security"
+      image: "/asset/image/networking-card.jpg",
+      link: "/services/security",
     },
     {
       title: "Software Solution",
       description:
         "Custom software development and business application solutions",
       image: "/asset/image/software solution -card.jpg",
-      link: "/services"
+      link: "/services",
     },
   ];
 
@@ -125,58 +124,79 @@ export function SolutionsSection() {
             </p>
           </motion.div>
 
-          <div className="w-full pb-6">
-            <div className="solutions-scroll-container overflow-x-auto pb-4">
-              <motion.div
-                className="flex justify-center gap-6 px-4 w-max mx-auto"
-                variants={staggerContainer}
-                style={{
-                  padding: '1rem 0',
-                  margin: '0 auto',
-                }}
-              >
+          <div className="w-full px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {solutions.map((solution, index) => (
                 <motion.div
                   key={index}
-                  className="cursor-pointer flex-shrink-0 w-64 bg-white rounded-lg shadow-lg overflow-hidden"
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
                   onClick={(e) => {
                     e.preventDefault();
                     window.location.href = solution.link;
                   }}
-                    custom={index}
-                    variants={cardVariants}
-                    whileHover={{
-                      y: -10,
-                      boxShadow:
-                        "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                      transition: {
-                        y: { type: "spring", stiffness: 300 },
-                        boxShadow: { duration: 0.3 },
-                      },
-                    }}
-                    initial="hidden"
-                    animate={controls}
-                  >
-                    <div className="relative bg-white rounded-xl shadow-2xl border-4 border-white overflow-hidden flex flex-col items-center">
-                      <div className="relative h-56 w-64">
-                        <img 
-                          src={solution.image} 
-                          alt={solution.title}
-                          className="h-full w-full object-contain"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.onerror = null;
-                            target.src = '/placeholder-image.jpg';
-                          }}
-                        />
-                      </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <h3 className="text-white font-semibold text-lg">{solution.title}</h3>
-                      </div>
+                  custom={index}
+                  variants={cardVariants}
+                  whileHover={{
+                    y: -5,
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)",
+                    transition: {
+                      y: { type: "spring", stiffness: 300 },
+                      boxShadow: { duration: 0.3 },
+                    },
+                  }}
+                  initial="hidden"
+                  animate={controls}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={solution.image}
+                      alt={solution.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = "/placeholder-image.jpg";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <h3 className="text-white font-semibold text-lg">
+                        {solution.title}
+                      </h3>
                     </div>
-                  </motion.div>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {solution.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 flex-1">
+                      {solution.description}
+                    </p>
+                    <button
+                      className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = solution.link;
+                      }}
+                    >
+                      Learn More
+                      <svg
+                        className="w-4 h-4 ml-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </motion.div>
               ))}
-              </motion.div>
             </div>
           </div>
         </motion.div>
