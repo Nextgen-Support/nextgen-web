@@ -61,21 +61,25 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative py-20 md:py-32 overflow-hidden bg-gray-100"
+      className="relative py-20 md:py-32 overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%)'
+      }}
     >
-      {/* Background Image with Overlay */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div 
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: 'url(/bg.png)',
+            backgroundImage: 'url(https://img.freepik.com/free-vector/cyber-circuit-background_52683-40259.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            filter: 'brightness(0.7) contrast(1.1)',
-            backgroundRepeat: 'no-repeat'
+            opacity: 0.15,
+            backgroundRepeat: 'no-repeat',
+            filter: 'grayscale(100%) brightness(1.2)'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-white/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/90 to-white/80"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

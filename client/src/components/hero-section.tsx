@@ -154,19 +154,15 @@ export default function HeroSection() {
       </div>
 
       {/* Main Hero Content */}
-      <div className="flex-1 flex flex-col justify-between relative z-10 px-4 sm:px-6 lg:px-12 py-12 md:ml-80">
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-4xl ml-auto text-center md:text-right">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              POWERING YOUR BUSINESS THROUGH SMART ICT SOLUTIONS
-            </h1>
-            <p className="text-3xl md:text-4xl text-yellow-300 mb-2">
-              "Secure, Scalable, Future-Ready"
-            </p>
-          </div>
-        </div>
-        <div className="w-full pt-24 pb-12">
-          <div className="flex justify-center md:justify-end">
+      <div className="flex-1 flex flex-col justify-center items-center relative z-10 px-4 sm:px-6 lg:px-12 py-12">
+        <div className="w-full max-w-4xl text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            POWERING YOUR BUSINESS THROUGH SMART ICT SOLUTIONS
+          </h1>
+          <p className="text-3xl md:text-4xl text-yellow-300 mb-8">
+            "Secure, Scalable, Future-Ready"
+          </p>
+          <div className="mt-20">
             <Link
               to="/services"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"

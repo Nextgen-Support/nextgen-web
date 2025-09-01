@@ -3,6 +3,7 @@ import HeroSection from "../components/hero-section";
 import { WhyChooseUsSection } from "../components/why-choose-us";
 import AboutSection from "../components/about-section";
 import NewsSection from "../components/news-section";
+import { SolutionsSection } from "../components/solutions-section";
 import ContactSection from "../components/contact-section";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <WhyChooseUsSection />
       <AboutSection />
       <NewsSection />
+      <SolutionsSection />
       <ContactSection />
     </div>
   );
