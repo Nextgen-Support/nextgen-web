@@ -6,45 +6,38 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "cleanDistDir": true
+        "cleanDistDir": true,
+        "buildCommand": "npm run build"
       }
     }
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
       "src": "/asset/(.*)",
       "dest": "/asset/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "^/logo(.*)",
+      "dest": "/logo$1"
+    },
+    {
+      "src": "^/(.*)$",
       "dest": "/index.html"
     }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/static/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).(jpg|jpeg|png|gif|ico|svg|webp|woff|woff2|ttf|eot)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
   ]
 }
