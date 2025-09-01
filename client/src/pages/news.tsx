@@ -1,135 +1,135 @@
-import React from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Calendar, ArrowRight, Smartphone, Shield, Computer, Cpu, Award, Building } from "lucide-react";
+import { Link } from 'react-router-dom';
+
+const newsItems = [
+  {
+    id: 1,
+    title: "PNG strengthens collaboration with China",
+    date: "March 15, 2025",
+    excerpt: "Papua New Guinea and China have signed a new agreement to enhance technological cooperation and digital infrastructure development.",
+    category: "Partnerships",
+    icon: Building,
+    color: "bg-blue-600",
+    sourceUrl: "https://www.thenational.com.pg/png-china-strengthen-ties/"
+  },
+  {
+    id: 2,
+    title: "New data center launched in Port Moresby",
+    date: "February 28, 2025",
+    excerpt: "NextGen Technologies has opened a state-of-the-art data center to support growing digital needs in the Pacific region.",
+    category: "Infrastructure",
+    icon: Cpu,
+    color: "bg-green-600",
+    sourceUrl: "https://www.looppng.com/business/new-data-center-png-12345"
+  },
+  {
+    id: 3,
+    title: "Cybersecurity awareness month kicks off",
+    date: "February 10, 2025",
+    excerpt: "National campaign launched to educate businesses and individuals about online security best practices.",
+    category: "Security",
+    icon: Shield,
+    color: "bg-red-600",
+    sourceUrl: "https://www.pngcybersecurity.gov.pg/awareness-2025"
+  },
+  {
+    id: 4,
+    title: "Digital transformation in PNG businesses",
+    date: "January 25, 2025",
+    excerpt: "Local enterprises are rapidly adopting cloud solutions and digital tools to improve operations and customer experience.",
+    category: "Technology",
+    icon: Computer,
+    color: "bg-purple-600",
+    sourceUrl: "https://www.pngbusinessnews.com/digital-transformation-2025"
+  },
+  {
+    id: 5,
+    title: "5G network expansion announced",
+    date: "January 15, 2025",
+    excerpt: "Major telecom providers reveal plans to expand 5G coverage to major centers across Papua New Guinea.",
+    category: "Connectivity",
+    icon: Smartphone,
+    color: "bg-yellow-600",
+    sourceUrl: "https://www.pngictnews.com/5g-expansion-2025"
+  },
+  {
+    id: 6,
+    title: "Women in tech conference 2025",
+    date: "March 8, 2025",
+    excerpt: "Annual event celebrates achievements of women in PNG's technology sector and encourages STEM education.",
+    category: "Women in Tech",
+    icon: Award,
+    color: "bg-pink-600",
+    sourceUrl: "https://www.pngbusinessnews.com/articles/2025/3/women-in-tech-business-breakfast-plays-up-innovation-png-awards"
+  }
+];
 
 const NewsPage = () => {
-  const news = [
-    {
-      id: 1,
-      title: 'NextGen Solutions Announces New Cloud Services',
-      date: 'August 15, 2023',
-      excerpt: 'We are excited to announce our expanded cloud service offerings, providing businesses with more flexibility and scalability options.',
-      category: 'Company News',
-      readTime: '3 min read'
-    },
-    {
-      id: 2,
-      title: 'Cybersecurity Trends to Watch in 2023',
-      date: 'July 28, 2023',
-      excerpt: 'Our security experts weigh in on the emerging cybersecurity threats and trends that businesses should be aware of this year.',
-      category: 'Security',
-      readTime: '5 min read'
-    },
-    {
-      id: 3,
-      title: 'How Digital Transformation is Reshaping Industries',
-      date: 'July 10, 2023',
-      excerpt: 'An in-depth look at how digital transformation initiatives are creating new opportunities across various sectors.',
-      category: 'Insights',
-      readTime: '4 min read'
-    },
-    {
-      id: 4,
-      title: 'NextGen Solutions Wins Tech Innovation Award',
-      date: 'June 22, 2023',
-      excerpt: 'We are honored to receive the 2023 Tech Innovation Award for our groundbreaking work in network infrastructure solutions.',
-      category: 'Awards',
-      readTime: '2 min read'
-    }
-  ];
-
-  const categories = [
-    { name: 'All', count: 12 },
-    { name: 'Company News', count: 4 },
-    { name: 'Technology', count: 5 },
-    { name: 'Security', count: 3 },
-    { name: 'Insights', count: 4 },
-    { name: 'Awards', count: 2 }
-  ];
-
   return (
-    <div className="min-h-screen pt-24 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center my-12 text-white">Latest News & Updates</h1>
-        
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Sidebar */}
-          <div className="md:w-1/4">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-24">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Categories</h2>
-              <ul className="space-y-2">
-                {categories.map((category, index) => (
-                  <li key={index}>
-                    <a href="#" className="flex justify-between items-center text-gray-700 hover:text-blue-600">
-                      <span className={category.name === 'All' ? 'font-medium text-blue-600' : ''}>
-                        {category.name}
-                      </span>
-                      <span className="text-sm bg-gray-100 rounded-full px-2 py-1">
-                        {category.count}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              
-              <h2 className="text-xl font-bold text-gray-800 mt-8 mb-4">Subscribe</h2>
-              <p className="text-sm text-gray-600 mb-3">Get the latest news delivered to your inbox.</p>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-md transition-colors">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          {/* News List */}
-          <div className="md:w-3/4">
-            <div className="space-y-6">
-              {news.map((item) => (
-                <article key={item.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <div className="flex items-center text-sm text-gray-500 mb-2">
-                      <span className="text-blue-600 font-medium">{item.category}</span>
-                      <span className="mx-2">•</span>
-                      <span>{item.date}</span>
-                      <span className="mx-2">•</span>
-                      <span>{item.readTime}</span>
+    <section id="news" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Latest News & Insights
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Stay updated with the latest news, trends, and insights from NextGen Technologies and the tech industry.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {newsItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <Card key={item.id} className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center mb-4">
+                    <div className={`${item.color} p-2 rounded-lg mr-3`}>
+                      <IconComponent className="h-5 w-5 text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
-                      <a href="#">{item.title}</a>
-                    </h2>
-                    <p className="text-gray-600 mb-4">{item.excerpt}</p>
+                    <span className="text-sm font-medium text-gray-500">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-4 flex-1">
+                    {item.excerpt}
+                  </p>
+                  
+                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                    <span className="text-sm text-gray-500">{item.date}</span>
                     <a 
-                      href="#" 
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                      href={item.sourceUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
                     >
                       Read more
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <ArrowRight className="ml-1 h-4 w-4" />
                     </a>
                   </div>
-                </article>
-              ))}
-              
-              {/* Pagination */}
-              <div className="flex justify-center mt-8">
-                <nav className="flex items-center space-x-1">
-                  <a href="#" className="px-3 py-1 rounded bg-blue-600 text-white">1</a>
-                  <a href="#" className="px-3 py-1 rounded hover:bg-gray-100">2</a>
-                  <a href="#" className="px-3 py-1 rounded hover:bg-gray-100">3</a>
-                  <span className="px-2">...</span>
-                  <a href="#" className="px-3 py-1 rounded hover:bg-gray-100">Next</a>
-                </nav>
-              </div>
-            </div>
-          </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <Link
+            to="/news"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+          >
+            View All News
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
