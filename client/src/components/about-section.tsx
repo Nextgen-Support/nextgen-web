@@ -174,14 +174,17 @@ export default function AboutSection() {
       </div>
 
       {/* Meet the Team Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+      <div
+        className="w-full bg-cover bg-center bg-no-repeat py-8 md:py-12"
+        style={{ backgroundImage: "url('/asset/image/teams.png')" }}
+      >
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Meet Our Team
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-            Our team of dedicated professionals is committed to delivering
+          <p className="text-xl text-white leading-relaxed max-w-4xl mx-auto">
+            Our team of dedicated individuals are committed to delivering
             exceptional service and innovative solutions.
           </p>
         </div>

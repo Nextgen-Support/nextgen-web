@@ -255,20 +255,6 @@ export default function NewNavigation() {
                       >
                         News
                       </Link>
-                      <Link
-                        to="/#solutions"
-                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                        onClick={(e) => {
-                          if (window.location.pathname === '/') {
-                            e.preventDefault();
-                            document.getElementById('solutions')?.scrollIntoView({ behavior: 'smooth' });
-                          }
-                          setIsCategoryOpen(false);
-                          setIsMenuOpen(false);
-                        }}
-                      >
-                        Solutions
-                      </Link>
                     </div>
                   </div>
                 )}
