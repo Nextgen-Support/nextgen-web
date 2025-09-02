@@ -4,7 +4,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-12 bg-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-black p-6 rounded-lg shadow-xl">
+        <div className="bg-black/85 p-6 rounded shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Company Contact Info */}
             <div className="space-y-6">
