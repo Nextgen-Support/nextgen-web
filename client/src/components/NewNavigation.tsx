@@ -72,22 +72,23 @@ export default function NewNavigation() {
 
   // Navigation style with proper TypeScript types
   const navStyle: React.CSSProperties = {
-    backgroundColor: "transparent",
+    backgroundImage: "url('/bg.png')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Slightly transparent black overlay
     color: "white",
     boxShadow: "none",
     transition: "all 0.3s ease-in-out",
-    backdropFilter: "none",
-    WebkitBackdropFilter: "none",
+    backdropFilter: "blur(2px)",
+    WebkitBackdropFilter: "blur(2px)",
     boxSizing: "border-box" as const,
-    // Force remove all text effects
     textShadow: "0 0 0 transparent !important",
     textRendering: "optimizeLegibility",
     WebkitFontSmoothing: "antialiased",
     MozOsxFontSmoothing: "grayscale",
-    // Force remove all filters and effects
     filter: "none",
     WebkitFilter: "none",
-    // Ensure no text stroke or outline
     WebkitTextStroke: "0",
     outline: "none",
     paddingLeft: "1rem",
