@@ -167,71 +167,49 @@ export default function AboutSection() {
 
       {/* Meet the Team Section */}
       <div
-        className="w-full bg-cover bg-center bg-no-repeat py-8 md:py-12"
-        style={{ backgroundImage: "url('/asset/image/teams.png')" }}
+        className="w-full bg-cover bg-center bg-no-repeat py-8 md:py-12 h-screen"
+        style={{ backgroundImage: "url('/asset/image/team2.png')" }}
       >
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Meet Our Team
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"></h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-8"></div>
-          <p className="text-xl text-white leading-relaxed max-w-4xl mx-auto">
-            Our team of dedicated individuals are committed to delivering
-            exceptional service and innovative solutions.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
-          {teamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
-            >
-              <div className="h-64 bg-gray-200 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mb-4">{member.role}</p>
-                <p className="text-gray-600">{member.description}</p>
-              </div>
-            </div>
-          ))}
+          <p className="text-xl text-white leading-relaxed max-w-4xl mx-auto"></p>
         </div>
       </div>
 
       {/* Accreditations Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {accreditations.map((item, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300"
-            >
-              <span className="text-4xl mb-4 inline-block">{item.icon}</span>
-              <h3 className="text-lg font-semibold text-gray-800">
-                {item.name}
-              </h3>
-            </div>
-          ))}
-        </div>
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Accreditations
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
+          </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-white mb-6">
-            All our accreditations are available upon request. Contact us for
-            more information about our certifications.
-          </p>
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors duration-300">
-            Request Documentation
-          </button>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {accreditations.map((item, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300"
+              >
+                <span className="text-4xl mb-4 inline-block">{item.icon}</span>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {item.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              All our accreditations are available upon request. Contact us for
+              more information about our certifications.
+            </p>
+            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors duration-300">
+              Request Documentation
+            </button>
+          </div>
         </div>
       </div>
     </div>
