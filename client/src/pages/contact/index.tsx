@@ -20,7 +20,7 @@ const ContactPage = () => {
                   </svg>
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-white">Address</h3>
-                <p className="mt-1 text-sm text-gray-300">Mutual Rumana Building - Waigani Sect. 405. Lot 12 & 13, Port Moresby, National Capital District</p>
+                <p className="mt-1 text-sm text-gray-300">[your company address]</p>
               </div>
               
               <div className="text-center">
@@ -30,7 +30,7 @@ const ContactPage = () => {
                   </svg>
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-white">Phone</h3>
-                <p className="mt-1 text-sm text-gray-300">+675 325 2025</p>
+                <p className="mt-1 text-sm text-gray-300">[your new work phone]</p>
               </div>
               
               <div className="text-center">
@@ -40,7 +40,7 @@ const ContactPage = () => {
                   </svg>
                 </div>
                 <h3 className="mt-4 text-lg font-medium text-white">Email</h3>
-                <p className="mt-1 text-sm text-gray-300">enquiry@nextgenpng.net</p>
+                <p className="mt-1 text-sm text-gray-300">[your new work email]</p>
               </div>
             </div>
           </div>

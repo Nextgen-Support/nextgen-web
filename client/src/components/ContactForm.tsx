@@ -42,7 +42,7 @@ const ContactForm = () => {
       };
       
       // Send form data to FormSubmit
-      const response = await fetch('https://formsubmit.co/ajax/support3@nextgenpng.net', {
+      const response = await fetch('https://formsubmit.co/ajax/[your new work email]', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

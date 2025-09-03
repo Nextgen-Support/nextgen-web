@@ -128,27 +128,25 @@ export default function Footer() {
               <li className="flex items-start">
                 <MessageCircle className="mr-2 h-4 w-4 mt-1 flex-shrink-0" />
                 <a
-                  href="tel:+6753252025"
+                  href="tel:[your new work phone]"
                   className="text-white hover:opacity-80 transition-opacity"
                 >
-                  +675 325 2025
+                  [your new work phone]
                 </a>
               </li>
               <li className="flex items-start">
                 <Mail className="mr-2 h-4 w-4 mt-1 flex-shrink-0" />
                 <a
-                  href="mailto:enquiry@nextgenpng.net"
+                  href="mailto:[your new work email]"
                   className="text-white hover:opacity-80 transition-opacity"
                 >
-                  enquiry@nextgenpng.net
+                  [your new work email]
                 </a>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1">📍</span>
                 <span className="text-white">
-                  Mutual Rumana Building - Waigani Sect. 405. Lot 12 & 13,
-                  <br />
-                  Port Moresby, National Capital District
+                  [your company address]
                 </span>
               </li>
             </ul>
@@ -158,7 +156,7 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>
-            &copy; 2025 Nextgen Technology. All rights reserved. Technological
+            &copy; 2025 Your Company Name. All rights reserved. Technological
             solutions for organizations.
           </p>
         </div>
