@@ -1,10 +1,10 @@
-# NextDev Solutions - Static Website
+# Company Website
 
-A professional static website for NextDev Solutions built with React, TypeScript, and Tailwind CSS.
+A professional static website built with React, TypeScript, and Tailwind CSS.
 
-## About NextDev Solutions
+## About Us
 
-NextDev Solutions is a fresh new technology company providing:
+We are a technology company providing:
 - Web Design & Development
 - Website Updates & Support  
 - ERP Software for small to medium enterprises, schools, churches, NGOs
@@ -48,8 +48,8 @@ For better performance and to avoid CORS issues:
 
 ### Option 3: Using IIS (Windows)
 1. Enable IIS in Windows Features
-2. Copy `dist/public` contents to `C:\inetpub\wwwroot\nextdev`
-3. Access via `http://localhost/nextdev`
+2. Copy `dist/public` contents to `C:\inetpub\wwwroot\website`
+3. Access via `http://localhost/website`
 
 ## Features
 
