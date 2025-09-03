@@ -9,9 +9,16 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat bg-fixed" 
-         style={{ backgroundImage: 'url(/bg.png)' }}>
-      <div className="absolute inset-0 bg-black/30 -z-10" />
+    <div className="min-h-screen flex flex-col">
+      <div className="fixed inset-0 -z-10">
+        <img 
+          src="/bg.png" 
+          alt="Background"
+          className="w-full h-full object-cover"
+          style={{ zIndex: -1 }}
+        />
+        <div className="absolute inset-0 bg-black/30" style={{ zIndex: -1 }} />
+      </div>
       <NewNavigation />
       <main className="flex-grow">
         {children}

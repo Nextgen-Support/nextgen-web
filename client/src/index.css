@@ -12,6 +12,12 @@
   --light: #f8f9fa;
 }
 
+/* Remove background from news section */
+#news {
+  background-image: none !important;
+  background-color: black !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

@@ -330,69 +330,19 @@ const ProductDetailPage = () => {
                 ))}
               </div>
 
-              <div className="mt-10">
-                <h3 className="text-lg font-medium text-gray-900">Write a review</h3>
-                <p className="mt-1 text-sm text-gray-500">Share your thoughts with other customers</p>
-                
-                <form className="mt-6">
-                  <div className="space-y-4">
-                    <div>
-                      <label htmlFor="rating" className="block text-sm font-medium text-gray-700">
-                        Rating
-                      </label>
-                      <select
-                        id="rating"
-                        name="rating"
-                        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
-                        defaultValue="5"
-                      >
-                        <option value="5">5 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="3">3 stars</option>
-                        <option value="2">2 stars</option>
-                        <option value="1">1 star</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-                        Title
-                      </label>
-                      <input
-                        type="text"
-                        name="title"
-                        id="title"
-                        className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        placeholder="Summarize your review"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="review" className="block text-sm font-medium text-gray-700">
-                        Review
-                      </label>
-                      <div className="mt-1">
-                        <textarea
-                          id="review"
-                          name="review"
-                          rows={4}
-                          className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border border-gray-300 rounded-md"
-                          placeholder="What did you like or dislike? What should other customers know?"
-                          defaultValue={''}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <button
-                        type="submit"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Submit Review
-                      </button>
-                    </div>
-                  </div>
-                </form>
+              <div className="mt-10 p-6 bg-gray-50 rounded-lg">
+                <h3 className="text-lg font-medium text-gray-900">Have questions about this product?</h3>
+                <p className="mt-2 text-sm text-gray-600">
+                  Our team is here to help! Contact us for more information or to request a quote.
+                </p>
+                <div className="mt-4">
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  >
+                    Contact Us
+                  </a>
+                </div>
               </div>
             </div>
           </div>
