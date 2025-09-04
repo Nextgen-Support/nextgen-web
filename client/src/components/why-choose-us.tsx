@@ -74,18 +74,18 @@ export function WhyChooseUsSection() {
             variants={containerVariants}
           >
             <motion.h2 
-              className="text-3xl md:text-6xl font-bold text-gray-900 mb-6"
+              className="text-2xl md:text-4xl font-bold text-gray-900 mb-4"
               variants={itemVariants}
             >
               Why Choose Us
             </motion.h2>
             <motion.div 
-              className="w-20 h-1 bg-blue-600 mb-8"
+              className="w-16 h-1 bg-blue-600 mb-6"
               variants={itemVariants}
             ></motion.div>
 
             <motion.ul 
-              className="space-y-4 text-3xl"
+              className="space-y-3 text-base md:text-lg"
               variants={containerVariants}
             >
               {[
