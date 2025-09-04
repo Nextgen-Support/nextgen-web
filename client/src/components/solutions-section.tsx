@@ -13,7 +13,13 @@ const scrollbarStyles = `
   }
 `;
 
-const cardVariants: Variants = {
+// Check if device is mobile
+const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+const cardVariants: Variants = isMobile ? {
+  hidden: { opacity: 1, x: 0, y: 0, rotate: 0 },
+  visible: { opacity: 1, x: 0, y: 0, rotate: 0 }
+} : {
   hidden: (i: number) => ({
     opacity: 0,
     x: i % 2 === 0 ? 50 : -50,
@@ -35,7 +41,10 @@ const cardVariants: Variants = {
   }),
 };
 
-const staggerContainer: Variants = {
+const staggerContainer: Variants = isMobile ? {
+  hidden: { opacity: 1 },
+  visible: { opacity: 1 }
+} : {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
