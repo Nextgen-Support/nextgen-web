@@ -10,18 +10,10 @@ export default defineConfig({
     },
   },
   server: {
-    proxy: {
-      // Proxy API requests to our Express server
-      '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
     port: 3000,
   },
   build: {
-    outDir: 'dist/client',
+    outDir: 'dist',
     emptyOutDir: true,
   },
 });

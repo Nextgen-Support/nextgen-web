@@ -1,36 +1,13 @@
 import React from 'react';
 
 const ProjectsPage = () => {
-  const projects = [
-    {
-      title: 'Enterprise Network Infrastructure',
-      client: 'Global Finance Corp',
-      description: 'Designed and implemented a secure, high-availability network infrastructure for a leading financial institution.',
-      technologies: ['Cisco Networking', 'SD-WAN', 'Next-Gen Firewalls', 'Load Balancing'],
-      image: '/project-network.jpg'
-    },
-    {
-      title: 'Cloud Migration Strategy',
-      client: 'Retail Chain Inc',
-      description: 'Successfully migrated on-premises infrastructure to a hybrid cloud environment, improving scalability and reducing costs.',
-      technologies: ['AWS', 'Azure', 'Docker', 'Kubernetes'],
-      image: '/project-cloud.jpg'
-    },
-    {
-      title: 'Smart Office Implementation',
-      client: 'Tech Innovations Ltd',
-      description: 'Deployed IoT devices and automation systems to create an intelligent, energy-efficient workplace.',
-      technologies: ['IoT', 'Automation', 'Energy Management', 'Sensors'],
-      image: '/project-iot.jpg'
-    },
-    {
-      title: 'Cybersecurity Overhaul',
-      client: 'Healthcare Systems Inc',
-      description: 'Comprehensive security assessment and implementation of advanced threat protection measures.',
-      technologies: ['SIEM', 'EDR', 'Penetration Testing', 'Security Training'],
-      image: '/project-security.jpg'
-    }
-  ];
+    const projects: Array<{
+    title: string;
+    client: string;
+    description: string;
+    technologies: string[];
+    image: string;
+  }> = [];
 
   return (
     <div className="min-h-screen pt-24 px-4">
@@ -38,7 +15,11 @@ const ProjectsPage = () => {
         <h1 className="text-4xl font-bold text-center my-12 text-white">Our Projects</h1>
         
         <div className="space-y-12">
-          {projects.map((project, index) => (
+          {projects.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-300 text-lg">Projects coming soon. Please check back later.</p>
+            </div>
+          ) : projects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="md:flex">
                 <div className="md:flex-shrink-0 md:w-1/3 bg-gray-200 h-48 md:h-auto flex items-center justify-center">
