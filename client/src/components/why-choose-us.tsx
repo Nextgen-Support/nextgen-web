@@ -8,7 +8,13 @@ export function WhyChooseUsSection() {
     threshold: 0.1,
   });
 
-  const containerVariants: Variants = {
+  // Check if device is mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  const containerVariants: Variants = isMobile ? {
+    hidden: { opacity: 1 },
+    visible: { opacity: 1 }
+  } : {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -20,7 +26,10 @@ export function WhyChooseUsSection() {
     },
   };
 
-  const itemVariants: Variants = {
+  const itemVariants: Variants = isMobile ? {
+    hidden: { opacity: 1, x: 0 },
+    visible: { opacity: 1, x: 0 }
+  } : {
     hidden: { opacity: 0, x: -50 },
     visible: (i: number = 0) => ({
       opacity: 1,
@@ -33,7 +42,10 @@ export function WhyChooseUsSection() {
     }),
   };
 
-  const imageVariants: Variants = {
+  const imageVariants: Variants = isMobile ? {
+    hidden: { opacity: 1, x: 0 },
+    visible: { opacity: 1, x: 0 }
+  } : {
     hidden: { opacity: 0, x: 100 },
     visible: {
       opacity: 1,
