@@ -1,98 +1,99 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DocumentManagementPage = () => {
+  const solutions = [
+    {
+      id: 1,
+      title: 'Dokmee Document Management',
+      description: 'Enterprise-class document management solution designed to help businesses of all sizes efficiently capture, manage, and store documents while maintaining security and compliance.',
+      image: '/asset/image/dokmee.png',
+      features: [
+        'Secure cloud-based document storage',
+        'Advanced OCR (Optical Character Recognition)',
+        'Automated document capture and indexing',
+        'Version control and audit trails',
+        'Workflow automation',
+        'Role-based access control',
+        'Mobile access and scanning'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Microsoft 365 Office',
+      description: 'Comprehensive productivity suite with powerful document management capabilities, seamlessly integrated with familiar Office applications.',
+      image: '/asset/image/dokmee1.jpeg',
+      features: [
+        'Cloud storage with OneDrive/SharePoint',
+        'Real-time co-authoring',
+        'Advanced security features',
+        'Seamless Office integration',
+        'Familiar interface',
+        'Anytime, anywhere access',
+        'Enterprise security'
+      ]
+    }
+  ];
+
   return (
-    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: 'url(/bg.png)' }}>
-      <div className="absolute inset-0 bg-black/50 -z-10" />
-      <div className="max-w-6xl mx-auto relative">
-        <h1 className="text-4xl font-bold text-center my-12 text-white">Document Management Solutions</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Dokmee */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Dokmee</h2>
-            <p className="text-white/90 mb-6">
-              Enterprise-class document management solution designed to help businesses of all sizes 
-              efficiently capture, manage, and store documents while maintaining security and compliance.
-            </p>
-            
-            <h3 className="text-xl font-semibold text-white mb-3">Key Features:</h3>
-            <ul className="list-disc pl-6 space-y-2 text-white/90 mb-6">
-              <li>Secure cloud-based document storage</li>
-              <li>Advanced OCR (Optical Character Recognition)</li>
-              <li>Automated document capture and indexing</li>
-              <li>Version control and audit trails</li>
-              <li>Workflow automation</li>
-              <li>Role-based access control</li>
-              <li>Mobile access and scanning</li>
-            </ul>
-            
-            <h3 className="text-xl font-semibold text-white mb-3">Benefits:</h3>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Reduced paper usage and storage costs</li>
-              <li>Improved document security and compliance</li>
-              <li>Faster document retrieval</li>
-              <li>Enhanced team collaboration</li>
-              <li>Disaster recovery protection</li>
-            </ul>
-          </div>
-          
-          {/* Microsoft 365 Office */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Microsoft 365 Office</h2>
-            <p className="text-white/90 mb-6">
-              Comprehensive productivity suite with powerful document management capabilities, 
-              seamlessly integrated with familiar Office applications.
-            </p>
-            
-            <h3 className="text-xl font-semibold text-white mb-3">Key Features:</h3>
-            <ul className="list-disc pl-6 space-y-2 text-white/90 mb-6">
-              <li>Cloud-based document storage with OneDrive and SharePoint</li>
-              <li>Real-time co-authoring in Word, Excel, and PowerPoint</li>
-              <li>Advanced security and compliance features</li>
-              <li>Seamless integration with Teams for collaboration</li>
-              <li>Automated version history and recovery</li>
-              <li>Powerful search capabilities with Microsoft Search</li>
-              <li>Mobile apps for on-the-go access</li>
-            </ul>
-            
-            <h3 className="text-xl font-semibold text-white mb-3">Benefits:</h3>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Familiar interface with minimal learning curve</li>
-              <li>Anywhere, anytime access to documents</li>
-              <li>Enterprise-grade security and compliance</li>
-              <li>Seamless integration with other Microsoft products</li>
-              <li>Scalable solutions for businesses of all sizes</li>
-            </ul>
-          </div>
-        </div>
-        
-        {/* Integration Section */}
-        <div className="mt-12 bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-          <h2 className="text-2xl font-bold text-center text-white mb-6">Integrated Document Management</h2>
-          <p className="text-white/90 text-center mb-8 max-w-3xl mx-auto">
-            Our experts can help you implement and integrate these powerful document management 
-            solutions into your existing workflows, ensuring a smooth transition and maximum 
-            return on your investment.
+    <div className="bg-gray-50 pt-28 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+            <span className="block">Document</span>
+            <span className="block text-green-600">Management Solutions</span>
+          </h1>
+          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            Transform your document workflow with our secure and efficient document management systems.
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-green-400 text-4xl mb-3">📊</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Consultation</h3>
-              <p className="text-white/80">Assessing your document management needs</p>
+        </div>
+
+        {/* Solutions Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          {solutions.map((solution) => (
+            <div key={solution.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="h-32 overflow-hidden">
+                <img 
+                  src={solution.image} 
+                  alt={solution.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-1">{solution.title}</h3>
+                <p className="text-xs text-gray-600 mb-2">{solution.description}</p>
+                <ul className="space-y-1 mb-3">
+                  {solution.features.map((feature, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-1.5 px-3 rounded transition-colors">
+                  Learn More
+                </button>
+              </div>
             </div>
-            <div>
-              <div className="text-green-400 text-4xl mb-3">🔄</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Implementation</h3>
-              <p className="text-white/80">Seamless deployment and configuration</p>
-            </div>
-            <div>
-              <div className="text-green-400 text-4xl mb-3">🎓</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Training</h3>
-              <p className="text-white/80">Comprehensive staff training and support</p>
-            </div>
-          </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 bg-white rounded-lg shadow-md p-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Need a Custom Document Solution?</h2>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            We can design a customized document management system tailored to your specific business needs.
+          </p>
+          <Link 
+            to="/contact" 
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+          >
+            Contact Us Today
+          </Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,195 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const DocumentManagementPage = () => {
+  const solutions = [
+    {
+      id: 1,
+      title: 'Dokmee Document Management',
+      description: 'Enterprise-class document management solution designed to help businesses of all sizes efficiently capture, manage, and store documents while maintaining security and compliance.',
+      image: '/asset/image/dokmee.png',
+      features: [
+        'Secure cloud-based document storage',
+        'Advanced OCR (Optical Character Recognition)',
+        'Automated document capture and indexing',
+        'Version control and audit trails',
+        'Workflow automation',
+        'Role-based access control',
+        'Mobile access and scanning'
+      ],
+      benefits: [
+        'Reduced paper usage and storage costs',
+        'Improved document security and compliance',
+        'Faster document retrieval',
+        'Enhanced team collaboration',
+        'Disaster recovery protection'
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: 'url(/bg.png)' }}>
+      <div className="absolute inset-0 bg-black/50 -z-10" />
+      <div className="max-w-7xl mx-auto relative">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-green-400 mb-4">
+            Document Management Solutions
+          </h1>
+          <p className="text-xl text-white max-w-3xl mx-auto">
+            Transform your document workflow with our secure and efficient document management systems.
+          </p>
+        </div>
+
+        {/* Solutions Grid */}
+        <div className="grid grid-cols-1 gap-8 mb-16">
+          {solutions.map((solution) => (
+            <div key={solution.id} className="bg-black/60 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
+              <div className="md:flex">
+                <div className="md:w-1/3 h-64 md:h-auto">
+                  <img 
+                    src={solution.image} 
+                    alt={solution.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8 md:w-2/3">
+                  <h2 className="text-2xl font-bold text-green-400 mb-4">{solution.title}</h2>
+                  <p className="text-white/90 mb-6">{solution.description}</p>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-3">Key Features:</h3>
+                      <ul className="space-y-2">
+                        {solution.features.map((feature, index) => (
+                          <li key={`feature-${index}`} className="flex items-start">
+                            <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white/90">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-semibold text-white mb-3">Benefits:</h3>
+                      <ul className="space-y-2">
+                        {solution.benefits.map((benefit, index) => (
+                          <li key={`benefit-${index}`} className="flex items-start">
+                            <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white/90">{benefit}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+          
+          {/* Microsoft 365 Office */}
+          <div className="bg-black/60 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 backdrop-blur-sm">
+            <div className="md:flex">
+              <div className="md:w-1/3 h-64 md:h-auto bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center p-8">
+                <svg className="h-32 w-32 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.5 9.5h-10a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zm-1 3h-8v-1h8v1z"/>
+                  <path d="M15.5 13.5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-10a1 1 0 0 0-1-1h-16a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1.17l2.09 2.09a.5.5 0 0 0 .7-.7l-1.8-1.79 1.8-1.8a.5.5 0 0 0-.7-.7l-2.09 2.08v-1.01z"/>
+                </svg>
+              </div>
+              <div className="p-8 md:w-2/3">
+                <h2 className="text-2xl font-bold text-green-400 mb-4">Microsoft 365 Office</h2>
+                <p className="text-white/90 mb-6">
+                  Comprehensive productivity suite with powerful document management capabilities, 
+                  seamlessly integrated with familiar Office applications.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Key Features:</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Cloud storage with OneDrive/SharePoint</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Real-time co-authoring</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Advanced security features</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Seamless Office integration</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-3">Benefits:</h3>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Familiar interface</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Anytime, anywhere access</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Enterprise security</span>
+                      </li>
+                      <li className="flex items-start">
+                        <svg className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-white/90">Scalable for all businesses</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 bg-white/90 rounded-lg shadow-lg p-8 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Transform Your Document Management?</h2>
+          <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+            Contact us today to learn how our document management solutions can streamline your workflow and improve productivity.
+          </p>
+          <Link 
+            to="/contact" 
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+          >
+            Get Started Today
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DocumentManagementPage;
