@@ -154,7 +154,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-white">
           <p>&copy; 2025 Nextgen Technology Limited. All rights reserved.</p>
         </div>
       </div>
