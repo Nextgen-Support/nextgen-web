@@ -81,6 +81,9 @@ const ContactForm = () => {
             className="space-y-3"
             noValidate
           >
+            <input type="hidden" name="_next" value={window.location.href} />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style={{display: 'none'}} />
             {/* First and Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>

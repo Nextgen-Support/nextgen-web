@@ -131,7 +131,7 @@ export default function Footer() {
                   href="tel:[your new work phone]"
                   className="text-white hover:opacity-80 transition-opacity"
                 >
-                  [your new work phone]
+                  +675 325 2023
                 </a>
               </li>
               <li className="flex items-start">
@@ -140,13 +140,13 @@ export default function Footer() {
                   href="mailto:[your new work email]"
                   className="text-white hover:opacity-80 transition-opacity"
                 >
-                  [your new work email]
+                  support@nextgenpng.net
                 </a>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1">📍</span>
                 <span className="text-white">
-                  [your company address]
+                  Mutual Rumana Building Waigani, Port Moresby
                 </span>
               </li>
             </ul>
