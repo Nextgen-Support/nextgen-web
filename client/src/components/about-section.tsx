@@ -55,10 +55,16 @@ export default function AboutSection() {
 
   // Accreditations data
   const accreditations = [
-    { name: "ISO 9001:2015 Certified", icon: "🏆" },
-    { name: "ICT Industry Certified", icon: "💼" },
-    { name: "Microsoft Gold Partner", icon: "🔹" },
-    { name: "Cisco Certified Partner", icon: "🔸" },
+    { 
+      name: "Holowits", 
+      logo: "/asset/image/holowits.png",
+      description: "Certified Partner"
+    },
+    { 
+      name: "Dokmee", 
+      logo: "/asset/image/dokmee.png",
+      description: "Authorized Reseller"
+    },
   ];
 
   return (
@@ -166,14 +172,34 @@ export default function AboutSection() {
       </div>
 
       {/* Meet the Team Section */}
-      <div
-        className="w-full bg-cover bg-center bg-no-repeat py-8 md:py-12 h-screen"
-        style={{ backgroundImage: "url('/asset/image/team2.png')" }}
-      >
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"></h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mb-8"></div>
-          <p className="text-xl text-white leading-relaxed max-w-4xl mx-auto"></p>
+      <div className="relative w-full py-0 md:py-0">
+        {/* Desktop Background Image - Full size and clear */}
+        <div className="hidden md:block w-full h-screen">
+          <img 
+            src="/asset/image/team2.png" 
+            alt="Our Team"
+            className="w-full h-full object-cover object-center"
+            style={{
+              maxWidth: '100%',
+              height: '100vh',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              display: 'block'
+            }}
+          />
+        </div>
+        
+        {/* Mobile Card - Only visible on small screens */}
+        <div className="md:hidden w-full py-8 px-4">
+          <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto">
+            <div className="relative h-64 w-full">
+              <img 
+                src="/asset/image/team2.png" 
+                alt="Our Team"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -187,16 +213,23 @@ export default function AboutSection() {
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             {accreditations.map((item, index) => (
               <div
                 key={index}
-                className="text-center p-6 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300"
+                className="flex flex-col items-center p-8 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
               >
-                <span className="text-4xl mb-4 inline-block">{item.icon}</span>
-                <h3 className="text-lg font-semibold text-gray-800">
+                <div className="w-32 h-32 mb-4 flex items-center justify-center">
+                  <img 
+                    src={item.logo} 
+                    alt={`${item.name} logo`}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   {item.name}
                 </h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
