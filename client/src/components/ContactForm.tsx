@@ -76,64 +76,66 @@ const ContactForm = () => {
             onSubmit={sendEmail}
             action="https://formsubmit.co/support3@nextgenpng.net"
             method="POST"
-            className="space-y-6 w-full"
+            className="space-y-6 w-full max-w-5xl mx-auto"
             noValidate
           >
             <input type="hidden" name="_next" value={window.location.href} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" style={{display: 'none'}} />
             {/* Name and Email */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="w-full">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  required
-                />
+            <div className="grid grid-cols-1 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="w-full">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-5 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    required
+                  />
+                </div>
+                <div className="w-full">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-5 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    required
+                  />
+                </div>
               </div>
-              <div className="w-full">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  required
-                />
-              </div>
-            </div>
 
-            {/* Phone and Subject */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="w-full">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                />
-              </div>
-              <div className="w-full">
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
-                  Subject *
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  required
-                />
+              {/* Phone and Subject */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="w-full">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full px-5 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  />
+                </div>
+                <div className="w-full">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
+                    Subject *
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    className="w-full px-5 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    required
+                  />
+                </div>
               </div>
             </div>
 
@@ -145,8 +147,8 @@ const ContactForm = () => {
               <textarea
                 id="message"
                 name="message"
-                rows={4}
-                className="w-full px-4 py-3 bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                rows={5}
+                className="w-full px-5 py-4 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 required
               ></textarea>
             </div>
