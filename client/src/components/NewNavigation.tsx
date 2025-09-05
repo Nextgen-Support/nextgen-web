@@ -375,6 +375,16 @@ export default function NewNavigation() {
               {isMobileServicesOpen && (
                 <div className="pl-4 space-y-1">
                   <Link
+                    to="/services/web-hosting"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Web and Domain Hosting
+                  </Link>
+                  <Link
                     to="/services/document-management"
                     className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
