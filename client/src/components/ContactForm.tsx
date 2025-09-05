@@ -76,7 +76,7 @@ const ContactForm = () => {
             onSubmit={sendEmail}
             action="https://formsubmit.co/support3@nextgenpng.net"
             method="POST"
-            className="space-y-6 w-full max-w-5xl mx-auto"
+            className="space-y-6 w-full"
             noValidate
           >
             <input type="hidden" name="_next" value={window.location.href} />
