@@ -170,14 +170,16 @@ export function SolutionsSection() {
                     <p className="text-gray-600 mb-4 flex-1">
                       {solution.description}
                     </p>
-                    <button
+                    <a
+                      href="#contact"
                       className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center"
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.location.href = solution.link;
+                        e.preventDefault();
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                       }}
                     >
-                      Learn More
+                      Contact Us
                       <svg
                         className="w-4 h-4 ml-2"
                         fill="none"
@@ -189,10 +191,10 @@ export function SolutionsSection() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
                         />
                       </svg>
-                    </button>
+                    </a>
                   </div>
                 </motion.div>
               ))}
