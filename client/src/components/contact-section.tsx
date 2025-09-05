@@ -3,9 +3,9 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-8 sm:py-16 bg-gray-100 w-full">
+    <section id="contact" className="py-8 sm:py-16 bg-gray-90 w-full">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-gray-900">Contact Us</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white">Contact Us</h2>
         
         <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
           <div className="text-white">

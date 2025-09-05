@@ -4,6 +4,7 @@ import { WhyChooseUsSection } from "../components/why-choose-us";
 import AboutSection from "../components/about-section";
 import NewsSection from "../components/news-section";
 import { SolutionsSection } from "../components/solutions-section";
+import AccreditationsSection from "../components/accreditations-section";
 import ContactSection from "../components/contact-section";
 
 export default function Home() {
@@ -12,9 +13,10 @@ export default function Home() {
       <HeroSection />
       <WhyChooseUsSection />
       <AboutSection />
-      <NewsSection />
       <SolutionsSection />
+      <AccreditationsSection />
       <ContactSection />
+      <NewsSection />
     </div>
   );
 }

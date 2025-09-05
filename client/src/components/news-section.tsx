@@ -54,19 +54,14 @@ export default function NewsSection() {
   return (
     <section
       id="news"
-      className="py-20 relative bg-black text-white"
-      style={{ position: "relative", zIndex: 10 }}
+      className="py-20 relative bg-white"
     >
-      <div
-        className="absolute inset-0 bg-black/50 -z-10"
-        style={{ zIndex: -1 }}
-      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Latest News & Insights
           </h2>
-          <p className="text-sm text-white/80 max-w-3xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto">
             Stay updated with the latest news, trends, best practices, and
             insights that can help your business grow.
           </p>
