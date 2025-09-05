@@ -1,90 +1,79 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const categories = [
-  { name: "Document Management", link: "/services/document-management" },
-  { name: "CCTV Solutions", link: "/services/cctv" },
-  { name: "Networking", link: "/products?category=networking" },
-  { name: "Web and Domain Hosting", link: "/services/web-hosting" },
-  { name: "Security", link: "/services/security" },
-  { name: "ISP Services", link: "/services/isp" },
+const cardData = [
+  {
+    title: "Domain Services",
+    description: "Professional domain registration and management",
+    image: "/asset/image/domain.png"
+  },
+  {
+    title: "CCTV Solutions",
+    description: "Advanced security camera systems",
+    image: "/asset/image/cctv1.png"
+  },
+  {
+    title: "Document Management",
+    description: "Secure and efficient document handling",
+    image: "/asset/image/dokmee-card.png"
+  }
 ];
 
 export default function HeroSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [currentCategory, setCurrentCategory] = useState(0);
-  const [isHomePage, setIsHomePage] = useState(
-    window.location.pathname === "/"
-  );
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
-  // Check if we're on the home page
+  // Auto-rotate cards when in view
   useEffect(() => {
-    const handleRouteChange = () => {
-      const isHome = window.location.pathname === "/";
-      setIsHomePage(isHome);
-      // Always show when returning to home page if at the top
-      if (isHome && window.scrollY < 100) {
-        setIsVisible(true);
+    let timer: NodeJS.Timeout;
+    
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero');
+      if (!heroSection) return;
+      
+      const rect = heroSection.getBoundingClientRect();
+      const isHeroVisible = (
+        rect.top >= -rect.height && 
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + rect.height
+      );
+
+      setIsVisible(isHeroVisible);
+      
+      if (isHeroVisible) {
+        startAutoRotate();
       } else {
-        setIsVisible(false);
+        clearInterval(timer);
       }
+    };
+
+    const startAutoRotate = () => {
+      clearInterval(timer); // Clear any existing timer
+      timer = setInterval(() => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentImageIndex((prev) => (prev + 1) % cardData.length);
+          setTimeout(() => {
+            setIsTransitioning(false);
+          }, 1000);
+        }, 1000);
+      }, 5000);
     };
 
     // Initial check
-    handleRouteChange();
-
-    // Listen for route changes
-    window.addEventListener("popstate", handleRouteChange);
-    return () => window.removeEventListener("popstate", handleRouteChange);
-  }, []);
-
-  // Auto-rotate categories
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentCategory((prev) => (prev + 1) % categories.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-
-      // Only show categories when at the top of the home page
-      if (isHomePage) {
-        const isAtTop = currentScrollPos < 100; // 100px threshold from top
-
-        if (currentScrollPos === 0) {
-          // Always show when exactly at the top
-          setIsVisible(true);
-        } else if (currentScrollPos < prevScrollPos && currentScrollPos < 300) {
-          // Show when scrolling up near the top
-          setIsVisible(true);
-        } else if (currentScrollPos > prevScrollPos && currentScrollPos > 100) {
-          // Hide when scrolling down past threshold
-          setIsVisible(false);
-        }
-      } else {
-        // Not on home page, ensure hidden
-        setIsVisible(false);
-      }
-
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    
+    // Set up scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Clean up
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      clearInterval(timer);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [isVisible, prevScrollPos, isHomePage]);
+  }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // Removed scroll handling as it's no longer needed for the image carousel
 
   return (
     <section
@@ -128,28 +117,64 @@ export default function HeroSection() {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-15"></div>
       </div>
-      {/* Categories Sidebar */}
-      <div
-        className={`hidden md:flex w-64 bg-black/90 flex-shrink-0 z-10 h-auto max-h-[60vh] mt-10 fixed left-0 overflow-y-auto transition-transform duration-300 ${
-          isVisible ? "translate-x-0" : "-translate-x-full"
+      {/* Rotating Cards Sidebar */}
+      <div 
+        className={`hidden md:flex w-80 flex-shrink-0 z-10 mt-16 fixed left-4 transition-all duration-500 ease-in-out ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
         }`}
       >
-        <div className="w-full p-4">
-          <h2 className="text-lg font-semibold mb-4 text-yellow-300 border-b border-white/20 pb-2">
-            Products & Services
-          </h2>
-          <ul className="space-y-1">
-            {categories.map((category, index) => (
-              <li key={index} className="group">
-                <Link
-                  to={category.link}
-                  className="block px-3 py-2 text-sm text-white/90 hover:bg-white/10 rounded transition-colors duration-200 group-hover:translate-x-1"
-                >
-                  {category.name}
-                </Link>
-              </li>
+        <div className="relative w-full">
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentImageIndex 
+                  ? 'opacity-100 z-10'
+                  : 'opacity-0 pointer-events-none z-0'
+              }`}
+            >
+              <div 
+                className="bg-white rounded-xl shadow-xl overflow-hidden w-full h-[320px] relative"
+              >
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url(${card.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%',
+                    height: '100%',
+                    filter: 'saturate(1.1) brightness(1.05)',
+                    WebkitFilter: 'saturate(1.1) brightness(1.05)'
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2">{card.title}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+          
+          {/* Navigation Dots */}
+          <div className="absolute -bottom-12 left-0 right-0 flex justify-center space-x-2">
+            {cardData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsTransitioning(true);
+                  setTimeout(() => {
+                    setCurrentImageIndex(index);
+                    setIsTransitioning(false);
+                  }, 100);
+                }}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentImageIndex ? 'bg-blue-600 w-8' : 'bg-gray-300'
+                }`}
+                aria-label={`View card ${index + 1}`}
+              />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
 

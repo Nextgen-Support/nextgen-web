@@ -75,7 +75,7 @@ export function SolutionsSection() {
       title: "Document Management",
       description:
         "Efficient and secure document handling and storage solutions",
-      image: "/asset/image/document management-card.jpg",
+      image: "/asset/image/dokmee.png",
       link: "/services/document-management",
     },
     {
