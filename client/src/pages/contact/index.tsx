@@ -3,17 +3,13 @@ import ContactForm from '../../components/ContactForm';
 
 const ContactPage = () => {
   return (
-    <div className="min-h-0 py-4 sm:py-8 px-0 sm:px-0">
-      <div className="w-full">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white">Contact Us</h1>
-        </div>
+    <div className="min-h-0 py-4 sm:py-8 w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-white">Contact Us</h1>
         
-        <div className="bg-gray-900 rounded-none sm:rounded-lg shadow-lg p-0 sm:p-8">
+        <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden">
           <div className="text-white">
-            <div className="max-w-7xl mx-auto">
-              <ContactForm />
-            </div>
+            <ContactForm />
             
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
               <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">

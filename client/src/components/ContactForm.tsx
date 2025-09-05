@@ -69,15 +69,14 @@ const ContactForm = () => {
   return (
     <div className="w-full">
       <div className="bg-gray-800 rounded-lg overflow-hidden w-full">
-        <div className="p-4 sm:p-8 w-full">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center sm:text-left">Send us a message</h2>
+        <div className="w-full px-0 sm:px-8">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center sm:text-left pt-6 sm:pt-8 px-4 sm:px-0">Send us a message</h2>
           <form 
             ref={form}
             onSubmit={sendEmail}
             action="https://formsubmit.co/support3@nextgenpng.net"
             method="POST"
-            className="space-y-6 w-full mx-auto"
-            style={{ maxWidth: '1200px' }}
+            className="space-y-6 w-full px-4 sm:px-0 pb-6 sm:pb-8"
             noValidate
           >
             <input type="hidden" name="_next" value={window.location.href} />
@@ -159,7 +158,7 @@ const ContactForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full md:w-1/3 px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500 text-white font-medium rounded-md flex items-center justify-center space-x-3 transition-colors text-base"
+                className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500 text-white font-medium rounded-md flex items-center justify-center space-x-3 transition-colors text-base"
               >
                 {isSubmitting ? (
                   <>
