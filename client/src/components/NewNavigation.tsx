@@ -184,6 +184,7 @@ export default function NewNavigation() {
                       >
                         CCTV Solutions
                       </Link>
+                      {/* ISP Services temporarily disabled
                       <Link
                         to="/services/isp"
                         className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
@@ -191,6 +192,7 @@ export default function NewNavigation() {
                       >
                         ISP Services
                       </Link>
+                      */}
                       <Link
                         to="/services/web-hosting"
                         className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
@@ -392,6 +394,7 @@ export default function NewNavigation() {
                   >
                     CCTV Solutions
                   </Link>
+                  {/* ISP Services temporarily disabled
                   <Link
                     to="/services/isp"
                     className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
@@ -402,6 +405,7 @@ export default function NewNavigation() {
                   >
                     ISP Services
                   </Link>
+                  */}
                   <Link
                     to="/services/security"
                     className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"

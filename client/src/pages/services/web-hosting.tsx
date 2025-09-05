@@ -1,97 +1,137 @@
 import React from 'react';
 
 const WebHostingPage = () => {
+  const plans = [
+    {
+      title: 'Basic',
+      price: 'K55',
+      period: '/month (excluding GST)',
+      features: [
+        '1 domain / 1 website',
+        '7 POP3 email accounts',
+        '200MB disk space per mailbox',
+        '2GB monthly traffic',
+        '1 MySQL database',
+        'No cPanel access'
+      ],
+      popular: false
+    },
+    {
+      title: 'Standard',
+      price: 'K110',
+      period: '/month (excluding GST)',
+      features: [
+        '3 domains / 3 websites',
+        '15 POP3 email accounts',
+        '400MB disk space per mailbox',
+        '4GB monthly traffic',
+        '2 MySQL databases',
+        'No cPanel access'
+      ],
+      popular: false
+    },
+    {
+      title: 'Value',
+      price: 'K220',
+      period: '/month (excluding GST)',
+      features: [
+        '7 domains / 7 websites',
+        '30 POP3 email accounts',
+        '1GB disk space per mailbox',
+        '10GB monthly traffic',
+        '5 MySQL databases',
+        'With cPanel access'
+      ],
+      popular: false
+    },
+    {
+      title: 'Premium',
+      price: 'K440',
+      period: '/month (excluding GST)',
+      features: [
+        '15 domains / 15 websites',
+        '60 POP3 email accounts',
+        '2GB disk space per mailbox',
+        '20GB monthly traffic',
+        '10 MySQL databases',
+        'With cPanel access'
+      ],
+      popular: false
+    },
+    {
+      title: 'Premium Plus',
+      price: 'K550',
+      period: '/month (excluding GST)',
+      features: [
+        '15 domains / 15 websites',
+        '100 POP3 email accounts',
+        '2GB disk space per mailbox',
+        '20GB monthly traffic',
+        '10 MySQL databases',
+        'With cPanel access'
+      ],
+      popular: false
+    }
+  ];
+
   return (
-    <div className="min-h-screen pt-24 px-4 bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: 'url(/bg.png)' }}>
-      <div className="absolute inset-0 bg-black/50 -z-10" />
-      <div className="max-w-6xl mx-auto relative">
-        <h1 className="text-4xl font-bold text-center my-12 text-white">Web and Domain Hosting Solutions</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Web Hosting */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Web Hosting</h2>
-            <p className="text-white/90 mb-4">
-              Reliable and high-performance web hosting solutions tailored to your needs.
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Lightning-fast SSD storage</li>
-              <li>99.9% Uptime Guarantee</li>
-              <li>One-click WordPress installation</li>
-              <li>Free SSL certificates</li>
-              <li>24/7 Server Monitoring</li>
-              <li>Daily Backups</li>
-            </ul>
-          </div>
-
-          {/* Domain & Email Solution */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Domain & Email Solutions</h2>
-            <p className="text-white/90 mb-4">
-              Professional email and domain management for your business.
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Domain registration and transfer</li>
-              <li>Professional business email</li>
-              <li>Email forwarding and aliases</li>
-              <li>Webmail access</li>
-              <li>Calendar and contact sync</li>
-              <li>Generous storage options</li>
-            </ul>
-          </div>
-
-          {/* Web Design & Development */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Web Design & Development</h2>
-            <p className="text-white/90 mb-4">
-              Custom websites designed to convert visitors into customers.
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Responsive web design</li>
-              <li>E-commerce solutions</li>
-              <li>Content Management Systems</li>
-              <li>SEO optimization</li>
-              <li>Mobile-first approach</li>
-              <li>Ongoing maintenance</li>
-            </ul>
-          </div>
-
-          {/* Anti-Spam Protection */}
-          <div className="bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-            <h2 className="text-2xl font-bold mb-4 text-green-400">Anti-Spam Protection</h2>
-            <p className="text-white/90 mb-4">
-              Advanced protection against spam and malicious emails.
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-white/90">
-              <li>Enterprise-grade spam filtering</li>
-              <li>Virus and malware scanning</li>
-              <li>Phishing protection</li>
-              <li>Customizable filtering rules</li>
-              <li>Quarantine management</li>
-              <li>Real-time blacklist monitoring</li>
-            </ul>
-          </div>
+    <div className="min-h-screen bg-gray-50 pt-32 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-green-600 sm:text-5xl">
+            Web Hosting Plans
+          </h1>
+          <p className="mt-4 text-xl text-green-500">
+            Choose the Plan that suits You
+          </p>
         </div>
 
-        {/* Additional Features */}
-        <div className="mt-8 bg-black/60 rounded-lg shadow-lg p-8 backdrop-blur-sm">
-          <h2 className="text-2xl font-bold mb-6 text-center text-white">Why Choose Our Hosting Solutions?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-green-400 text-4xl mb-2">🚀</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Lightning Fast</h3>
-              <p className="text-white/80">Optimized servers for maximum performance</p>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+          {plans.map((plan, index) => (
+            <div 
+              key={index}
+              className={`relative rounded-2xl shadow-lg overflow-hidden ${
+                plan.popular ? 'ring-2 ring-yellow-500 transform -translate-y-2' : 'border border-blue-800'
+              } bg-blue-900`}
+            >
+              {plan.popular && (
+                <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 transform translate-x-2 -translate-y-2 rotate-12">
+                  POPULAR
+                </div>
+              )}
+              <div className="p-6 h-full flex flex-col">
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-center mb-4 text-white">{plan.title}</h3>
+                  <div className="text-center mb-6">
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-gray-300">{plan.period}</span>
+                  </div>
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-gray-200">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-auto">
+                  <a 
+                    href="/contact"
+                    className={`block w-full py-3 px-4 rounded-xl font-medium text-center transition-colors ${
+                      plan.popular 
+                        ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900' 
+                        : 'bg-green-600 hover:bg-green-700 text-white'
+                    }`}
+                  >
+                    Get Started
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-green-400 text-4xl mb-2">🔒</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Secure</h3>
-              <p className="text-white/80">Enterprise-grade security measures</p>
-            </div>
-            <div className="text-center">
-              <div className="text-green-400 text-4xl mb-2">🛡️</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Reliable Support</h3>
-              <p className="text-white/80">24/7 expert assistance</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

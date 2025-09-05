@@ -11,6 +11,11 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        maroon: {
+          700: '#8B0000',
+          800: '#7A0000',
+          900: '#690000',
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {

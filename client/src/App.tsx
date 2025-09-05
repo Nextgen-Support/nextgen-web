@@ -9,7 +9,7 @@ import About from "./pages/about";
 import Services from "./pages/services";
 import DocumentManagement from "./pages/services/document-management";
 import CCTVSolutions from "./pages/services/cctv";
-import ISPServices from "./pages/services/isp";
+import ISPServices from "./pages/services/isp-services";
 import WebHosting from "./pages/services/web-hosting";
 import SecuritySolutions from "./pages/services/security";
 import Projects from "./pages/projects";
@@ -29,7 +29,7 @@ function Router() {
           <Route path="/services" element={<Services />} />
           <Route path="/services/document-management" element={<DocumentManagement />} />
           <Route path="/services/cctv" element={<CCTVSolutions />} />
-          <Route path="/services/isp" element={<ISPServices />} />
+          {/*<Route path="/services/isp-services" element={<ISPServices />} />*/}
           <Route path="/services/web-hosting" element={<WebHosting />} />
           <Route path="/services/security" element={<SecuritySolutions />} />
           <Route path="/projects" element={<Projects />} />
