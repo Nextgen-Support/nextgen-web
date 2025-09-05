@@ -52,7 +52,7 @@ const DocumentManagementPage = () => {
         {/* Solutions Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {solutions.map((solution) => (
-            <div key={solution.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div key={solution.id} className="flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
               <div className="h-32 overflow-hidden">
                 <img 
                   src={solution.image} 
@@ -61,22 +61,29 @@ const DocumentManagementPage = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="p-3">
-                <h3 className="text-base font-semibold text-gray-900 mb-1">{solution.title}</h3>
-                <p className="text-xs text-gray-600 mb-2">{solution.description}</p>
-                <ul className="space-y-1 mb-3">
-                  {solution.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-1.5 px-3 rounded transition-colors">
-                  Learn More
-                </button>
+              <div className="p-3 flex flex-col h-full">
+                <div className="flex-1">
+                  <h3 className="text-base font-semibold text-gray-900 mb-1">{solution.title}</h3>
+                  <p className="text-xs text-gray-600 mb-2">{solution.description}</p>
+                  <ul className="space-y-1 mb-3">
+                    {solution.features.map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-auto pt-3 border-t border-gray-100">
+                  <Link 
+                    to="/contact"
+                    className="block w-full bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-1.5 px-3 rounded transition-colors text-center"
+                  >
+                    Get a Quote
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

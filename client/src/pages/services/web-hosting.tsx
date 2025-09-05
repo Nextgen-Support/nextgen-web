@@ -90,7 +90,7 @@ const WebHostingPage = () => {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative rounded-2xl shadow-lg overflow-hidden ${
+              className={`relative flex flex-col h-full min-h-[600px] rounded-2xl shadow-lg overflow-hidden ${
                 plan.popular ? 'ring-2 ring-yellow-500 transform -translate-y-2' : 'border border-blue-800'
               } bg-blue-900`}
             >
@@ -99,8 +99,8 @@ const WebHostingPage = () => {
                   POPULAR
                 </div>
               )}
-              <div className="p-6 h-full flex flex-col">
-                <div className="flex-grow">
+              <div className="p-6 flex flex-col h-full">
+                <div className="flex-1">
                   <h3 className="text-2xl font-bold text-center mb-4 text-white">{plan.title}</h3>
                   <div className="text-center mb-6">
                     <span className="text-4xl font-bold text-white">{plan.price}</span>
@@ -117,7 +117,7 @@ const WebHostingPage = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-auto">
+                <div className="mt-6 pt-4 border-t border-blue-800">
                   <a 
                     href="/contact"
                     className={`block w-full py-3 px-4 rounded-xl font-medium text-center transition-colors ${

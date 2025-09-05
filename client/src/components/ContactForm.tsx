@@ -78,54 +78,42 @@ const ContactForm = () => {
             onSubmit={sendEmail}
             action="https://formsubmit.co/support3@nextgenpng.net"
             method="POST"
-            className="space-y-3"
+            className="space-y-4"
             noValidate
           >
             <input type="hidden" name="_next" value={window.location.href} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" style={{display: 'none'}} />
-            {/* First and Last Name */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Name and Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="block text-xs font-medium text-gray-300 mb-1">
-                  First Name *
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                  Full Name *
                 </label>
                 <input
                   type="text"
-                  id="firstName"
-                  name="firstName"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  id="name"
+                  name="name"
+                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-1">
-                  Last Name *
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  required
-                />
-              </div>
-            </div>
-
-            {/* Email and Phone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
-                  Email *
+                  Email Address *
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
+            </div>
+
+            {/* Phone and Subject */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
                   Phone Number
@@ -134,29 +122,8 @@ const ContactForm = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 />
-              </div>
-            </div>
-
-            {/* Account Type and Subject */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="accountType" className="block text-sm font-medium text-gray-300 mb-1">
-                  Account Type *
-                </label>
-                <select
-                  id="accountType"
-                  name="accountType"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  required
-                >
-                  <option value="">Select account type</option>
-                  <option value="personal">Personal</option>
-                  <option value="business">Business</option>
-                  <option value="enterprise">Enterprise</option>
-                  <option value="education">Education</option>
-                </select>
               </div>
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
@@ -166,7 +133,7 @@ const ContactForm = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full px-3 py-1.5 text-sm bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
@@ -180,24 +147,24 @@ const ContactForm = () => {
               <textarea
                 id="message"
                 name="message"
-                rows={4}
-                className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                rows={3}
+                className="w-full px-3 py-2 bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 required
               ></textarea>
             </div>
 
-            {/* Submit Button   */}
-            <div className="flex justify-center">
+            {/* Submit Button */}
+            <div className="flex justify-center pt-2">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500 text-white font-medium rounded-md flex items-center justify-center space-x-2 transition-colors"
+                className="w-full md:w-auto px-8 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-500 text-white font-medium rounded-md flex items-center justify-center space-x-2 transition-colors"
               >
                 {isSubmitting ? (
                   <span>Sending...</span>
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send size={16} className="flex-shrink-0" />
                     <span>Send Message</span>
                   </>
                 )}
