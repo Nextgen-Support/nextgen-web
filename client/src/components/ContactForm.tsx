@@ -67,18 +67,16 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-gray-900 py-4 px-4 sm:px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-gray-800 p-4 rounded-lg shadow-md">
-          <h3 className="text-xl font-bold text-center text-white mb-4">
-            Talk to our staff today!
-          </h3>
+    <div className="w-full">
+      <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <div className="p-8">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center sm:text-left">Send us a message</h2>
           <form 
             ref={form}
             onSubmit={sendEmail}
             action="https://formsubmit.co/support3@nextgenpng.net"
             method="POST"
-            className="space-y-4"
+            className="space-y-6 w-full"
             noValidate
           >
             <input type="hidden" name="_next" value={window.location.href} />
