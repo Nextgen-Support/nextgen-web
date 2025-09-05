@@ -239,9 +239,12 @@ export default function AboutSection() {
               All our accreditations are available upon request. Contact us for
               more information about our certifications.
             </p>
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors duration-300">
+            <a 
+              href="/contact" 
+              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors duration-300"
+            >
               Request Documentation
-            </button>
+            </a>
           </div>
         </div>
       </div>

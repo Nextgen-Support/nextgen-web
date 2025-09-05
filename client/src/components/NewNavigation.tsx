@@ -202,10 +202,10 @@ export default function NewNavigation() {
                       </Link>
                       <Link
                         to="/services/security"
-                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                        className="hidden px-4 py-2 text-sm text-green-400 hover:bg-white/10"
                         onClick={() => setIsServicesOpen(false)}
                       >
-                        Security Solutions
+                        {/* Security Solutions - Temporarily hidden */}
                       </Link>
                     </div>
                   </div>
@@ -416,6 +416,7 @@ export default function NewNavigation() {
                     ISP Services
                   </Link>
                   */}
+                  {/* Temporarily hidden
                   <Link
                     to="/services/security"
                     className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
@@ -426,6 +427,7 @@ export default function NewNavigation() {
                   >
                     Security Solutions
                   </Link>
+                  */}
                 </div>
               )}
             </div>

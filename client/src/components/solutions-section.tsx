@@ -79,23 +79,16 @@ export function SolutionsSection() {
       link: "/services/document-management",
     },
     {
-      title: "ISP Solutions",
-      description: "High-speed internet and network connectivity services",
-      image: "/asset/image/hosting-card.jpg",
-      link: "/services/isp",
+      title: "CCTV Solutions",
+      description: "Advanced surveillance and security camera systems for your business",
+      image: "/asset/image/cctv1.jpg",
+      link: "/services/cctv",
     },
     {
-      title: "Networking & Structure Solution",
-      description: "Robust networking infrastructure and structured cabling",
-      image: "/asset/image/networking-card.jpg",
-      link: "/services/security",
-    },
-    {
-      title: "Software Solution",
-      description:
-        "Custom software development and business application solutions",
-      image: "/asset/image/software solution -card.jpg",
-      link: "/services",
+      title: "Web & Domain Hosting",
+      description: "Reliable web hosting and domain registration services for your online presence",
+      image: "/asset/image/domain.png",
+      link: "/services/web-hosting",
     },
   ];
 
@@ -128,17 +121,14 @@ export function SolutionsSection() {
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               Our Solutions
             </h2>
-            <p className="mt-4 text-xl text-gray-600">
-              Innovative technology solutions tailored to your business needs
-            </p>
           </motion.div>
 
-          <div className="w-full px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
               {solutions.map((solution, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col transform hover:scale-105 transition-transform"
                   onClick={(e) => {
                     e.preventDefault();
                     window.location.href = solution.link;
@@ -156,7 +146,7 @@ export function SolutionsSection() {
                   initial="hidden"
                   animate={controls}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-56 overflow-hidden">
                     <img
                       src={solution.image}
                       alt={solution.title}
@@ -173,8 +163,8 @@ export function SolutionsSection() {
                       </h3>
                     </div>
                   </div>
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <div className="p-8 flex-1 flex flex-col">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {solution.title}
                     </h3>
                     <p className="text-gray-600 mb-4 flex-1">

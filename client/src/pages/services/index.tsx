@@ -18,14 +18,14 @@ const services = [
     color: 'from-green-600 to-green-800',
     link: '/services/isp'
   },
-  {
-    id: 'security',
-    title: 'Security Solutions',
-    description: 'Comprehensive digital security services to protect your business from threats.',
-    icon: '🔒',
-    color: 'from-purple-600 to-purple-800',
-    link: '/services/security'
-  },
+  // {
+  //   id: 'security',
+  //   title: 'Security Solutions',
+  //   description: 'Comprehensive digital security services to protect your business from threats.',
+  //   icon: '🔒',
+  //   color: 'from-purple-600 to-purple-800',
+  //   link: '/services/security'
+  // },
   {
     id: 'web-hosting',
     title: 'Web & Domain Hosting',
