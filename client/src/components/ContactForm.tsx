@@ -67,8 +67,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="bg-gray-800 rounded-lg overflow-hidden w-full">
+    <div className="w-full bg-cover bg-center bg-no-repeat md:bg-none" style={{ backgroundImage: 'url(/bg.png)' }}>
+      <div className="bg-gray-800/90 md:bg-gray-800 rounded-lg overflow-hidden w-full">
         <div className="w-full px-0 sm:px-8">
           <h2 className="text-2xl font-bold text-white mb-8 text-center sm:text-left pt-6 sm:pt-8 px-4 sm:px-0">Send us a message</h2>
           <form 
