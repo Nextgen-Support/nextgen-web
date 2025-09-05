@@ -68,8 +68,8 @@ const ContactForm = () => {
 
   return (
     <div className="w-full">
-      <div className="bg-gray-800 rounded-lg overflow-hidden">
-        <div className="p-8">
+      <div className="bg-gray-800 rounded-lg overflow-hidden w-full">
+        <div className="p-8 w-full">
           <h2 className="text-2xl font-bold text-white mb-8 text-center sm:text-left">Send us a message</h2>
           <form 
             ref={form}
@@ -83,8 +83,8 @@ const ContactForm = () => {
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" style={{display: 'none'}} />
             {/* Name and Email */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="w-full">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                   Full Name *
                 </label>
@@ -92,11 +92,11 @@ const ContactForm = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                   Email Address *
                 </label>
@@ -104,15 +104,15 @@ const ContactForm = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
             </div>
 
             {/* Phone and Subject */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="w-full">
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
                   Phone Number
                 </label>
@@ -120,10 +120,10 @@ const ContactForm = () => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
                   Subject *
                 </label>
@@ -131,22 +131,22 @@ const ContactForm = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="w-full px-3 py-2 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   required
                 />
               </div>
             </div>
 
             {/* Message */}
-            <div>
+            <div className="w-full">
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                 Message *
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows={3}
-                className="w-full px-3 py-2 bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                rows={4}
+                className="w-full px-4 py-3 bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 required
               ></textarea>
             </div>
