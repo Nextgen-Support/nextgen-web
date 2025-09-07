@@ -8,6 +8,8 @@ export default function NewNavigation() {
   const [isVisible, setIsVisible] = useState(true);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isMobileSupportOpen, setIsMobileSupportOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isMobileCategoryOpen, setIsMobileCategoryOpen] = useState(false);
   const lastScrollY = useRef(0);
@@ -65,6 +67,22 @@ export default function NewNavigation() {
   const toggleCategory = () => setIsCategoryOpen(!isCategoryOpen);
   const toggleMobileCategory = () =>
     setIsMobileCategoryOpen(!isMobileCategoryOpen);
+    
+  const [isGuidesOpen, setIsGuidesOpen] = useState(false);
+  const [isMobileGuidesOpen, setIsMobileGuidesOpen] = useState(false);
+  const toggleGuides = () => setIsGuidesOpen(!isGuidesOpen);
+  const toggleMobileGuides = () => setIsMobileGuidesOpen(!isMobileGuidesOpen);
+  
+  const toggleSupport = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsSupportOpen(!isSupportOpen);
+    if (isGuidesOpen) setIsGuidesOpen(false);
+  };
+  const toggleMobileSupport = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsMobileSupportOpen(!isMobileSupportOpen);
+    if (isMobileGuidesOpen) setIsMobileGuidesOpen(false);
+  };
 
   const navClasses = `fixed top-0 left-0 right-0 z-50 transition-transform duration-300 transform ${
     isVisible ? 'translate-y-0' : '-translate-y-full'
@@ -196,10 +214,94 @@ export default function NewNavigation() {
                       <Link
                         to="/services/web-hosting"
                         className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                        onClick={() => setIsServicesOpen(false)}
+                        onClick={() => {
+                          setIsServicesOpen(false);
+                          setIsSupportOpen(false);
+                        }}
                       >
                         Web and Domain Hosting
                       </Link>
+                      <div className="relative group">
+                        <button
+                          onClick={toggleSupport}
+                          className="w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-white/10 flex justify-between items-center"
+                        >
+                          Support
+                          <ChevronDown
+                            className={`ml-1 h-4 w-4 transition-transform ${
+                              isSupportOpen ? 'transform rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                        {isSupportOpen && (
+                          <div className="absolute left-0 mt-1 ml-4 w-56 rounded-md shadow-lg bg-black/80 backdrop-blur-sm border border-white/10 z-10">
+                            <div className="py-1">
+                              <div className="relative">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    toggleGuides();
+                                  }}
+                                  className="w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-white/10 flex justify-between items-center"
+                                >
+                                  Guides
+                                  <ChevronDown
+                                    className={`ml-1 h-4 w-4 transition-transform ${
+                                      isGuidesOpen ? 'transform rotate-180' : ''
+                                    }`}
+                                  />
+                                </button>
+                                {isGuidesOpen && (
+                                  <div className="pl-2">
+                                    <Link
+                                      to="/support/guides/outlook-email"
+                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                      onClick={() => {
+                                        setIsServicesOpen(false);
+                                        setIsSupportOpen(false);
+                                      }}
+                                    >
+                                      Setup your email in Outlook
+                                    </Link>
+                                    <Link
+                                      to="/support/guides/android-email"
+                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                      onClick={() => {
+                                        setIsServicesOpen(false);
+                                        setIsSupportOpen(false);
+                                      }}
+                                    >
+                                      Setup your email on Android
+                                    </Link>
+                                    <Link
+                                      to="/support/guides/iphone-email"
+                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                      onClick={() => {
+                                        setIsServicesOpen(false);
+                                        setIsSupportOpen(false);
+                                      }}
+                                    >
+                                      Setup your email on iPhone
+                                    </Link>
+                                  </div>
+                                )}
+                              </div>
+                              <div className="border-t border-white/10 mt-1">
+                                <Link
+                                  to="/support/request"
+                                  className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                  onClick={() => {
+                                    setIsServicesOpen(false);
+                                    setIsSupportOpen(false);
+                                  }}
+                                >
+                                  Submit Support Request
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                       <Link
                         to="/services/security"
                         className="hidden px-4 py-2 text-sm text-green-400 hover:bg-white/10"
@@ -416,6 +518,85 @@ export default function NewNavigation() {
                     ISP Services
                   </Link>
                   */}
+                  <div className="pl-2">
+                    <button
+                      onClick={toggleMobileSupport}
+                      className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    >
+                      <span>Support</span>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform ${
+                          isMobileSupportOpen ? 'transform rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {isMobileSupportOpen && (
+                      <div className="pl-4 space-y-1">
+                        <div>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleMobileGuides();
+                            }}
+                            className="w-full flex justify-between items-center px-3 py-2 rounded-md text-sm font-medium text-green-400 hover:bg-white/20"
+                          >
+                            <span>Guides</span>
+                            <ChevronDown
+                              className={`h-4 w-4 transition-transform ${
+                                isMobileGuidesOpen ? 'transform rotate-180' : ''
+                              }`}
+                            />
+                          </button>
+                          {isMobileGuidesOpen && (
+                            <div className="pl-4">
+                              <Link
+                                to="/support/guides/outlook-email"
+                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
+                                onClick={() => {
+                                  setIsMobileServicesOpen(false);
+                                  setIsMenuOpen(false);
+                                }}
+                              >
+                                • Setup your email in Outlook
+                              </Link>
+                              <Link
+                                to="/support/guides/android-email"
+                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
+                                onClick={() => {
+                                  setIsMobileServicesOpen(false);
+                                  setIsMenuOpen(false);
+                                }}
+                              >
+                                • Setup your email on Android
+                              </Link>
+                              <Link
+                                to="/support/guides/iphone-email"
+                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
+                                onClick={() => {
+                                  setIsMobileServicesOpen(false);
+                                  setIsMenuOpen(false);
+                                }}
+                              >
+                                • Setup your email on iPhone
+                              </Link>
+                            </div>
+                          )}
+                        </div>
+                        <div className="border-t border-white/10 mt-1">
+                          <Link
+                            to="/support/request"
+                            className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                            onClick={() => {
+                              setIsMobileSupportOpen(false);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            Submit Support Request
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   {/* Temporarily hidden
                   <Link
                     to="/services/security"

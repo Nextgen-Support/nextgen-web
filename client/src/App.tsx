@@ -17,6 +17,7 @@ import Products from "./pages/products";
 import Careers from "./pages/careers";
 import News from "./pages/news";
 import Contact from "./pages/contact";
+import ServiceRequest from "./pages/service-request";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -37,6 +38,7 @@ function Router() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/support/request" element={<ServiceRequest />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
