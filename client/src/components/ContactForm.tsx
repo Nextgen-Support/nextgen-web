@@ -141,7 +141,7 @@ const ContactForm = () => {
 
             {/* Message */}
             <div className="w-full">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2"> 
                 Message *
               </label>
               <textarea
