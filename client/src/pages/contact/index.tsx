@@ -66,7 +66,7 @@ const ContactPage = () => {
                       Mutual Rumana Building<br />
                       Section 405, Lot 12 & 13<br />
                       Waigani, Port Moresby<br />
-                      National Capital District, PNG
+                      National Capital District, Papua New Guinea
                     </p>
                   </div>
                 </div>
