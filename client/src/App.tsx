@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
@@ -18,30 +18,48 @@ import Careers from "./pages/careers";
 import News from "./pages/news";
 import Contact from "./pages/contact";
 import ServiceRequest from "./pages/service-request";
+import SupportLayout from "./components/support-layout";
+import SupportGuides from "./pages/support/guides";
+import OutlookEmailSetup from "./pages/support/guides/outlook-email-setup";
+import AndroidEmailSetup from "./pages/support/guides/android-email-setup";
+import IosEmailSetup from "./pages/support/guides/ios-email-setup";
+import DebugRoutes from "./pages/debug-routes";
 import NotFound from "./pages/not-found";
 
 function Router() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/document-management" element={<DocumentManagement />} />
-          <Route path="/services/cctv" element={<CCTVSolutions />} />
-          {/*<Route path="/services/isp-services" element={<ISPServices />} />*/}
-          <Route path="/services/web-hosting" element={<WebHosting />} />
-          <Route path="/services/security" element={<SecuritySolutions />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/support/request" element={<ServiceRequest />} />
+      <Routes>
+        <Route path="/" element={<Layout><Outlet /></Layout>}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="services" element={<Services />} />
+          <Route path="services/document-management" element={<DocumentManagement />} />
+          <Route path="services/cctv" element={<CCTVSolutions />} />
+          {/*<Route path="services/isp-services" element={<ISPServices />} />*/}
+          <Route path="services/web-hosting" element={<WebHosting />} />
+          <Route path="services/security" element={<SecuritySolutions />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="products" element={<Products />} />
+          <Route path="careers" element={<Careers />} />
+          <Route path="news" element={<News />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="support" element={<SupportLayout />}>
+            <Route index element={<SupportGuides />} />
+            <Route path="guides" element={<SupportGuides />} />
+            <Route path="outlook-email-setup" element={<OutlookEmailSetup />} />
+            <Route path="android-email-setup" element={<AndroidEmailSetup />} />
+            <Route path="ios-email-setup" element={<IosEmailSetup />} />
+            <Route path="request" element={<ServiceRequest />} />
+            <Route path="*" element={<Navigate to="/support" replace />} />
+          </Route>
+          <Route path="debug-routes" element={<DebugRoutes />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
+        </Route>
+        
+        {/* Catch-all route - must be last */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </BrowserRouter>
   );
 }

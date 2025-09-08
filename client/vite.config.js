@@ -18,8 +18,21 @@ export default defineConfig({
   server: {
     open: true,
     port: 3000,
+    strictPort: true,
+    host: true,
+    hmr: {
+      port: 3000,
+    },
+    // Support for SPA fallback and deep linking
+    historyApiFallback: {
+      disableDotRule: true,
+      rewrites: [
+        { from: /^\/support/, to: '/support/index.html' },
+      ]
+    },
   },
   preview: {
     port: 3000,
+    strictPort: true,
   },
 });

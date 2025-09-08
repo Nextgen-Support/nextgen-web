@@ -236,56 +236,16 @@ export default function NewNavigation() {
                         {isSupportOpen && (
                           <div className="absolute left-0 mt-1 ml-4 w-56 rounded-md shadow-lg bg-black/80 backdrop-blur-sm border border-white/10 z-10">
                             <div className="py-1">
-                              <div className="relative">
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleGuides();
-                                  }}
-                                  className="w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-white/10 flex justify-between items-center"
-                                >
-                                  Guides
-                                  <ChevronDown
-                                    className={`ml-1 h-4 w-4 transition-transform ${
-                                      isGuidesOpen ? 'transform rotate-180' : ''
-                                    }`}
-                                  />
-                                </button>
-                                {isGuidesOpen && (
-                                  <div className="pl-2 pr-2">
-                                    <Link
-                                      to="/support/guides/outlook-email"
-                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                                      onClick={() => {
-                                        setIsServicesOpen(false);
-                                        setIsSupportOpen(false);
-                                      }}
-                                    >
-                                      Setup your email in Outlook
-                                    </Link>
-                                    <Link
-                                      to="/support/guides/android-email"
-                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                                      onClick={() => {
-                                        setIsServicesOpen(false);
-                                        setIsSupportOpen(false);
-                                      }}
-                                    >
-                                      Setup your email on Android
-                                    </Link>
-                                    <Link
-                                      to="/support/guides/iphone-email"
-                                      className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                                      onClick={() => {
-                                        setIsServicesOpen(false);
-                                        setIsSupportOpen(false);
-                                      }}
-                                    >
-                                      Setup your email on iPhone
-                                    </Link>
-                                  </div>
-                                )}
-                              </div>
+                              <Link
+                                to="/support/guides"
+                                className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                onClick={() => {
+                                  setIsServicesOpen(false);
+                                  setIsSupportOpen(false);
+                                }}
+                              >
+                                Guides
+                              </Link>
                               <div className="border-t border-white/10 mt-1">
                                 <Link
                                   to="/support/request"
@@ -295,7 +255,7 @@ export default function NewNavigation() {
                                     setIsSupportOpen(false);
                                   }}
                                 >
-                                  Submit Support Request
+                                  Submit Request
                                 </Link>
                               </div>
                             </div>
@@ -532,56 +492,16 @@ export default function NewNavigation() {
                     </button>
                     {isMobileSupportOpen && (
                       <div className="pl-4 space-y-1">
-                        <div>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleMobileGuides();
-                            }}
-                            className="w-full flex justify-between items-center px-3 py-2 rounded-md text-sm font-medium text-green-400 hover:bg-white/20"
-                          >
-                            <span>Guides</span>
-                            <ChevronDown
-                              className={`h-4 w-4 transition-transform ${
-                                isMobileGuidesOpen ? 'transform rotate-180' : ''
-                              }`}
-                            />
-                          </button>
-                          {isMobileGuidesOpen && (
-                            <div className="pl-4">
-                              <Link
-                                to="/support/guides/outlook-email"
-                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
-                                onClick={() => {
-                                  setIsMobileServicesOpen(false);
-                                  setIsMenuOpen(false);
-                                }}
-                              >
-                                • Setup your email in Outlook
-                              </Link>
-                              <Link
-                                to="/support/guides/android-email"
-                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
-                                onClick={() => {
-                                  setIsMobileServicesOpen(false);
-                                  setIsMenuOpen(false);
-                                }}
-                              >
-                                • Setup your email on Android
-                              </Link>
-                              <Link
-                                to="/support/guides/iphone-email"
-                                className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
-                                onClick={() => {
-                                  setIsMobileServicesOpen(false);
-                                  setIsMenuOpen(false);
-                                }}
-                              >
-                                • Setup your email on iPhone
-                              </Link>
-                            </div>
-                          )}
-                        </div>
+                        <Link
+                          to="/support/guides"
+                          className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
+                          onClick={() => {
+                            setIsMobileServicesOpen(false);
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          • Guides
+                        </Link>
                         <div className="border-t border-white/10 mt-1">
                           <Link
                             to="/support/request"
@@ -591,7 +511,7 @@ export default function NewNavigation() {
                               setIsMenuOpen(false);
                             }}
                           >
-                            Submit Support Request
+                            Submit Request
                           </Link>
                         </div>
                       </div>
