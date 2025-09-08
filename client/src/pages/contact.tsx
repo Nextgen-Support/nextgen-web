@@ -1,9 +1,9 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import ContactForm from "./ContactForm";
+import ContactForm from "../components/ContactForm";
 
-export default function ContactSection() {
+export default function ContactPage() {
   return (
-    <section id="contact" className="py-12 bg-gray-90 w-full">
+    <section className="py-12 bg-gray-90 w-full min-h-screen">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <h2 className="text-2xl font-bold text-center mb-8 text-white">Contact Us</h2>
         
