@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AndroidEmailSetup = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+        <svg className="w-[800px] h-[800px]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3.609 1.814L13.792 12 3.61 22.186a1.8 1.8 0 0 1-.6-.6L1.2 13.2a1.6 1.6 0 0 1 0-.4L3.01 2.413a1.8 1.8 0 0 1 .6-.6zm16.782 0l-10.18 10.18 10.18 10.186a1.8 1.8 0 0 0 .6-.6l1.8-8.586a1.6 1.6 0 0 0 0-.4l-1.8-8.586a1.8 1.8 0 0 0-.6-.6z"/>
+        </svg>
+      </div>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Email Setup for Android</h1>
@@ -54,7 +60,7 @@ const AndroidEmailSetup = () => {
                 <li>Check if your email account is active and not locked</li>
               </ul>
               <p className="mt-4 text-green-700">
-                Still having trouble? <a href="/contact" className="text-green-600 hover:underline">Contact our support team</a> for assistance.
+                Still having trouble? <Link to="/support/request" className="text-green-600 hover:underline">Contact our support team</Link> for assistance.
               </p>
             </div>
 
