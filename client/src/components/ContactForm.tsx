@@ -67,8 +67,8 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="w-full">
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="w-full px-4 sm:px-6">
         <div className="w-full">
           <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
           <form 
@@ -83,8 +83,8 @@ const ContactForm = () => {
             <input type="hidden" name="_captcha" value="false" />
             <input type="text" name="_honey" style={{display: 'none'}} />
             {/* Name and Email */}
-            <div className="space-y-8 w-full">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <div className="space-y-6 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                 <div className="w-full">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *
@@ -93,7 +93,7 @@ const ContactForm = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-6 py-4 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
                   />
                 </div>
@@ -105,7 +105,7 @@ const ContactForm = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-6 py-4 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
                   />
                 </div>
@@ -121,7 +121,7 @@ const ContactForm = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-6 py-4 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                   />
                 </div>
                 <div className="w-full">
@@ -132,7 +132,7 @@ const ContactForm = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    className="w-full px-6 py-4 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
                   />
                 </div>

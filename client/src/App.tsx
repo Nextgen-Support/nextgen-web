@@ -46,10 +46,12 @@ function Router() {
           <Route path="contact" element={<Contact />} />
           <Route path="support" element={<SupportLayout />}>
             <Route index element={<SupportGuides />} />
-            <Route path="guides" element={<SupportGuides />} />
-            <Route path="outlook-email-setup" element={<OutlookEmailSetup />} />
-            <Route path="android-email-setup" element={<AndroidEmailSetup />} />
-            <Route path="ios-email-setup" element={<IosEmailSetup />} />
+            <Route path="guides">
+              <Route index element={<SupportGuides />} />
+              <Route path="outlook-email-setup" element={<OutlookEmailSetup />} />
+              <Route path="android-email-setup" element={<AndroidEmailSetup />} />
+              <Route path="ios-email-setup" element={<IosEmailSetup />} />
+            </Route>
             <Route path="request" element={<ServiceRequest />} />
             <Route path="*" element={<Navigate to="/support" replace />} />
           </Route>
