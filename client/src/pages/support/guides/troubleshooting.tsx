@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TroubleshootingGuide = () => {
   const commonIssues = [
@@ -91,9 +92,9 @@ const TroubleshootingGuide = () => {
                   <div className="mt-2 text-sm text-yellow-700">
                     <p>
                       If you've tried all the above steps and are still experiencing issues, please 
-                      <a href="/contact" className="font-medium underline text-yellow-700 hover:text-yellow-600">
+                      <Link to="/support/request" className="font-medium underline text-yellow-700 hover:text-yellow-600">
                         contact our support team
-                      </a> for further assistance.
+                      </Link> for further assistance.
                     </p>
                   </div>
                 </div>
