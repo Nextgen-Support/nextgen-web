@@ -7,16 +7,12 @@ export default function ContactPage() {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-white mb-4">Contact Us</h1>
           <div className="w-20 h-1 bg-green-500 mx-auto"></div>
-          <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
-            Have questions or need assistance? Fill out the form below and our team will get back to you as soon as possible.
-          </p>
         </div>
         
         <div className="bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
           <div className="flex flex-col lg:flex-row">
             {/* Contact Form - Left Side (2/3 width) */}
             <div className="w-full lg:w-2/3 p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Send us a message</h2>
               <ContactForm />
             </div>
             
