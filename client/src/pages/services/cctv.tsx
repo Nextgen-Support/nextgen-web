@@ -88,7 +88,7 @@ const CCTVSolutionsPage = () => {
         {/* Solutions Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
           {solutions.map((solution) => (
-            <div key={solution.id} className="bg-white/90 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div key={solution.id} className="flex flex-col bg-white/90 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={solution.image} 
@@ -97,7 +97,7 @@ const CCTVSolutionsPage = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{solution.title}</h3>
                 <p className="text-gray-700 mb-4">{solution.description}</p>
                 <ul className="space-y-2 mb-6">
@@ -110,9 +110,14 @@ const CCTVSolutionsPage = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition-colors">
-                  Learn More
-                </button>
+                <div className="mt-auto">
+                  <Link 
+                    to={`/contact?service=CCTV&solution=${encodeURIComponent(solution.title)}`}
+                    className="block w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-full transition-colors text-center"
+                  >
+                    Learn More
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -165,7 +170,7 @@ const CCTVSolutionsPage = () => {
           </p>
           <Link 
             to="/contact" 
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-600 hover:bg-green-700 transition-colors"
           >
             Get Your Free Quote
           </Link>
