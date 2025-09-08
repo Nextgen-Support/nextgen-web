@@ -13,8 +13,8 @@ const GuidesPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Outlook Email Setup</h3>
             <p className="text-gray-600 mb-4">Step-by-step guide to configure your email in Microsoft Outlook</p>
             <Link 
-              to="/support/outlook-email-setup" 
-              className="text-blue-600 font-medium inline-flex items-center"
+              to="/support/guides/outlook-email-setup" 
+              className="text-blue-600 font-medium inline-flex items-center hover:text-blue-800 transition-colors"
             >
               View Guide →
             </Link>
@@ -26,8 +26,8 @@ const GuidesPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Android Email Setup</h3>
             <p className="text-gray-600 mb-4">Complete guide to set up your email on Android devices</p>
             <Link 
-              to="/support/android-email-setup" 
-              className="text-blue-600 font-medium inline-flex items-center"
+              to="/support/guides/android-email-setup" 
+              className="text-blue-600 font-medium inline-flex items-center hover:text-blue-800 transition-colors"
             >
               View Guide →
             </Link>
@@ -39,8 +39,8 @@ const GuidesPage = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-2">iOS Email Setup</h3>
             <p className="text-gray-600 mb-4">Detailed instructions for setting up email on iPhone and iPad</p>
             <Link 
-              to="/support/ios-email-setup" 
-              className="text-blue-600 font-medium inline-flex items-center"
+              to="/support/guides/ios-email-setup" 
+              className="text-blue-600 font-medium inline-flex items-center hover:text-blue-800 transition-colors"
             >
               View Guide →
             </Link>
