@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from 'react-google-recaptcha';
+import { submitServiceRequest } from "../services/api";
 
 export default function ServiceRequest() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function ServiceRequest() {
   const [submitStatus, setSubmitStatus] = useState<{
     success: boolean;
     message: string;
+    requestId?: string;
   } | null>(null);
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -34,10 +36,10 @@ export default function ServiceRequest() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!recaptchaToken) {
+    if (!formData.agreeTerms) {
       setSubmitStatus({
         success: false,
-        message: 'Please complete the reCAPTCHA verification.'
+        message: 'Please agree to the Terms & Privacy policy.'
       });
       return;
     }
@@ -46,12 +48,16 @@ export default function ServiceRequest() {
     setSubmitStatus(null);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Submit to backend API
+      const response = await submitServiceRequest({
+        ...formData,
+        isCustomer: formData.isCustomer as 'yes' | 'no'
+      });
       
       setSubmitStatus({
         success: true,
-        message: 'Your support request has been submitted successfully! We will get back to you soon.'
+        message: 'Your support request has been submitted successfully!',
+        requestId: response?.data?.id
       });
       
       // Reset form
@@ -65,12 +71,18 @@ export default function ServiceRequest() {
         agreeTerms: false
       });
       
+      // Reset reCAPTCHA
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      
       // Redirect to home page after 5 seconds
       setTimeout(() => navigate('/'), 5000);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Failed to submit your request. Please try again later.';
       setSubmitStatus({
         success: false,
-        message: 'Failed to submit your request. Please try again later.'
+        message: errorMessage
       });
     } finally {
       setIsSubmitting(false);
@@ -92,12 +104,36 @@ export default function ServiceRequest() {
             <div className="w-full lg:w-2/3 p-4">
               <form onSubmit={handleSubmit} className="space-y-3">
                 {submitStatus && (
-                  <div className={`p-2 text-sm rounded ${
+                  <div className={`p-4 rounded-lg ${
                     submitStatus.success 
-                      ? 'bg-green-900/30 border border-green-500' 
-                      : 'bg-red-900/30 border border-red-500'
+                      ? 'bg-green-50 border border-green-200' 
+                      : 'bg-red-50 border border-red-200'
                   }`}>
-                    <p className="text-white">{submitStatus.message}</p>
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        {submitStatus.success ? (
+                          <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        ) : (
+                          <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                      </div>
+                      <div className="ml-3">
+                        <p className={`text-sm font-medium ${
+                          submitStatus.success ? 'text-green-800' : 'text-red-800'
+                        }`}>
+                          {submitStatus.message}
+                          {submitStatus.requestId && (
+                            <span className="block mt-1 text-sm text-gray-600">
+                              Request ID: {submitStatus.requestId}
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -245,6 +281,7 @@ export default function ServiceRequest() {
                         onChange={(token) => setRecaptchaToken(token)}
                         onExpired={() => setRecaptchaToken(null)}
                         className="recaptcha"
+                        ref={recaptchaRef}
                       />
                     </div>
                     <div className="w-full sm:w-auto flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
