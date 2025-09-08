@@ -224,7 +224,7 @@ export default function NewNavigation() {
                       <div className="relative group">
                         <button
                           onClick={toggleSupport}
-                          className="w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-white/10 flex justify-between items-center"
+                          className="w-full text-left px-4 py-2 text-sm text-green-400 hover:bg-white/10 flex justify-between items-center text-sm font-medium"
                         >
                           Support
                           <ChevronDown
@@ -238,7 +238,7 @@ export default function NewNavigation() {
                             <div className="py-1">
                               <Link
                                 to="/support/guides"
-                                className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10 font-medium"
                                 onClick={() => {
                                   setIsServicesOpen(false);
                                   setIsSupportOpen(false);
@@ -249,7 +249,7 @@ export default function NewNavigation() {
                               <div className="border-t border-white/10 mt-1">
                                 <Link
                                   to="/support/request"
-                                  className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
+                                  className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10 font-medium"
                                   onClick={() => {
                                     setIsServicesOpen(false);
                                     setIsSupportOpen(false);
@@ -494,26 +494,24 @@ export default function NewNavigation() {
                       <div className="pl-4 space-y-1">
                         <Link
                           to="/support/guides"
-                          className="block px-3 py-2 text-sm text-green-400 hover:bg-white/20"
+                          className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                           onClick={() => {
                             setIsMobileServicesOpen(false);
                             setIsMenuOpen(false);
                           }}
                         >
-                          • Guides
+                          Guides
                         </Link>
-                        <div className="border-t border-white/10 mt-1">
-                          <Link
-                            to="/support/request"
-                            className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                            onClick={() => {
-                              setIsMobileSupportOpen(false);
-                              setIsMenuOpen(false);
-                            }}
-                          >
-                            Submit Request
-                          </Link>
-                        </div>
+                        <Link
+                          to="/support/request"
+                          className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                          onClick={() => {
+                            setIsMobileSupportOpen(false);
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          Submit Request
+                        </Link>
                       </div>
                     )}
                   </div>
