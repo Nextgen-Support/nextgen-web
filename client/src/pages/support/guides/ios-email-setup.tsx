@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IosEmailSetup = () => {
   return (
@@ -62,7 +63,7 @@ const IosEmailSetup = () => {
                 <li><strong>Sending issues:</strong> Verify SMTP settings and ensure you're using the correct port</li>
               </ul>
               <p className="mt-4 text-purple-700">
-                Need more help? <a href="/contact" className="text-purple-600 hover:underline">Contact our support team</a> for assistance.
+                Need more help? <Link to="/support/request" className="text-purple-600 hover:underline">Contact our support team</Link> for assistance.
               </p>
             </div>
 
