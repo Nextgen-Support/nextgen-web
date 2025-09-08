@@ -252,7 +252,7 @@ export default function NewNavigation() {
                                   />
                                 </button>
                                 {isGuidesOpen && (
-                                  <div className="pl-2">
+                                  <div className="pl-2 pr-2">
                                     <Link
                                       to="/support/guides/outlook-email"
                                       className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
@@ -413,11 +413,11 @@ export default function NewNavigation() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/80">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden bg-black/95 backdrop-blur-sm rounded-b-2xl overflow-hidden">
+          <div className="px-3 pt-3 pb-6 space-y-2 max-h-[90vh] overflow-y-auto">
             <Link
               to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+              className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -426,34 +426,34 @@ export default function NewNavigation() {
             <div>
               <button
                 onClick={toggleMobileCategory}
-                className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+                className="w-full flex justify-between items-center px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20 pr-6"
               >
                 <span>Category</span>
                 <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
+                  className={`h-5 w-5 transition-transform ${
                     isMobileCategoryOpen ? "transform rotate-180" : ""
                   }`}
                 />
               </button>
               {isMobileCategoryOpen && (
-                <div className="pl-4">
+                <div className="pl-2 pr-2 space-y-2 -mx-2">
                   <Link
                     to="/products"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Products
                   </Link>
                   <Link
                     to="/projects"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Projects
                   </Link>
                   <Link
                     to="/news"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     News
@@ -465,20 +465,20 @@ export default function NewNavigation() {
             <div>
               <button
                 onClick={toggleMobileServices}
-                className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+                className="w-full flex justify-between items-center px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20 pr-6"
               >
-                Services
+                <span>Services</span>
                 <ChevronDown
-                  className={`h-4 w-4 transition-transform ${
+                  className={`h-5 w-5 transition-transform ${
                     isMobileServicesOpen ? "transform rotate-180" : ""
                   }`}
                 />
               </button>
               {isMobileServicesOpen && (
-                <div className="pl-4 space-y-1">
+                <div className="pl-2 pr-2 space-y-2 -mx-2">
                   <Link
                     to="/services/web-hosting"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);
@@ -488,7 +488,7 @@ export default function NewNavigation() {
                   </Link>
                   <Link
                     to="/services/document-management"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);
@@ -498,7 +498,7 @@ export default function NewNavigation() {
                   </Link>
                   <Link
                     to="/services/cctv"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);
@@ -509,7 +509,7 @@ export default function NewNavigation() {
                   {/* ISP Services temporarily disabled
                   <Link
                     to="/services/isp"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);
@@ -600,7 +600,7 @@ export default function NewNavigation() {
                   {/* Temporarily hidden
                   <Link
                     to="/services/security"
-                    className="block px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);

@@ -98,10 +98,10 @@ export default function HeroSection() {
           <source src="/asset/videos/banner.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Static banner for mobile with fallback gradient */}
+        {/* Mobile background image with fallback gradient */}
         <div className="md:hidden absolute inset-0">
           <img
-            src="/asset/image/static banner.png"
+            src="/asset/image/bg-mobileview.png"
             alt=""
             className="w-full h-full object-cover"
             aria-hidden="true"

@@ -190,7 +190,7 @@ export default function ServiceRequest() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-md text-white focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-3 py-1.5 sm:px-4 sm:py-2 bg-white/5 border border-white/10 rounded-md text-sm sm:text-base text-white focus:ring-2 focus:ring-green-500 focus:border-transparent [&_option]:bg-gray-800 [&_option]:text-gray-200 [&_option]:text-sm sm:[&_option]:text-base"
                   >
                     <option value="">Select your type of support request or enquiry...</option>
                     <option value="email-support">Email Support</option>
@@ -235,57 +235,66 @@ export default function ServiceRequest() {
                   </label>
                 </div>
 
-                <div className="flex items-center justify-between w-full mt-4">
-                  <div className="h-10 flex items-center">
-                    <ReCAPTCHA
-                      sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // This is a test key - replace with your actual reCAPTCHA site key
-                      onChange={(token) => setRecaptchaToken(token)}
-                      onExpired={() => setRecaptchaToken(null)}
-                      className="recaptcha"
-                      size="normal"
-                      style={{
-                        transform: 'scale(0.9)',
-                        transformOrigin: '0 0',
-                      }}
-                    />
-                    <style dangerouslySetInnerHTML={{
-                      __html: `
-                        .g-recaptcha {
-                          display: flex !important;
-                          align-items: center !important;
-                          justify-content: flex-start !important;
-                          gap: 8px !important;
-                          height: 100% !important;
-                          background: transparent !important;
-                        }
-                        .g-recaptcha > div {
-                          background: transparent !important;
-                          border: none !important;
-                          box-shadow: none !important;
-                        }
-                        .g-recaptcha iframe {
-                          background: transparent !important;
-                          margin: 0 !important;
-                        }
-                        .rc-anchor {
-                          background: transparent !important;
-                          border: none !important;
-                          box-shadow: none !important;
-                        }
-                        .rc-anchor-light {
-                          background: transparent !important;
-                        }
-                        .rc-anchor-normal {
-                          height: auto !important;
-                        }
-                      `
-                    }} />
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full mt-4 gap-4">
+                  <div className="w-full sm:w-auto">
+                    <div className="h-10 flex items-center justify-center sm:justify-start">
+                      <ReCAPTCHA
+                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // This is a test key - replace with your actual reCAPTCHA site key
+                        onChange={(token) => setRecaptchaToken(token)}
+                        onExpired={() => setRecaptchaToken(null)}
+                        className="recaptcha"
+                        size="normal"
+                        style={{
+                          transform: 'scale(0.9)',
+                          transformOrigin: '0 0',
+                        }}
+                      />
+                      <style dangerouslySetInnerHTML={{
+                        __html: `
+                          .g-recaptcha {
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            gap: 8px !important;
+                            height: 100% !important;
+                            background: transparent !important;
+                            width: 100% !important;
+                          }
+                          @media (min-width: 640px) {
+                            .g-recaptcha {
+                              justify-content: flex-start !important;
+                              width: auto !important;
+                            }
+                          }
+                          .g-recaptcha > div {
+                            background: transparent !important;
+                            border: none !important;
+                            box-shadow: none !important;
+                          }
+                          .g-recaptcha iframe {
+                            background: transparent !important;
+                            margin: 0 !important;
+                          }
+                          .rc-anchor {
+                            background: transparent !important;
+                            border: none !important;
+                            box-shadow: none !important;
+                          }
+                          .rc-anchor-light {
+                            background: transparent !important;
+                          }
+                          .rc-anchor-normal {
+                            height: auto !important;
+                          }
+                        `
+                      }} />
+                    </div>
                   </div>
-                  <div className="flex space-x-4">
+                  <div className="w-full sm:w-auto flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <button
                       type="button"
                       onClick={() => navigate(-1)}
-                      className="px-6 py-2 text-sm font-medium text-gray-300 hover:text-white border border-gray-600 rounded-md"
+                      className="w-full sm:w-auto px-6 py-2 text-sm font-medium text-gray-300 hover:text-white border border-gray-600 rounded-md"
                       disabled={isSubmitting}
                     >
                       Cancel
@@ -293,7 +302,7 @@ export default function ServiceRequest() {
                     <button
                       type="submit"
                       disabled={isSubmitting || !formData.agreeTerms || !recaptchaToken}
-                      className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-70 disabled:cursor-not-allowed transition-colors duration-200"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-70 disabled:cursor-not-allowed transition-colors duration-200"
                     >
                       {isSubmitting ? (
                         <>
