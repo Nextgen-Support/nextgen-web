@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WebHostingPage = () => {
   const plans = [
@@ -118,8 +119,8 @@ const WebHostingPage = () => {
                   </ul>
                 </div>
                 <div className="mt-6 pt-4 border-t border-blue-800">
-                  <a 
-                    href="/contact"
+                  <Link 
+                    to="/contact"
                     className={`block w-full py-3 px-4 rounded-xl font-medium text-center transition-colors ${
                       plan.popular 
                         ? 'bg-yellow-500 hover:bg-yellow-600 text-gray-900' 
@@ -127,7 +128,7 @@ const WebHostingPage = () => {
                     }`}
                   >
                     Get Started
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
