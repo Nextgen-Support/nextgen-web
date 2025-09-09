@@ -8,7 +8,7 @@ import hpp from 'hpp';
 import xss from 'xss-clean';
 import compression from 'compression';
 import db from './config/db.js';
-import serviceRequestRoutes from './routes/serviceRequestRoutes.js';
+import { serviceRequestRouter } from './src/routes/serviceRequestRoutes.js';
 import logger from './utils/logger.js';
 import morgan from 'morgan';
 
@@ -58,7 +58,7 @@ app.use(compression());
 // CORS configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:5173', 'http://127.0.0.1:5173'];
+  : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5173', 'http://127.0.0.1:5173'];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -103,7 +103,7 @@ app.get('/health', (req, res) => {
 });
 
 // API Routes
-app.use(`${API_PREFIX}/service-requests`, serviceRequestRoutes);
+app.use(`${API_PREFIX}/service-requests`, serviceRequestRouter);
 
 // 404 handler
 app.all('*', (req, res, next) => {
