@@ -8,7 +8,7 @@ export default function ServiceRequest() {
     name: '',
     phone: '',
     email: '',
-    isCustomer: '',
+    isCustomer: 'no', // Default to 'no' instead of empty string
     subject: '',
     message: '',
     agreeTerms: false
@@ -36,6 +36,15 @@ export default function ServiceRequest() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Ensure isCustomer is either 'yes' or 'no'
+    if (formData.isCustomer !== 'yes' && formData.isCustomer !== 'no') {
+      setSubmitStatus({
+        success: false,
+        message: 'Please select whether you are an existing customer.'
+      });
+      return;
+    }
+    
     if (!formData.agreeTerms) {
       setSubmitStatus({
         success: false,
@@ -60,12 +69,12 @@ export default function ServiceRequest() {
         requestId: response?.data?.id
       });
       
-      // Reset form
+      // Reset form but keep isCustomer as 'no'
       setFormData({
         name: '',
         phone: '',
         email: '',
-        isCustomer: '',
+        isCustomer: 'no',
         subject: '',
         message: '',
         agreeTerms: false

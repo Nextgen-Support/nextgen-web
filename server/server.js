@@ -19,8 +19,26 @@ const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || '0.0.0.0';
 const API_PREFIX = process.env.API_PREFIX || '/api';
 
+// Enable CORS for all routes
+app.use(cors({
+  origin: true, // Reflect the request origin
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  credentials: true,
+  optionsSuccessStatus: 204,
+  maxAge: 600
+}));
+
+// Handle preflight for all routes
+app.options('*', cors());
+
 // Set security HTTP headers
 app.use(helmet());
+
+// Test endpoint for CORS
+get('/test-cors', (req, res) => {
+  res.json({ message: 'CORS test successful!', timestamp: new Date().toISOString() });
+});
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
@@ -54,35 +72,6 @@ app.use(hpp({
 
 // Compress all responses
 app.use(compression());
-
-// CORS configuration
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'http://127.0.0.1:3000'];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
-      return callback(null, true);
-    }
-    
-    const msg = `The CORS policy for this site does not allow access from the specified origin: ${origin}`;
-    return callback(new Error(msg), false);
-  },
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  exposedHeaders: ['Content-Range', 'X-Content-Range'],
-  credentials: true,
-  optionsSuccessStatus: 200,
-  maxAge: 600 // Cache preflight requests for 10 minutes
-};
-
-// Enable CORS
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
 // Test database connection
 async function testDbConnection() {

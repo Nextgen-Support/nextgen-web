@@ -89,10 +89,10 @@ export function WhyChooseUsSection() {
               variants={containerVariants}
             >
               {[
-                "Data Security - Enterprise-grade protection for your sensitive information",
-                "24/7 Support - Round-the-clock assistance whenever you need it",
-                "Scalable Solutions - Grow your business without technical limitations",
-                "Regional Expertise - Local knowledge with global standards",
+                "Innovation at core - stay ahead with future-ready solutions",
+                "Tailored just for you - tech that fits your business",
+                "Customer-first approach - we support you every step of the way",
+                "Reliable & quality products - trusted by industry leaders",
               ].map((item, index) => (
                 <motion.li 
                   key={index} 

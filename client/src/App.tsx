@@ -24,6 +24,7 @@ import OutlookEmailSetup from "./pages/support/guides/outlook-email-setup";
 import AndroidEmailSetup from "./pages/support/guides/android-email-setup";
 import IosEmailSetup from "./pages/support/guides/ios-email-setup";
 import DebugRoutes from "./pages/debug-routes";
+import ServiceRequests from "./pages/admin/service-requests";
 import NotFound from "./pages/not-found";
 
 function Router() {
@@ -56,6 +57,7 @@ function Router() {
             <Route path="*" element={<Navigate to="/support" replace />} />
           </Route>
           <Route path="debug-routes" element={<DebugRoutes />} />
+          <Route path="admin/service-requests" element={<ServiceRequests />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         
