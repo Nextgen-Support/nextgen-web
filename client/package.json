@@ -1,10 +1,13 @@
 {
-  "name": "at-tech-solutions",
+  "name": "nextgen-technology-limited",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "clean": "echo 'Clean step skipped for testing'",
+    "copy-assets": "node scripts/copy-assets.js",
+    "prebuild": "echo 'Prebuild step skipped for testing'",
+    "build": "vite build && npm run copy-assets",
     "preview": "vite preview"
   },
   "dependencies": {

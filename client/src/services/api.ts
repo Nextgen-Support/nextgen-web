@@ -1,4 +1,25 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+// Base URL for API requests
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+// Get the authorization token from environment variables
+const getAuthToken = (): string | null => {
+  return import.meta.env.VITE_API_AUTH_TOKEN || null;
+};
+
+// Helper function to create headers with auth token
+const createAuthHeaders = (): HeadersInit => {
+  const headers: HeadersInit = {
+    'Content-Type': 'application/json',
+  };
+  
+  const token = getAuthToken();
+  if (token) {
+    // Using the standard Authorization header with Bearer scheme
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  
+  return headers;
+};
 
 export interface ServiceRequestData {
   name: string;
@@ -26,10 +47,18 @@ export interface ServiceRequestResponse {
 
 export const getServiceRequests = async (): Promise<ApiResponse<ServiceRequestResponse[]>> => {
   try {
-    const response = await fetch(`${API_BASE_URL}/service-requests`);
+    const response = await fetch(`${API_BASE_URL}/service-requests`, {
+      headers: createAuthHeaders()
+    });
+    
     const data = await response.json();
 
     if (!response.ok) {
+      // Handle 401 Unauthorized (token expired/invalid)
+      if (response.status === 401) {
+        // TODO: Add your token refresh or logout logic here
+        console.error('Authentication failed');
+      }
       throw new Error(data.message || 'Failed to fetch service requests');
     }
 
@@ -55,9 +84,7 @@ export const submitServiceRequest = async (data: ServiceRequestData): Promise<Ap
 
     const response = await fetch(`${API_BASE_URL}/service-requests`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: createAuthHeaders(),
       body: JSON.stringify(body),
     });
 
