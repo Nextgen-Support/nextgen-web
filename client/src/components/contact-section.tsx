@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16 bg-gray-900 w-full">
+    <section id="contact" className="pt-8 pb-16 bg-gray-900 w-full">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-4">Get In Touch</h2>

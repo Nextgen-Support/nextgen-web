@@ -84,10 +84,10 @@ const ContactForm = () => {
             <input type="text" name="_honey" style={{display: 'none'}} />
             {/* Name and Email */}
             <div className="space-y-6 w-full">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+              <div className="grid grid-cols-1 gap-6 w-full">
                 <div className="w-full">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name *
+                    Your Name *
                   </label>
                   <input
                     type="text"
@@ -95,6 +95,7 @@ const ContactForm = () => {
                     name="name"
                     className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
+                    placeholder="Enter your name"
                   />
                 </div>
                 <div className="w-full">
@@ -107,33 +108,7 @@ const ContactForm = () => {
                     name="email"
                     className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
-                  />
-                </div>
-              </div>
-
-              {/* Phone and Subject */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                <div className="w-full">
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  />
-                </div>
-                <div className="w-full">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                    required
+                    placeholder="Enter your email"
                   />
                 </div>
               </div>
