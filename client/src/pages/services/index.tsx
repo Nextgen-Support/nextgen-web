@@ -10,14 +10,6 @@ const services = [
     color: 'from-blue-600 to-blue-800',
     link: '/services/cctv'
   },
-  {
-    id: 'isp',
-    title: 'ISP Services',
-    description: 'Reliable and high-speed internet connectivity solutions for businesses of all sizes.',
-    icon: '🌐',
-    color: 'from-green-600 to-green-800',
-    link: '/services/isp'
-  },
   // {
   //   id: 'security',
   //   title: 'Security Solutions',

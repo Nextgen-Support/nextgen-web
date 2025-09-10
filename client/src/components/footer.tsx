@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Nextgen Technologies</h3>
+            <h3 className="text-2xl font-bold mb-4">Nextgen Technology Limited</h3>
             <p className="text-sm text-gray-300 mb-6 max-w-md">
               Provider of innovative technology solutions and services for
               businesses of all sizes. We specialize in delivering cutting-edge
@@ -80,18 +80,6 @@ export default function Footer() {
                   className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
                 >
                   CCTV & Security Solutions
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services/isp"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.location.href = "/services/isp";
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors cursor-pointer block"
-                >
-                  ISP & Network Services
                 </a>
               </li>
               <li>

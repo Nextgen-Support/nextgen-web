@@ -2,14 +2,12 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { TooltipProvider } from "./components/ui/tooltip";
 import Layout from "./components/layout";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Services from "./pages/services";
 import DocumentManagement from "./pages/services/document-management";
 import CCTVSolutions from "./pages/services/cctv";
-import ISPServices from "./pages/services/isp-services";
 import WebHosting from "./pages/services/web-hosting";
 import SecuritySolutions from "./pages/services/security";
 import Projects from "./pages/projects";
@@ -23,7 +21,6 @@ import SupportGuides from "./pages/support/guides";
 import OutlookEmailSetup from "./pages/support/guides/outlook-email-setup";
 import AndroidEmailSetup from "./pages/support/guides/android-email-setup";
 import IosEmailSetup from "./pages/support/guides/ios-email-setup";
-import DebugRoutes from "./pages/debug-routes";
 import ServiceRequests from "./pages/admin/service-requests";
 import NotFound from "./pages/not-found";
 
@@ -37,7 +34,6 @@ function Router() {
           <Route path="services" element={<Services />} />
           <Route path="services/document-management" element={<DocumentManagement />} />
           <Route path="services/cctv" element={<CCTVSolutions />} />
-          {/*<Route path="services/isp-services" element={<ISPServices />} />*/}
           <Route path="services/web-hosting" element={<WebHosting />} />
           <Route path="services/security" element={<SecuritySolutions />} />
           <Route path="projects" element={<Projects />} />
@@ -56,7 +52,6 @@ function Router() {
             <Route path="request" element={<ServiceRequest />} />
             <Route path="*" element={<Navigate to="/support" replace />} />
           </Route>
-          <Route path="debug-routes" element={<DebugRoutes />} />
           <Route path="admin/service-requests" element={<ServiceRequests />} />
           <Route path="*" element={<NotFound />} />
         </Route>
@@ -71,10 +66,8 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Router />
-        <Toaster position="top-right" />
-      </TooltipProvider>
+      <Router />
+      <Toaster position="top-right" />
     </QueryClientProvider>
   );
 }

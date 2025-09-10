@@ -16,13 +16,6 @@ const categories = [
     color: 'bg-green-50 hover:bg-green-100'
   },
   {
-    title: 'ISP Services',
-    description: 'High-speed, reliable internet connectivity solutions',
-    icon: '🌐',
-    link: '/services/isp',
-    color: 'bg-purple-50 hover:bg-purple-100'
-  },
-  {
     title: 'Web and Domain Hosting',
     description: 'Secure and scalable web and domain hosting solutions',
     icon: '🖥️',

@@ -144,7 +144,7 @@ export default function NewNavigation() {
                 <img
                   className="h-14 w-auto"
                   src="/asset/image/logo.png"
-                  alt="Nextgen Technologies"
+                  alt="Nextgen Technology Limited"
                   style={{
                     filter: "none !important",
                     WebkitFilter: "none !important",
@@ -310,16 +310,7 @@ export default function NewNavigation() {
                       >
                         Projects
                       </Link>
-                      <Link
-                        to="/news"
-                        className="block px-4 py-2 text-sm text-green-400 hover:bg-white/10"
-                        onClick={() => {
-                          setIsCategoryOpen(false);
-                          setIsMenuOpen(false);
-                        }}
-                      >
-                        News
-                      </Link>
+                      {/* News link removed as requested */}
                     </div>
                   </div>
                 )}
@@ -466,18 +457,6 @@ export default function NewNavigation() {
                   >
                     CCTV Solutions
                   </Link>
-                  {/* ISP Services temporarily disabled
-                  <Link
-                    to="/services/isp"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => {
-                      setIsMobileServicesOpen(false);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    ISP Services
-                  </Link>
-                  */}
                   <div className="pl-2">
                     <button
                       onClick={toggleMobileSupport}
