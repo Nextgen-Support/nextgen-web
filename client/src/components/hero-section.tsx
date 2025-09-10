@@ -55,9 +55,9 @@ export default function HeroSection() {
           setCurrentImageIndex((prev) => (prev + 1) % cardData.length);
           setTimeout(() => {
             setIsTransitioning(false);
-          }, 1000);
-        }, 1000);
-      }, 5000);
+          }, 500); // Shorter fade-in time
+        }, 500); // Shorter delay before changing image
+      }, 3000); // Changed from 5000ms to 3000ms (3 seconds)
     };
 
     // Initial check
@@ -119,7 +119,7 @@ export default function HeroSection() {
       </div>
       {/* Rotating Cards Sidebar */}
       <div 
-        className={`hidden md:flex w-80 flex-shrink-0 z-10 mt-16 fixed left-4 transition-all duration-500 ease-in-out ${
+        className={`hidden md:flex w-64 flex-shrink-0 z-10 mt-24 fixed left-4 transition-all duration-500 ease-in-out ${
           isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
         }`}
       >
@@ -134,7 +134,7 @@ export default function HeroSection() {
               }`}
             >
               <div 
-                className="bg-white rounded-xl shadow-xl overflow-hidden w-full h-[320px] relative"
+                className="bg-white rounded-lg shadow-lg overflow-hidden w-full h-[240px] relative"
               >
                 <div 
                   className="absolute inset-0"
@@ -190,7 +190,7 @@ export default function HeroSection() {
           <div className="mt-20">
             <a
               href="#contact"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+              className="inline-flex items-center px-7 py-3 border border-transparent text-base font-medium rounded-xl shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
