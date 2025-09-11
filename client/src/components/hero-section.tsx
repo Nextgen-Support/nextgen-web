@@ -94,8 +94,20 @@ export default function HeroSection() {
           muted
           playsInline
           className="hidden md:block w-full h-full object-cover"
+          preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
+          onCanPlayThrough={(e) => {
+            // Force play in case autoplay is blocked
+            const video = e.target as HTMLVideoElement;
+            video.play().catch(error => {
+              console.log('Video autoplay was prevented:', error);
+              // Show play button or handle the error as needed
+            });
+          }}
         >
           <source src="/asset/videos/banner.mp4" type="video/mp4" />
+          <img src="/asset/image/bg.png" alt="Fallback banner" className="w-full h-full object-cover" />
           Your browser does not support the video tag.
         </video>
         {/* Mobile background image with fallback gradient */}
