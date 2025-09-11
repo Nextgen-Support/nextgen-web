@@ -376,45 +376,6 @@ export default function NewNavigation() {
 
             <div>
               <button
-                onClick={toggleMobileCategory}
-                className="w-full flex justify-between items-center px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20 pr-6"
-              >
-                <span>Category</span>
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform ${
-                    isMobileCategoryOpen ? "transform rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isMobileCategoryOpen && (
-                <div className="pl-2 pr-2 space-y-2 -mx-2">
-                  <Link
-                    to="/products"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Products
-                  </Link>
-                  <Link
-                    to="/projects"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Projects
-                  </Link>
-                  <Link
-                    to="/news"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    News
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            <div>
-              <button
                 onClick={toggleMobileServices}
                 className="w-full flex justify-between items-center px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20 pr-6"
               >
@@ -425,146 +386,58 @@ export default function NewNavigation() {
                   }`}
                 />
               </button>
-              {isMobileServicesOpen && (
-                <div className="pl-2 pr-2 space-y-2 -mx-2">
+              {isMobileSupportOpen && (
+                <div className="pl-4 space-y-1">
                   <Link
-                    to="/services/web-hosting"
+                    to="/support/guides"
                     className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
                       setIsMobileServicesOpen(false);
                       setIsMenuOpen(false);
                     }}
                   >
-                    Web and Domain Hosting
+                    Guides
                   </Link>
                   <Link
-                    to="/services/document-management"
+                    to="/support/request"
                     className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
                     onClick={() => {
-                      setIsMobileServicesOpen(false);
+                      setIsMobileSupportOpen(false);
                       setIsMenuOpen(false);
                     }}
                   >
-                    Document Management
+                    Submit Request
                   </Link>
-                  <Link
-                    to="/services/cctv"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => {
-                      setIsMobileServicesOpen(false);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    CCTV Solutions
-                  </Link>
-                  <div className="pl-2">
-                    <button
-                      onClick={toggleMobileSupport}
-                      className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-green-400 hover:bg-white/20"
-                    >
-                      <span>Support</span>
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
-                          isMobileSupportOpen ? 'transform rotate-180' : ''
-                        }`}
-                      />
-                    </button>
-                    {isMobileSupportOpen && (
-                      <div className="pl-4 space-y-1">
-                        <Link
-                          to="/support/guides"
-                          className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                          onClick={() => {
-                            setIsMobileServicesOpen(false);
-                            setIsMenuOpen(false);
-                          }}
-                        >
-                          Guides
-                        </Link>
-                        <Link
-                          to="/support/request"
-                          className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                          onClick={() => {
-                            setIsMobileSupportOpen(false);
-                            setIsMenuOpen(false);
-                          }}
-                        >
-                          Submit Request
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  {/* Temporarily hidden
-                  <Link
-                    to="/services/security"
-                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
-                    onClick={() => {
-                      setIsMobileServicesOpen(false);
-                      setIsMenuOpen(false);
-                    }}
-                  >
-                    Security Solutions
-                  </Link>
-                  */}
                 </div>
               )}
             </div>
 
-            <a
-              href="#products"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+            <Link
+              to="/#about"
+              className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20"
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-                setIsMenuOpen(false);
-              }}
-            >
-              Products
-            </a>
-            <a
-              href="#about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }
                 setIsMenuOpen(false);
               }}
             >
               About Us
-            </a>
-            <a
-              href="#projects"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
+            </Link>
+            <Link
+              to="/#contact"
+              className="block px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20"
               onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                setIsMenuOpen(false);
-              }}
-            >
-              Projects
-            </a>
-            <a
-              href="#news"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' });
-                setIsMenuOpen(false);
-              }}
-            >
-              News
-            </a>
-            <a
-              href="#contact"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/20"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }
                 setIsMenuOpen(false);
               }}
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       )}

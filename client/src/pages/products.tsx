@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductsPage = () => {
   const products = [
@@ -78,12 +79,12 @@ const ProductsPage = () => {
                     <li key={i} className="text-gray-700">{feature}</li>
                   ))}
                 </ul>
-                <a 
-                  href={`/contact?interest=${encodeURIComponent(product.name)}`}
+                <Link 
+                  to={`/contact?interest=${encodeURIComponent(product.name)}`}
                   className="mt-auto block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </div>
           ))}
