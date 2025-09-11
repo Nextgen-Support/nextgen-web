@@ -386,6 +386,51 @@ export default function NewNavigation() {
                   }`}
                 />
               </button>
+              {isMobileServicesOpen && (
+                <div className="pl-4 space-y-1">
+                  <Link
+                    to="/services/document-management"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Document Management
+                  </Link>
+                  <Link
+                    to="/services/cctv"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    CCTV Solutions
+                  </Link>
+                  <Link
+                    to="/services/web-hosting"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileServicesOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Web and Domain Hosting
+                  </Link>
+                  <button
+                    onClick={toggleMobileSupport}
+                    className="w-full text-left px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20 flex justify-between items-center"
+                  >
+                    Support
+                    <ChevronDown
+                      className={`h-5 w-5 transition-transform ${
+                        isMobileSupportOpen ? "transform rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+              )}
               {isMobileSupportOpen && (
                 <div className="pl-4 space-y-1">
                   <Link
@@ -407,6 +452,44 @@ export default function NewNavigation() {
                     }}
                   >
                     Submit Request
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <button
+                onClick={toggleMobileCategory}
+                className="w-full flex justify-between items-center px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/20 pr-6"
+              >
+                <span>Category</span>
+                <ChevronDown
+                  className={`h-5 w-5 transition-transform ${
+                    isMobileCategoryOpen ? "transform rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isMobileCategoryOpen && (
+                <div className="pl-4 space-y-1">
+                  <Link
+                    to="/products"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileCategoryOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Products
+                  </Link>
+                  <Link
+                    to="/projects"
+                    className="block w-full px-4 py-2.5 rounded-xl text-base font-medium text-green-400 hover:bg-white/20"
+                    onClick={() => {
+                      setIsMobileCategoryOpen(false);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Projects
                   </Link>
                 </div>
               )}

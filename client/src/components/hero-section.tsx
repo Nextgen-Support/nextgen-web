@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 
 const cardData = [
   {
+    title: "50th Anniversary",
+    description: "Celebrating 50 years of excellence",
+    image: "/asset/image/50thanniversary.png"
+  },
+  {
     title: "Domain Services",
     description: "Professional domain registration and management",
     image: "/asset/image/domain.png"
