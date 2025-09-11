@@ -59,11 +59,11 @@ const ProductsPage = () => {
   return (
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center my-12 text-white">Our Products</h1>
+        <h1 className="text-4xl font-bold text-center my-12 text-green-500">Our Products</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div key={index} className="bg-white rounded shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="p-6 h-full flex flex-col">
                 <div className="flex justify-between items-start mb-3">
                   <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full">
@@ -79,8 +79,8 @@ const ProductsPage = () => {
                   ))}
                 </ul>
                 <a 
-                  href={product.link}
-                  className="mt-auto block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200"
+                  href={`/contact?interest=${encodeURIComponent(product.name)}`}
+                  className="mt-auto block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200"
                 >
                   Learn More
                 </a>

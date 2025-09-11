@@ -1,6 +1,7 @@
 import { Send } from "lucide-react";
 import { useRef, useState } from "react";
-import { toast } from 'react-hot-toast';
+import { toast } from 'sonner';
+import { submitContactForm, type ContactFormData } from '@/services/api';
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -31,34 +32,27 @@ const ContactForm = () => {
 
       const formData = new FormData(form.current);
       
-      // Add FormSubmit parameters
-      const formValues = Object.fromEntries(formData.entries());
-      const submissionData = {
-        ...formValues,
+      // Prepare form data according to API requirements
+      const formValues: ContactFormData = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        subject: formData.get('subject') as string,
+        message: formData.get('message') as string,
         _subject: 'New contact form submission',
         _captcha: 'false',
-        _template: 'table',
         _autoresponse: 'Thank you for contacting us! We will get back to you soon.'
       };
       
-      // Send form data to FormSubmit
-      const response = await fetch('https://formsubmit.co/ajax/support3@nextgenpng.net', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(submissionData)
-      });
+      // Send form data to our API
+      const result = await submitContactForm(formValues);
       
-      const result = await response.json();
-      
-      if (!response.ok) {
+      if (!result.success) {
         throw new Error(result.message || 'Failed to send message');
       }
 
       toast.success('Message sent successfully!');
-      form.current.reset();
+      form.current?.reset();
     } catch (error) {
       toast.error('Failed to send message. Please try again.');
     } finally {
@@ -74,20 +68,16 @@ const ContactForm = () => {
           <form 
             ref={form}
             onSubmit={sendEmail}
-            action="https://formsubmit.co/support3@nextgenpng.net"
-            method="POST"
             className="space-y-6 w-full"
             noValidate
           >
-            <input type="hidden" name="_next" value={window.location.href} />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="_honey" style={{display: 'none'}} />
-            {/* Name and Email */}
+            {/* Contact Information */}
             <div className="space-y-6 w-full">
-              <div className="grid grid-cols-1 gap-6 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                 <div className="w-full">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Your Name *
+                    Full Name *
                   </label>
                   <input
                     type="text"
@@ -95,7 +85,7 @@ const ContactForm = () => {
                     name="name"
                     className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                     required
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div className="w-full">
@@ -111,12 +101,40 @@ const ContactForm = () => {
                     placeholder="Enter your email"
                   />
                 </div>
+                <div className="w-full">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                    required
+                    placeholder="Enter your phone number"
+                  />
+                </div>
               </div>
+            </div>
+
+            {/* Subject */}
+            <div className="w-full">
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                Subject *
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                className="w-full px-4 py-3 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                required
+                placeholder="Enter subject"
+              />
             </div>
 
             {/* Message */}
             <div className="w-full">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2"> 
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                 Message *
               </label>
               <textarea
@@ -125,6 +143,7 @@ const ContactForm = () => {
                 rows={6}
                 className="w-full px-6 py-5 text-base bg-gray-700 border-0 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
                 required
+                placeholder="Please enter your message..."
               ></textarea>
             </div>
 

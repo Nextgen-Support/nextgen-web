@@ -1,12 +1,24 @@
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
-export interface ServiceRequestData {
+export interface ContactFormData {
   name: string;
   email: string;
   phone: string;
-  isCustomer: 'yes' | 'no';
   subject: string;
   message: string;
+  _subject?: string;
+  _captcha?: string;
+  _template?: string;
+  _autoresponse?: string;
+}
+
+export interface ServiceRequestData {
+  subject: string;
+  problem: string;
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  currentCustomer: 'yes' | 'no';
   recaptchaToken?: string;
 }
 
@@ -34,6 +46,36 @@ export const getServiceRequests = async (): Promise<ApiResponse<ServiceRequestRe
     }
 
     return data;
+  } catch (error) {
+    console.error('API Error:', error);
+    throw error;
+  }
+};
+
+// Common headers for API requests
+const getAuthHeaders = () => {
+  const token = import.meta.env.VITE_API_AUTH_TOKEN;
+  return {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+  };
+};
+
+export const submitContactForm = async (data: ContactFormData): Promise<ApiResponse> => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/contact`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(data)
+    });
+
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      throw new Error(responseData.message || 'Failed to submit contact form');
+    }
+
+    return responseData;
   } catch (error) {
     console.error('API Error:', error);
     throw error;

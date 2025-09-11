@@ -5,12 +5,12 @@ import { submitServiceRequest } from "../services/api";
 
 export default function ServiceRequest() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    isCustomer: 'no', // Default to 'no' instead of empty string
+    contactName: '',
+    contactPhone: '',
+    contactEmail: '',
+    currentCustomer: 'no',
     subject: '',
-    message: '',
+    problem: '',
     agreeTerms: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -36,8 +36,8 @@ export default function ServiceRequest() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Ensure isCustomer is either 'yes' or 'no'
-    if (formData.isCustomer !== 'yes' && formData.isCustomer !== 'no') {
+    // Ensure currentCustomer is either 'yes' or 'no'
+    if (formData.currentCustomer !== 'yes' && formData.currentCustomer !== 'no') {
       setSubmitStatus({
         success: false,
         message: 'Please select whether you are an existing customer.'
@@ -58,10 +58,17 @@ export default function ServiceRequest() {
     
     try {
       // Submit to backend API
-      const response = await submitServiceRequest({
-        ...formData,
-        isCustomer: formData.isCustomer as 'yes' | 'no'
-      });
+      const requestData = {
+        contactName: formData.contactName,
+        contactEmail: formData.contactEmail,
+        contactPhone: formData.contactPhone,
+        currentCustomer: formData.currentCustomer as 'yes' | 'no',
+        subject: formData.subject,
+        problem: formData.problem,
+        recaptchaToken: recaptchaToken || ''
+      };
+      
+      const response = await submitServiceRequest(requestData);
       
       setSubmitStatus({
         success: true,
@@ -71,12 +78,12 @@ export default function ServiceRequest() {
       
       // Reset form but keep isCustomer as 'no'
       setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        isCustomer: 'no',
+        contactName: '',
+        contactPhone: '',
+        contactEmail: '',
+        currentCustomer: 'no',
         subject: '',
-        message: '',
+        problem: '',
         agreeTerms: false
       });
       
@@ -154,9 +161,9 @@ export default function ServiceRequest() {
                       </label>
                       <input
                         type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
+                        id="contactName"
+                        name="contactName"
+                        value={formData.contactName}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base bg-gray-700 border-0 rounded focus:ring-1 focus:ring-blue-500 focus:border-transparent text-white"
                         required
@@ -168,9 +175,9 @@ export default function ServiceRequest() {
                       </label>
                       <input
                         type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                        id="contactEmail"
+                        name="contactEmail"
+                        value={formData.contactEmail}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base bg-gray-700 border-0 rounded focus:ring-1 focus:ring-blue-500 focus:border-transparent text-white"
                         required
@@ -185,9 +192,9 @@ export default function ServiceRequest() {
                       </label>
                       <input
                         type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
+                        id="contactPhone"
+                        name="contactPhone"
+                        value={formData.contactPhone}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base bg-gray-700 border-0 rounded focus:ring-1 focus:ring-blue-500 focus:border-transparent text-white"
                       />
@@ -200,9 +207,9 @@ export default function ServiceRequest() {
                         <label className="inline-flex items-center">
                           <input
                             type="radio"
-                            name="isCustomer"
+                            name="currentCustomer"
                             value="yes"
-                            checked={formData.isCustomer === 'yes'}
+                            checked={formData.currentCustomer === 'yes'}
                             onChange={handleChange}
                             className="h-4 w-4 text-blue-500 focus:ring-blue-500"
                             required
@@ -212,9 +219,9 @@ export default function ServiceRequest() {
                         <label className="inline-flex items-center">
                           <input
                             type="radio"
-                            name="isCustomer"
+                            name="currentCustomer"
                             value="no"
-                            checked={formData.isCustomer === 'no'}
+                            checked={formData.currentCustomer === 'no'}
                             onChange={handleChange}
                             className="h-4 w-4 text-blue-500 focus:ring-blue-500"
                             required
@@ -253,14 +260,14 @@ export default function ServiceRequest() {
                       Message <span className="text-red-500">*</span>
                     </label>
                     <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 text-base bg-gray-700 border-0 rounded focus:ring-1 focus:ring-blue-500 focus:border-transparent text-white"
-                      placeholder="Please provide details about your request..."
-                      required
+                        id="problem"
+                        name="problem"
+                        rows={4}
+                        value={formData.problem}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 text-base bg-gray-700 border-0 rounded focus:ring-1 focus:ring-blue-500 focus:border-transparent text-white"
+                        placeholder="Please describe your problem in detail..."
+                        required
                     ></textarea>
                   </div>
 
@@ -320,7 +327,7 @@ export default function ServiceRequest() {
             </div>
 
             {/* Contact Information - Right Side */}
-            <div className="w-full lg:w-1/3 bg-gradient-to-br from-gray-900 to-gray-800 p-4 text-white">
+            <div className="w-full lg:w-1/3 bg-gradient-to-br from-gray-900 to-gray-800 p-4 text-green-500">
               <h3 className="text-xl font-bold mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
